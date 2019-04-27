@@ -19,16 +19,17 @@ class Player {
         this.health = health;
     }
 
-    update() {
+    update(level) {
+        this.level = level;
         this._updateControls();
         this._move();
     }
 
-    draw(graphics) {
-        graphics.noStroke();
-        graphics.fill(0, 0, 255);
-        graphics.rectMode(CENTER);
-        graphics.rect(tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+    draw() {
+        noStroke();
+        fill(0, 0, 255);
+        rectMode(CENTER);
+        rect(tp(this.x), tp(this.y), tp(1.0), tp(1.0));
     }
 
     _updateControls() {
@@ -40,6 +41,11 @@ class Player {
         }
         if (keyIsDown(87) || keyIsDown(38)) { // jumping
             this.velY = +this.jumpPower;
+        }
+        if (keyIsDown(75) || keyIsDown(88)) {
+            this.level.currentMap = this.level.otherMap;
+        } else {
+            this.level.currentMap = this.level.defaultMap;
         }
     }
 

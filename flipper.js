@@ -7,7 +7,7 @@ class Flipper {
     this.rect_x = 0.0
     this.rect_size = 0.0
 
-    this.flip_speed = 30.0
+    this.flip_speed = 300.0
   }
 
   draw(g) {

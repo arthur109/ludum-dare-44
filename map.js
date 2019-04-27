@@ -1,7 +1,8 @@
 class Map{
-    constructor(tileMap, nonStatic){
+    constructor(tileMap, nonStatic, background){
         this.tileMap = tileMap;
         this.nonStatic = nonStatic;
+        this.background = background;
 
         this.g = createGraphics(width, height);
     }
@@ -10,7 +11,12 @@ class Map{
 
     }
 
-    draw() {
+    render() {
+        this.g.clear();
+        if (this.background) {
+            this.g.background(this.background);
+        }
+
         this.g.fill(220);
         this.g.rectMode(CORNER);
 
