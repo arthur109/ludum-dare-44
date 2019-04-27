@@ -1,7 +1,8 @@
-
+var currentStatus = "lobby";
 var currentLevel;
 var tileSize = 50.0;
 var windowRatio = 12/30;
+var allButtons;
 
 
 function setup(){
@@ -45,6 +46,9 @@ function setup(){
 function draw(){
   currentLevel.update();
   currentLevel.draw();
+  for(var x = 0; x<allButtons.length;++x){
+    allButtons[x].display(0);
+  }
 }
 
 function tp(t) {
@@ -53,4 +57,18 @@ function tp(t) {
 
 function pt(p) {
   return p  / tileSize;
+}
+
+function mousePressed(){
+  for(var x = 0; x<allButtons.length;++x){
+    allButtons[x].clicked();
+  }
+}
+
+var startGame = function{
+  console.log("game started");
+}
+
+function drawLobby(){
+  allButtons.push(new Button(6,13,7,17,"Begin Game",startGame));
 }
