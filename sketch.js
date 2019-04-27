@@ -54,8 +54,8 @@ function setup(){
 function draw(){
   currentLevel.update();
   currentLevel.draw();
-  for(var i = 0; i<imageAssests["player"]["jump"].length; i++){
-      image(imageAssests["player"]["jump"][i], i*tileSize,i*tileSize,tileSize,tileSize)
+  for(var i = 0; i<imageAssests["player"]["run"].length; i++){
+      image(imageAssests["player"]["run"][i], i*tileSize,i*tileSize,tileSize,tileSize)
   }
 }
 

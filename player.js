@@ -8,10 +8,10 @@ class Player {
         this.velX = 0.0;
         this.velY = 0.0;
 
-        this.jumpPower = 0.4;
+        this.jumpPower = 0.2;
         this.moveSpeed = 0.2;
-        this.gravity = 0.01;
-        this.drag = 0.98;
+        this.gravity = 0.00;
+        this.drag = 0.85;
 
         this.width = 0.6;
         this.height = 0.6;
@@ -40,6 +40,9 @@ class Player {
             this.velX = +this.moveSpeed;
         }
         if (keyIsDown(87) || keyIsDown(38)) { // jumping
+            this.velY = -this.jumpPower;
+        }
+        if (keyIsDown(83) || keyIsDown(40)) { // move down
             this.velY = +this.jumpPower;
         }
         if (keyIsDown(75) || keyIsDown(88)) {

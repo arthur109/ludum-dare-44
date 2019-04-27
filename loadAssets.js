@@ -1,8 +1,8 @@
 function preload(){
     imageAssests = {
         "player":{
-            "jump-launch":importAllInFolder("assets/playerAnim/jumping/launching",2),
-            "jump-inair":importAllInFolder("assets/playerAnim/jumping/inAir",4),
+            "jump-launch":importAllInFolder("assets/playerAnim/jumping/launch/",2),
+            "jump-inair":importAllInFolder("assets/playerAnim/jumping/inAir/",4),
             "run":importAllInFolder("assets/playerAnim/running/",11),
             "fall":importAllInFolder("assets/playerAnim/falling/",4),
             "idle":importAllInFolder("assets/playerAnim/idle/",1),
