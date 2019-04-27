@@ -13,6 +13,9 @@ class Player {
         this.gravity = 0.01;
         this.drag = 0.98;
 
+        this.width = 0.6;
+        this.height = 0.6;
+
         this.health = health;
     }
 
@@ -23,8 +26,9 @@ class Player {
 
     draw(graphics) {
         graphics.noStroke();
-        graphics.fill(255, 0, 0, 255);
-        graphics.rect()
+        graphics.fill(0, 0, 255);
+        graphics.rectMode(CENTER);
+        graphics.rect(tp(this.x), tp(this.y), tp(1.0), tp(1.0));
     }
 
     _updateControls() {
