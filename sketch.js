@@ -1,7 +1,15 @@
-
+var imageAssests;
 var currentLevel;
 var tileSize = 50.0;
 var windowRatio = 12/30;
+
+function preload(){
+    imageAssests = {
+        player:{
+            jump:importAllInFolder("assets/jumping/",6)
+        }
+    }
+}
 
 
 function setup(){
