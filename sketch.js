@@ -14,6 +14,7 @@ function preload(){
 
 function setup(){
   createCanvas(windowWidth,windowWidth*windowRatio);
+  noSmooth();
   tileSize = width/30;
   fullscreen();
   currentLevel = new Level(
@@ -53,6 +54,9 @@ function setup(){
 function draw(){
   currentLevel.update();
   currentLevel.draw();
+  for(var i = 0; i<imageAssests["player"]["jump"].length; i++){
+      image(imageAssests["player"]["jump"][i], i*tileSize,i*tileSize,tileSize,tileSize)
+  }
 }
 
 function tp(t) {
