@@ -1,12 +1,22 @@
 var currentStatus = "lobby";
+var imageAssests;
 var currentLevel;
 var tileSize = 50.0;
 var windowRatio = 12/30;
 var allButtons;
 
+function preload(){
+    imageAssests = {
+        player:{
+            jump:importAllInFolder("assets/jumping/",6)
+        }
+    }
+}
+
 
 function setup(){
   createCanvas(windowWidth,windowWidth*windowRatio);
+  noSmooth();
   tileSize = width/30;
   fullscreen();
   currentLevel = new Level(
@@ -46,8 +56,11 @@ function setup(){
 function draw(){
   currentLevel.update();
   currentLevel.draw();
-  for(var x = 0; x<allButtons.length;++x){
-    allButtons[x].display(0);
+  for(var x = 0; x<allButtons.length;++x) {
+      allButtons[x].display(0);
+  }
+  for(var i = 0; i<imageAssests["player"]["jump"].length; i++){
+      image(imageAssests["player"]["jump"][i], i*tileSize,i*tileSize,tileSize,tileSize)
   }
 }
 
@@ -65,7 +78,7 @@ function mousePressed(){
   }
 }
 
-var startGame = function{
+var startGame = function(){
   console.log("game started");
 }
 
