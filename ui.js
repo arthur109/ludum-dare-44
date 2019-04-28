@@ -40,6 +40,7 @@ class Button{
 }
 
 class Lobby{
+  currentLevelIndex;
   constructor(){
     this.buttons = [
       new Button(15,6,17,7,"New Game",function(){
@@ -68,8 +69,9 @@ class Lobby{
 
 update(){
   imageMode(CORNER);
-  tint(255,50)
-  image(assets["background"]["forest"],0,-tp(2),width, width*(1080/1920))
+  tint(255,50);
+  var backImage = assets["background"]["forest"];
+  image(assets["background"]["forest"],0,0,width, width*(backImage.height/backImage.width));
   noTint()
   textSize(128);
   textFont( assets["font"]["title"]);
