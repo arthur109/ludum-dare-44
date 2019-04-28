@@ -3,7 +3,7 @@ var imageAssests;
 var currentLevel;
 var tileSize = 50.0;
 var windowRatio = 12/30;
-var allButtons;
+var allButtons = [];
 
 function preload(){
     imageAssests = {
@@ -52,6 +52,7 @@ function setup(){
           ], []
       )
   )
+    drawLobby();
 }
 function draw(){
   currentLevel.update();
@@ -60,7 +61,7 @@ function draw(){
       image(imageAssests["player"]["run"][i], i*tileSize,i*tileSize,tileSize,tileSize)
   }
   for(var x = 0; x<allButtons.length;++x) {
-      allButtons[x].display(0);
+      allButtons[x].display(1);
   }
 }
 
@@ -83,5 +84,5 @@ var startGame = function(){
 }
 
 function drawLobby(){
-  allButtons.push(new Button(6,13,7,17,"Begin Game",startGame));
+  allButtons.push(new Button(13,6,17,7,"Begin Game",startGame));
 }

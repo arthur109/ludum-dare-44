@@ -1,4 +1,4 @@
-class Button(){
+class Button{
   constructor(x1,y1,x2,y2,text,action,size){
     this.x1 = x1;
     this.x2 = x2;
