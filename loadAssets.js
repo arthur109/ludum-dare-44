@@ -5,13 +5,13 @@ function preload(){
                 "jump":importAllInFolder("assets/playerAnim/jumping/left/",6),
                 "run":importAllInFolder("assets/playerAnim/running/left/",11),
                 "fall":importAllInFolder("assets/playerAnim/falling/left/",4),
-                "idle":importAllInFolder("assets/playerAnim/idle/left/",2),
+                "idle":importAllInFolder("assets/playerAnim/idle/left/",6),
             },
             "right":{
                 "jump":importAllInFolder("assets/playerAnim/jumping/right/",6),
                 "run":importAllInFolder("assets/playerAnim/running/right/",11),
                 "fall":importAllInFolder("assets/playerAnim/falling/right/",4),
-                "idle":importAllInFolder("assets/playerAnim/idle/right/",2),
+                "idle":importAllInFolder("assets/playerAnim/idle/right/",6),
             }
 
         },
