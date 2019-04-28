@@ -1,4 +1,3 @@
-class MovingSpikes
 class Spikes extends Colliding {
     constructor(x, y) {
         super(x, y + 0.5, 1.0, 0.5);
