@@ -15,16 +15,15 @@ class Level{
     update() {
         this.player.update(this);
 
-        this.globalMap.update();
-        this.currentMap.update();
+        this.globalMap.update(this);
+        this.currentMap.update(this);
+
+        this.player.postUpdate();
     }
 
 
-
     draw() {
-
-        this.defaultMap.render();
-        this.otherMap.render();
+        this.currentMap.render();
 
         if (this.currentMap === this.defaultMap) {
             this.flipper.unflip(width/2, height/2);
