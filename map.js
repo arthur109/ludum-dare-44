@@ -1,20 +1,27 @@
-var mapCode = {
-    1: assets["tiles"]["inner"],
-    2: assets["tiles"]["exterior"],
-    3: assets["tiles"]["block"]
-}
+
 
 
 class Map{
     constructor(tileMap, nonStatic, background){
+        this.mapCode = {
+            1: assets["tiles"]["inner"],
+            2: assets["tiles"]["exterior"],
+            3: assets["tiles"]["block"]
+        };
+
         this.tileMap = tileMap;
         this.nonStatic = nonStatic;
         this.background = background;
 
         this.g = createGraphics(width, height);
-        // this.g.setu
-        print(this.g);
-        // this.g.noSmooth();
+
+        for (let y = 0; y < this.tileMap.length; ++y) {
+            for (let x = 0; x < this.tileMap[y].length; ++x) {
+                if (this.tileMap[y][x] && this.tileMap[y][x]!== 0) {
+                    this.tileMap[y][x] = this.chooseRandomTile(this.tileMap[y][x]);
+                }
+            }
+        }
     }
 
     update(level) {
@@ -42,16 +49,16 @@ class Map{
 
         for (let y = 0; y < this.tileMap.length; ++y) {
             for (let x = 0; x < this.tileMap[y].length; ++x) {
-                if (this.tileMap[y][x] && this.tileMap[y][x]!= 0) {
-                    this.g.image(chooseRandomTile(this.tileMap[y][x]), tp(x), tp(y), tp(1.0), tp(1.0));
+                if (this.tileMap[y][x] && this.tileMap[y][x]!== 0) {
+                    this.g.image(this.tileMap[y][x], tp(x), tp(y), tp(1.0), tp(1.0));
                 }
             }
         }
     }
+    chooseRandomTile(type){
+        var tileList = this.mapCode[type];
+        return tileList[int(random(0, tileList.length))]
+    }
 }
 
 
-function chooseRandomTile(type){
-    var tileList = mapCode[type];
-    return tileList[random(0, tileList.length)]
-}
