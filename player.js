@@ -110,19 +110,21 @@ class Player {
     draw() {
         noStroke();
         fill(0, 0, 255);
-        imageMode(CENTER);
+        imageMode(CORNER);
         // print(this.runAnimation.getFrame());
+
+        let xOffset = -0.28;
         if(abs(this.velX) <= 0.05){
             if(abs(this.velX)/this.velX >= 0){
-                image(this.rightIdleAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+                image(this.rightIdleAnimation.getFrame(), tp(this.x + xOffset), tp(this.y), tp(1.0), tp(1.0));
             }else{
-                image(this.leftIdleAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+                image(this.leftIdleAnimation.getFrame(), tp(this.x + xOffset), tp(this.y), tp(1.0), tp(1.0));
             }
         }
         if(abs(this.velX)/this.velX >= 0){
-            image(this.rightRunAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+            image(this.rightRunAnimation.getFrame(), tp(this.x + xOffset), tp(this.y), tp(1.0), tp(1.0));
         }else{
-            image(this.leftRunAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+            image(this.leftRunAnimation.getFrame(), tp(this.x + xOffset), tp(this.y), tp(1.0), tp(1.0));
         }
 
         // rect( tp(this.x), tp(this.y), tp(1.0), tp(1.0));

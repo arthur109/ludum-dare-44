@@ -11,8 +11,8 @@ class Map{
         for (let y = 0; y < this.tileMap.length; ++y) {
             for (let x = 0; x < this.tileMap.length; ++x) {
                 if (this.tileMap[y][x]) {
-                    if (isColliding(x + 0.5, y + 0.5, 1.0, 1.0, level.player.x, level.player.y, level.player.width, level.player.height)) {
-                        level.player.onCollideStatic(x + 0.5, y + 0.5, 1.0, 1.0);
+                    if (isColliding(x, y, 1.0, 1.0, level.player.x, level.player.y, level.player.width, level.player.height)) {
+                        level.player.onCollideStatic(x, y, 1.0, 1.0);
                     }
                 }
             }
