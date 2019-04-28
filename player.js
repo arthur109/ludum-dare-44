@@ -8,8 +8,8 @@ class Player {
         this.velX = 0.0;
         this.velY = 0.0;
 
-        this.jumpPower = 0.2;
-        this.moveSpeed = 0.2;
+        this.jumpPower = 0.1;
+        this.moveSpeed = 0.1;
         this.gravity = 0.00;
         this.drag = 0.85;
 
@@ -17,6 +17,9 @@ class Player {
         this.height = 0.6;
 
         this.health = health;
+        this.rightRunAnimation = new Animator(imageAssets["player"]["right"]["run"], 3);
+        this.leftRunAnimation = new Animator(imageAssets["player"]["left"]["run"], 3);
+
     }
 
     update(level) {
@@ -28,8 +31,15 @@ class Player {
     draw() {
         noStroke();
         fill(0, 0, 255);
-        rectMode(CENTER);
-        rect(tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+        imageMode(CENTER);
+        // print(this.runAnimation.getFrame());
+        if(abs(this.velX)/this.velX >= 0){
+            image(this.rightRunAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+        }else{
+            image(this.leftRunAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+        }
+
+        // rect( tp(this.x), tp(this.y), tp(1.0), tp(1.0));
     }
 
     _updateControls() {

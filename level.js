@@ -22,6 +22,7 @@ class Level{
 
 
     draw() {
+
         this.defaultMap.render();
         this.otherMap.render();
 
@@ -34,6 +35,7 @@ class Level{
         this.flipper.draw();
 
         this.globalMap.render();
+        imageMode(CORNER);
         image(this.globalMap.g, 0, 0);
 
         this.player.draw();

@@ -11,6 +11,7 @@ class Flipper {
   }
 
   draw(g) {
+    imageMode(CORNER);
     let edge_x = this.rect_x - this.rect_size / 2.0
 
     if (edge_x < 0) edge_x = 0

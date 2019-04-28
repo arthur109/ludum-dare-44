@@ -1,12 +1,12 @@
 var currentStatus = "lobby";
-var imageAssests;
+var imageAssets;
 var currentLevel;
 var tileSize = 50.0;
 var windowRatio = 12/30;
 var allButtons = [];
 
 function preload(){
-    imageAssests = {
+    imageAssets = {
         player:{
             jump:importAllInFolder("assets/jumping/",6)
         }
@@ -57,12 +57,12 @@ function setup(){
 function draw(){
   currentLevel.update();
   currentLevel.draw();
-  for(var i = 0; i<imageAssests["player"]["run"].length; i++){
-      image(imageAssests["player"]["run"][i], i*tileSize,i*tileSize,tileSize,tileSize)
-  }
-  for(var x = 0; x<allButtons.length;++x) {
-      allButtons[x].display(1);
-  }
+  // for(var i = 0; i<imageAssets["player"]["run"].length; i++){
+  //     image(imageAssets["player"]["run"][i], i*tileSize,i*tileSize,tileSize,tileSize)
+  // }
+  // for(var x = 0; x<allButtons.length;++x) {
+  //     allButtons[x].display(1);
+  // }
 }
 
 function tp(t) {

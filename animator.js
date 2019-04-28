@@ -6,11 +6,16 @@ class Animator{
         this.delayCounter = 0;
     }
     getFrame(){
+        this.checkFrameIncrement()
+        if(this.frameIndex >= this.frames.length-1){
+            this.frameIndex = 0;
+        }
+        return this.frames[this.frameIndex];
     }
     checkFrameIncrement(){
         this.delayCounter++;
         if(this.delayCounter >= this.switchDelay){
-            frameIndex++;
+            this.frameIndex++;
             this.delayCounter = 0;
         }
     }
