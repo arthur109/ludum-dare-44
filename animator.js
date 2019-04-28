@@ -7,7 +7,7 @@ class Animator{
         this.resetIndex = resetIndex;
     }
     getFrame(){
-        this.checkFrameIncrement()
+        this.checkFrameIncrement();
         if(this.frameIndex >= this.frames.length-1){
             this.frameIndex = this.resetIndex;
         }
