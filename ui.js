@@ -30,6 +30,7 @@ class Button{
     }
     textFont(font);
     textSize(this.size*0.8);
+    textFont(this.font);
     text(String(this.text),tp(this.x1), tp(this.y2)-this.size/8);
   }
 
@@ -50,6 +51,11 @@ update(){
     tint(255,20)
   image(assets["background"]["forest"],0,-tp(2),width, width*(1080/1920))
   noTint()
+  textSize(100);
+  textFont("cursive");
+  fill(0);
+  text("Flip Me Off", tp(11),tp(3));
+
   for(var x = 0; x<this.buttons.length;++x) {
       this.buttons[x].update();
   }
