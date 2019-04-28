@@ -1,4 +1,5 @@
 var currentUIPage;
+var previousUIPage;
 var currentLevel;
 var inGame = false;
 var tileSize = 50.0;
@@ -6,6 +7,7 @@ var windowRatio = 30.0 / 16.0
 var lobbyPage;
 var optionsPage;
 var pausePage;
+var deathPage;
 var assets;
 
 
@@ -31,7 +33,9 @@ function setup(){
   lobbyPage = new Lobby;
   optionsPage = new Options;
   pausePage = new Pause;
+  deathPage = new Dead;
 
+  previousUIPage = lobbyPage;
   currentUIPage = lobbyPage;
 
     frameTimer = performance.now();

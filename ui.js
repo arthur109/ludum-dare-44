@@ -30,7 +30,7 @@ class Button{
     fill(200);
     text(String(this.text),tp(this.x1),tp(this.y2)-this.size/8)
     if(mouseAbove){
-      fill(0,255,0);
+      fill(0,255,0,100);
     }else{
       fill(0)
     }
@@ -47,9 +47,27 @@ class Button{
 class Lobby{
   constructor(){
     this.buttons = [
-      new Button(15,6,17,7,"Play",function(){inGame = true},tileSize, assets["font"]["tester"]),
-      new Button(15,7,17,8,"Options",function(){currentUIPage = optionsPage},tileSize, assets["font"]["tester"]),
-      new Button(15,8,17,9,"Exit",function(){currentUIPage = optionsPage},tileSize, assets["font"]["tester"])
+      new Button(15,6,17,7,"New Game",function(){
+        inGame = true;
+        currentLevelIndex = 1;
+        getLevel(currentLevelIndex)
+      },tileSize, assets["font"]["tester"]),
+      new Button(15,7,17,8,"Continue Game: Level "+currentLevelIndex,function(){
+        inGame = true;
+        currentLevel = getLevel(currentLevelIndex);
+      },tileSize, assets["font"]["tester"]),
+      new Button(15,8,17,9,"Select Level",function(){
+        inGame = true;
+        currentLevel = getLevel(currentLevelIndex);
+      },tileSize, assets["font"]["tester"]),
+      new Button(15,9,17,10,"Options",function(){
+        previousUIPage = currentUIPage;
+        currentUIPage = optionsPage
+      },tileSize, assets["font"]["tester"]),
+      new Button(15,10,17,11,"Exit",function(){
+        previousUIPage = currentUIPage;
+        currentUIPage = optionsPage
+      },tileSize, assets["font"]["tester"])
     ];
   }
 
@@ -62,11 +80,11 @@ update(){
   textFont("cursive");
   fill(200);
   textAlign(CENTER);
-  text("Flip Me Off", tp(15),tp(3));
+  text("Flip Me Off!", tp(15),tp(3));
   textAlign(CENTER);
   fill(0);
   textSize(129);
-  text("Flip Me Off", tp(14.9),tp(2.9));
+  text("Flip Me Off!", tp(14.9),tp(2.9));
 
 
   for(var x = 0; x<this.buttons.length;++x) {
@@ -78,10 +96,23 @@ update(){
 
 class Options{
   constructor(){
+    this.IAMVERYMAD = 0;
     this.buttons = [
-      new Button(15,5,17,6,"Volume",function(){currentUIPage = lobbyPage},tileSize, assets["font"]["tester"]),
-      new Button(15,6,17,7,"Controls",function(){currentUIPage = lobbyPage},tileSize, assets["font"]["tester"]),
-      new Button(15,7,17,8,"Back",function(){currentUIPage = lobbyPage},tileSize,assets["font"]["tester"])
+      new Button(15,5,17,6,"Volume",function(){
+        previousUIPage = currentUIPage;
+        currentUIPage = lobbyPage
+      },tileSize, assets["font"]["tester"]),
+      new Button(15,6,17,7,"Controls",function(){
+        previousUIPage = currentUIPage;
+        currentUIPage = lobbyPage
+      },tileSize, assets["font"]["tester"]),
+      new Button(15,7,17,8,"Back",function(){
+        let a = currentUIPage;
+        currentUIPage = previousUIPage;
+        previousUIPage = a;
+        currentLevel.draw();
+        this.IAMVERYMAD = 1;
+      },tileSize,assets["font"]["tester"])
     ];
   }
 
@@ -91,6 +122,9 @@ update(){
   for(var x = 0; x<this.buttons.length;++x) {
       this.buttons[x].update();
   }
+  if(this.IAMVERYMAD === 1){
+    currentLevel.draw();
+  }
 }
 
 }
@@ -98,16 +132,70 @@ update(){
 class Pause{
   constructor(){
     this.buttons = [
-      new Button(15,1,17,2,"Resume",function(){inGame = true;},tileSize, assets["font"]["tester"]),
-      new Button(15,2,17,3,"Lobby",function(){currentUIPage = lobbyPage; inGame = false;},tileSize, assets["font"]["tester"]),
-      new Button(15,3,17,4,"Options",function(){currentUIPage = optionsPage; inGame = false;},tileSize,assets["font"]["tester"])
+      new Button(15,1,17,2,"Resume",function(){
+        inGame = true;
+      },tileSize, assets["font"]["tester"]),
+      new Button(15,2,17,3,"Restart",function(){
+        currentLevel = getLevel(currentLevelIndex);
+        inGame = true;
+      },tileSize, assets["font"]["tester"]),
+      new Button(15,3,17,4,"Options",function(){
+        previousUIPage = currentUIPage;
+        currentUIPage = optionsPage;
+        inGame = false;
+      },tileSize,assets["font"]["tester"]),
+      new Button(15,4,17,5,"Lobby",function(){
+        previousUIPage = currentUIPage;
+        currentUIPage = lobbyPage;
+        inGame = false;
+      },tileSize, assets["font"]["tester"]),
+      new Button(15,5,17,6,"Kill Me",function(){
+        previousUIPage = currentUIPage;
+        currentUIPage = deathPage;
+        inGame = false;
+        currentLevel.draw();
+      },tileSize, assets["font"]["tester"])
     ];
   }
 
 
 update(){
   fill(255,0,0,20);
-  rect(tp(11),tp(0),tp(19),tp(5));
+  rect(tp(10),tp(0),tp(20),tp(6));
+  for(var x = 0; x<this.buttons.length;++x) {
+      this.buttons[x].update();
+  }
+}
+
+}
+
+class Dead{
+  constructor(){
+    this.buttons = [
+      new Button(15,10,17,11,"Restart",function(){
+        inGame = true;
+        currentLevel = getLevel(currentLevelIndex)
+      },tileSize, assets["font"]["tester"]),
+      new Button(15,11,17,12,"Back to Lobby",function(){
+        // previousUIPage = currentUIPage;
+        // currentUIPage = lobbyPage;
+        // inGame = false;
+      },tileSize, assets["font"]["tester"]),
+      new Button(15,0,17,1,"Good Job! You Died!",function(){
+        console.log("Yay! You found an easter egg!")
+      },tileSize, assets["font"]["tester"])
+    ];
+    fill(20,30);
+    rect(tp(0),tp(0),tp(12),tp(30));
+  }
+
+
+update(){
+  fill(0,20);
+  rect(tp(0),tp(0),tp(30),tp(2));
+  rect(tp(0),tp(10),tp(30),tp(12));
+
+
   for(var x = 0; x<this.buttons.length;++x) {
       this.buttons[x].update();
   }
