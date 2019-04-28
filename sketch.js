@@ -5,6 +5,7 @@ var tileSize = 50.0;
 var windowRatio = 12/30;
 var lobbyPage;
 var optionsPage;
+var pausePage;
 var assets;
 
 
@@ -48,6 +49,7 @@ function setup(){
   )
   lobbyPage = new Lobby;
   optionsPage = new Options;
+  pausePage = new Pause;
 
   currentUIPage = lobbyPage;
 }
@@ -55,6 +57,11 @@ function draw(){
     if(inGame) {
         currentLevel.update();
         currentLevel.draw();
+
+        if(keyIsDown(27)){
+          inGame = false;
+          currentUIPage = pausePage;
+        }
     }else{
        currentUIPage.update();
     }
@@ -73,4 +80,3 @@ function tp(t) {
 function pt(p) {
   return p  / tileSize;
 }
-
