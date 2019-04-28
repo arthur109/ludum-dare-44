@@ -1,6 +1,11 @@
+
 class Spikes extends Colliding {
     constructor(x, y) {
         super(x, y + 0.5, 1.0, 0.5);
+    }
+
+    postUpdate(level) {
+        // don't delete this function
     }
 
     update(level) {
@@ -15,6 +20,36 @@ class Spikes extends Colliding {
         g.fill(255, 0, 0);
         g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
+}
+
+function addMove(obj, x2, y2, speed) {
+    obj.init = createVector(obj.x, obj.y);
+    obj.end = createVector(x2, y2);
+    obj.speed = speed;
+
+    obj.interp = 0.0;
+    obj.__oldUpdate = obj.update;
+
+    obj.update = function (level) {
+        obj.__oldUpdate(level);
+
+        obj.interp += obj.speed;
+
+        if (obj.interp >= 1.0) {
+            obj.interp = 1.0;
+            obj.speed *= -1.0;
+        } else if (obj.interp <= 0.0) {
+            obj.interp = 0.0;
+            obj.speed *= -1.0;
+        }
+
+        let vec = p5.Vector.lerp(obj.init, obj.end, obj.interp);
+
+        obj.x = vec.x;
+        obj.y = vec.y;
+    }
+
+    return obj;
 }
 
 class Spring extends Colliding {

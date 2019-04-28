@@ -117,6 +117,12 @@ class Player extends Colliding {
         } else {
             this.level.currentMap = this.level.defaultMap;
         }
+
+        if (keyIsDown(76)) {
+            this.level.peeking = true;
+        } else {
+            this.level.peeking = false;
+        }
     }
     _jump(){
         this.rightRisingAnimation.reset();
