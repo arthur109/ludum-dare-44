@@ -1,9 +1,6 @@
-class Player {
+class Player extends Colliding {
     constructor(x, y, health) {
-        this.x = x;
-        this.lastX = x;
-        this.y = y;
-        this.lastY = y;
+        super(x, y, 0.5, 0.8);
 
         this.velX = 0.0;
         this.velY = 0.0;
@@ -13,15 +10,10 @@ class Player {
         this.gravity = 0.02;
         this.drag = 0.85;
 
-        this.width = 0.5;
-        this.height = 0.8;
-
         this.health = health;
         this.lastHorizDirection = 1;
-        this.onGround = false;
         this.lastJumpKey = false;
         this.doubleJumpAvail = false;
-        this.colliding = [];
 
         this.rightRunAnimation = new Animator(assets["player"]["right"]["run"], 3,0);
         this.leftRunAnimation = new Animator(assets["player"]["left"]["run"], 3,0);
@@ -36,84 +28,9 @@ class Player {
 
     update(level) {
         this.level = level;
+        super.update(level);
         this._updateControls();
         this._move();
-        this.onGround = false;
-    }
-
-    postUpdate(level) {
-        let remaining = []
-
-        this.colliding.forEach((e) => {
-            if (!this._isBelow(e) && this._isAbove(e) && !this._isRightOf(e) && !this._isLeftOf(e)) {
-                let offset = this._getCollideOffset(e);
-                this.y += offset.y;
-                this.velY = 0
-                this.onGround = true;
-                this.doubleJumpAvail = true;
-            }
-            else if (this._isBelow(e) && !this._isAbove(e) && !this._isRightOf(e) && !this._isLeftOf(e)) {
-                let offset = this._getCollideOffset(e);
-                this.y += offset.y;
-                this.velY = 0
-            }
-            else if (!this._isBelow(e) && !this._isAbove(e) && this._isRightOf(e) && !this._isLeftOf(e)) {
-                let offset = this._getCollideOffset(e);
-                this.x += offset.x;
-                this.velX = 0
-            }
-            else if (!this._isBelow(e) && !this._isAbove(e) && !this._isRightOf(e) && this._isLeftOf(e)) {
-                let offset = this._getCollideOffset(e);
-                this.x += offset.x;
-                this.velX = 0
-            }
-            else {
-                remaining.push(e);
-            }
-        });
-
-
-        remaining.forEach((e) => {
-            let offset = this._getCollideOffset(e);
-
-            let offsetX = offset.x;
-            let offsetY = offset.y;
-
-            if (Math.abs(offsetX) < Math.abs(offsetY)) {
-                offsetY = 0;
-            } else {
-                offsetX = 0;
-            }
-
-            if (Math.abs(offsetX) > 0.1 || Math.abs(offsetY) > 0.1) {
-                restart();
-            }
-
-            this.x += offsetX;
-            this.y += offsetY;
-        });
-
-        this.colliding.length = 0;
-    }
-
-    _getCollideOffset(rect) {
-        return getCollideOffset(this.x, this.y, this.width, this.height, rect.x, rect.y, rect.w, rect.h);
-    }
-
-    _isBelow(rect) {
-        return rect.y + rect.h < this.lastY;
-    }
-
-    _isAbove(rect) {
-        return this.lastY + this.height < rect.y;
-    }
-
-    _isRightOf(rect) {
-        return rect.x + rect.w < this.lastX;
-    }
-
-    _isLeftOf(rect) {
-        return this.lastX + this.width < rect.x;
     }
 
     draw() {
@@ -122,7 +39,7 @@ class Player {
         imageMode(CORNER);
         let xOffset = -0.28;
         let yOffset = -0.02;
-        // print(this.runAnimation.getFrame());
+
         if(this.velY < 0.0){
             if(this.lastHorizDirection >= 0){
                 image(this.rightRisingAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));
@@ -151,7 +68,7 @@ class Player {
     }
 
     onCollideStatic(x, y, w, h) {
-        this.colliding.push({x: x, y: y, w: w, h: h});
+        this.blockers.push({x: x, y: y, w: w, h: h});
     }
 
     _updateControls() {
@@ -163,6 +80,10 @@ class Player {
             this.velX = +this.moveSpeed;
             this.lastHorizDirection = this.velX
 
+        }
+
+        if (this.onGround) {
+            this.doubleJumpAvail = true;
         }
 
         if (keyIsDown(87) || keyIsDown(38)) { // jumping
@@ -191,9 +112,11 @@ class Player {
         this.velY = -this.jumpPower;
     }
     _move() {
+        if (this.velY > 0.0 && this.onGround) this.velY = 0;
+
         this.velY += this.gravity;
 
-        this.velX = clampMag(this.velX, Math.abs(this.velX) - (this.onGround ? 0.06 : 0.015));
+        this.velX = clampMag(this.velX, Math.abs(this.velX) - (this.onGround ? 0.03 : 0.015));
 
         this.lastX = this.x;
         this.lastY = this.y;

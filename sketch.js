@@ -78,7 +78,7 @@ function restart() {
 
 function getLevel(index){
     return new Level(
-        new Player(4.0, 2.0, 100.0),
+        new Player(4.0, 1.0, 100.0),
         new Map(
             [
                 [0, 0, 0, 0, 0, 0],
