@@ -18,7 +18,7 @@ class Spikes extends Colliding {
 
     draw(g) {
         g.fill(255, 0, 0);
-        g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+        g.image(assets["tiles"]["spike"]["bot"],tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
 }
 
