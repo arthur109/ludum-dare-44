@@ -6,14 +6,14 @@ function preload(){
                 "jump-inair":importAllInFolder("assets/playerAnim/jumping/inAir/left/",4),
                 "run":importAllInFolder("assets/playerAnim/running/left/",11),
                 "fall":importAllInFolder("assets/playerAnim/falling/left/",4),
-                "idle":importAllInFolder("assets/playerAnim/idle/left/",1),
+                "idle":importAllInFolder("assets/playerAnim/idle/left/",2),
             },
             "right":{
                 "jump-launch":importAllInFolder("assets/playerAnim/jumping/launch/right/",2),
                 "jump-inair":importAllInFolder("assets/playerAnim/jumping/inAir/right/",4),
                 "run":importAllInFolder("assets/playerAnim/running/right/",11),
                 "fall":importAllInFolder("assets/playerAnim/falling/right/",4),
-                "idle":importAllInFolder("assets/playerAnim/idle/right/",1),
+                "idle":importAllInFolder("assets/playerAnim/idle/right/",2),
             }
 
         }
