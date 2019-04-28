@@ -231,7 +231,7 @@ class Pause{
 
 
 update(){
-  fill(255,20)
+  fill(255,10)
 
   rect(tp(10.95),tp(0.95),tp(19.05),tp(6.3),31);
   fill(10);
