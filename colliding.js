@@ -79,11 +79,21 @@ class Colliding {
         this.blockers.length = 0;
     }
 
+    onCollide(collision) {
+        if (collision.isBlocking === true) {
+            this.blockers.push(collision);
+        }
+    }
+
     onCollideOver() {
     }
 
     _getCollideOffset(rect) {
         return getCollideOffset(this.x, this.y, this.width, this.height, rect.x, rect.y, rect.w, rect.h);
+    }
+
+    _isColliding(rect) {
+        return isColliding(this.x, this.y, this.width, this.height, rect.x, rect.y, rect.w, rect.h);
     }
 
     _isBelow(rect) {

@@ -67,8 +67,13 @@ class Player extends Colliding {
         // rect( tp(this.x), tp(this.y), tp(1.0), tp(1.0));
     }
 
-    onCollideStatic(x, y, w, h) {
-        this.blockers.push({x: x, y: y, w: w, h: h});
+    onCollide(collision) {
+        super.onCollide(collision);
+
+        if (collision.type == "Spikes") {
+            console.log("you are dead");
+        }
+
     }
 
     _updateControls() {
@@ -113,6 +118,10 @@ class Player extends Colliding {
     }
     _move() {
         if (this.velY > 0.0 && this.onGround) this.velY = 0;
+        if (this.velY < 0.0 && this.onCeil) this.velY = 0;
+
+        if (this.velX > 0.0 && this.onLeft) this.velX = 0;
+        if (this.velX < 0.0 && this.onRight) this.velX = 0;
 
         this.velY += this.gravity;
 
