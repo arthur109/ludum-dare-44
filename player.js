@@ -22,6 +22,11 @@ class Player {
         this.lastJumpKey = false;
         this.doubleJumpAvail = false;
         this.colliding = [];
+        this.rightRunAnimation = new Animator(assets["player"]["right"]["run"], 3);
+        this.leftRunAnimation = new Animator(assets["player"]["left"]["run"], 3);
+        this.leftIdleAnimation  = new Animator(assets["player"]["left"]["idle"], 3);
+        this.rightIdleAnimation  = new Animator(assets["player"]["right"]["idle"], 3);
+
     }
 
     update(level) {
@@ -102,8 +107,22 @@ class Player {
     draw() {
         noStroke();
         fill(0, 0, 255);
-        rectMode(CENTER);
-        rect(tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+        imageMode(CENTER);
+        // print(this.runAnimation.getFrame());
+        if(abs(this.velX) <= 0.05){
+            if(abs(this.velX)/this.velX >= 0){
+                image(this.rightIdleAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+            }else{
+                image(this.leftIdleAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+            }
+        }
+        if(abs(this.velX)/this.velX >= 0){
+            image(this.rightRunAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+        }else{
+            image(this.leftRunAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+        }
+
+        // rect( tp(this.x), tp(this.y), tp(1.0), tp(1.0));
     }
 
     onCollideStatic(x, y, w, h) {

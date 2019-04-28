@@ -11165,7 +11165,7 @@ module.exports={
         {
             "file": "src/io/files.js",
             "line": 293,
-            "description": "<p>Reads the contents of a file or URL and creates a <a href=\"#/p5.Table\">p5.Table</a> object with\nits values. If a file is specified, it must be located in the sketch&#39;s\n&quot;data&quot; folder. The filename parameter can also be a URL to a file found\nonline. By default, the file is assumed to be comma-separated (in CSV\nformat). Table only looks for a header row if the &#39;header&#39; option is\nincluded.</p>\n\n<p>Possible options include:\n<ul>\n<li>csv - parse the table as comma-separated values</li>\n<li>tsv - parse the table as tab-separated values</li>\n<li>header - this table has a header (title) row</li>\n</ul>\n</p>\n\n<p>When passing in multiple options, pass them in as separate parameters,\nseperated by commas. For example:\n<br><br>\n<code>\nloadTable(&#39;my_csv_file.csv&#39;, &#39;csv&#39;, &#39;header&#39;);\n</code>\n</p>\n\n<p> All files loaded and saved use UTF-8 encoding.</p>\n\n<p>This method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed. Calling <a href=\"#/p5/loadTable\">loadTable()</a> inside <a href=\"#/p5/preload\">preload()</a>\nguarantees to complete the operation before <a href=\"#/p5/setup\">setup()</a> and <a href=\"#/p5/draw\">draw()</a> are called.\n<p>Outside of <a href=\"#/p5/preload\">preload()</a>, you may supply a callback function to handle the\nobject:</p>\n</p>\n\n<p>This method is suitable for fetching files up to size of 64MB.</p>\n",
+            "description": "<p>Reads the contents of a file or URL and creates a <a href=\"#/p5.Table\">p5.Table</a> object with\nits values. If a file is specified, it must be located in the sketch&#39;s\n&quot;data&quot; folder. The filename parameter can also be a URL to a file found\nonline. By default, the file is assumed to be comma-separated (in CSV\nformat). Table only looks for a header row if the &#39;header&#39; optionsPage is\nincluded.</p>\n\n<p>Possible options include:\n<ul>\n<li>csv - parse the table as comma-separated values</li>\n<li>tsv - parse the table as tab-separated values</li>\n<li>header - this table has a header (title) row</li>\n</ul>\n</p>\n\n<p>When passing in multiple options, pass them in as separate parameters,\nseperated by commas. For example:\n<br><br>\n<code>\nloadTable(&#39;my_csv_file.csv&#39;, &#39;csv&#39;, &#39;header&#39;);\n</code>\n</p>\n\n<p> All files loaded and saved use UTF-8 encoding.</p>\n\n<p>This method is asynchronous, meaning it may not finish before the next\nline in your sketch is executed. Calling <a href=\"#/p5/loadTable\">loadTable()</a> inside <a href=\"#/p5/preload\">preload()</a>\nguarantees to complete the operation before <a href=\"#/p5/setup\">setup()</a> and <a href=\"#/p5/draw\">draw()</a> are called.\n<p>Outside of <a href=\"#/p5/preload\">preload()</a>, you may supply a callback function to handle the\nobject:</p>\n</p>\n\n<p>This method is suitable for fetching files up to size of 64MB.</p>\n",
             "itemtype": "method",
             "name": "loadTable",
             "return": {
@@ -15495,7 +15495,7 @@ module.exports={
         {
             "file": "src/typography/loading_displaying.js",
             "line": 143,
-            "description": "<p>Draws text to the screen. Displays the information specified in the first\nparameter on the screen in the position specified by the additional\nparameters. A default font will be used unless a font is set with the\n<a href=\"#/p5/textFont\">textFont()</a> function and a default size will be used unless a font is set\nwith <a href=\"#/p5/textSize\">textSize()</a>. Change the color of the text with the <a href=\"#/p5/fill\">fill()</a> function.\nChange the outline of the text with the <a href=\"#/p5/stroke\">stroke()</a> and <a href=\"#/p5/strokeWeight\">strokeWeight()</a>\nfunctions.\n<br><br>\nThe text displays in relation to the <a href=\"#/p5/textAlign\">textAlign()</a> function, which gives the\noption to draw to the left, right, and center of the coordinates.\n<br><br>\nThe x2 and y2 parameters define a rectangular area to display within and\nmay only be used with string data. When these parameters are specified,\nthey are interpreted based on the current <a href=\"#/p5/rectMode\">rectMode()</a> setting. Text that\ndoes not fit completely within the rectangle specified will not be drawn\nto the screen. If x2 and y2 are not specified, the baseline alignment is the\ndefault, which means that the text will be drawn upwards from x and y.\n<br><br>\n<b>WEBGL</b>: Only opentype/truetype fonts are supported. You must load a font using the\n<a href=\"#/p5/loadFont\">loadFont()</a> method (see the example above).\n<a href=\"#/p5/stroke\">stroke()</a> currently has no effect in webgl mode.</p>\n",
+            "description": "<p>Draws text to the screen. Displays the information specified in the first\nparameter on the screen in the position specified by the additional\nparameters. A default font will be used unless a font is set with the\n<a href=\"#/p5/textFont\">textFont()</a> function and a default size will be used unless a font is set\nwith <a href=\"#/p5/textSize\">textSize()</a>. Change the color of the text with the <a href=\"#/p5/fill\">fill()</a> function.\nChange the outline of the text with the <a href=\"#/p5/stroke\">stroke()</a> and <a href=\"#/p5/strokeWeight\">strokeWeight()</a>\nfunctions.\n<br><br>\nThe text displays in relation to the <a href=\"#/p5/textAlign\">textAlign()</a> function, which gives the\noptionsPage to draw to the left, right, and center of the coordinates.\n<br><br>\nThe x2 and y2 parameters define a rectangular area to display within and\nmay only be used with string data. When these parameters are specified,\nthey are interpreted based on the current <a href=\"#/p5/rectMode\">rectMode()</a> setting. Text that\ndoes not fit completely within the rectangle specified will not be drawn\nto the screen. If x2 and y2 are not specified, the baseline alignment is the\ndefault, which means that the text will be drawn upwards from x and y.\n<br><br>\n<b>WEBGL</b>: Only opentype/truetype fonts are supported. You must load a font using the\n<a href=\"#/p5/loadFont\">loadFont()</a> method (see the example above).\n<a href=\"#/p5/stroke\">stroke()</a> currently has no effect in webgl mode.</p>\n",
             "itemtype": "method",
             "name": "text",
             "params": [
@@ -18848,7 +18848,7 @@ module.exports={
             ],
             "chainable": 1,
             "example": [
-                "\n<div><code>\nvar sel;\n\nfunction setup() {\n  textAlign(CENTER);\n  background(200);\n  sel = createSelect();\n  sel.position(10, 10);\n  sel.option('pear');\n  sel.option('kiwi');\n  sel.option('grape');\n  sel.changed(mySelectEvent);\n}\n\nfunction mySelectEvent() {\n  var item = sel.value();\n  background(200);\n  text(\"it's a \" + item + '!', 50, 50);\n}\n</code></div>\n\n<div><code>\nvar checkbox;\nvar cnv;\n\nfunction setup() {\n  checkbox = createCheckbox(' fill');\n  checkbox.changed(changeFill);\n  cnv = createCanvas(100, 100);\n  cnv.position(0, 30);\n  noFill();\n}\n\nfunction draw() {\n  background(200);\n  ellipse(50, 50, 50, 50);\n}\n\nfunction changeFill() {\n  if (checkbox.checked()) {\n    fill(0);\n  } else {\n    noFill();\n  }\n}\n</code></div>"
+                "\n<div><code>\nvar sel;\n\nfunction setup() {\n  textAlign(CENTER);\n  background(200);\n  sel = createSelect();\n  sel.position(10, 10);\n  sel.optionsPage('pear');\n  sel.optionsPage('kiwi');\n  sel.optionsPage('grape');\n  sel.changed(mySelectEvent);\n}\n\nfunction mySelectEvent() {\n  var item = sel.value();\n  background(200);\n  text(\"it's a \" + item + '!', 50, 50);\n}\n</code></div>\n\n<div><code>\nvar checkbox;\nvar cnv;\n\nfunction setup() {\n  checkbox = createCheckbox(' fill');\n  checkbox.changed(changeFill);\n  cnv = createCanvas(100, 100);\n  cnv.position(0, 30);\n  noFill();\n}\n\nfunction draw() {\n  background(200);\n  ellipse(50, 50, 50, 50);\n}\n\nfunction changeFill() {\n  if (checkbox.checked()) {\n    fill(0);\n  } else {\n    noFill();\n  }\n}\n</code></div>"
             ],
             "alt": "dropdown: pear, kiwi, grape. When selected text \"its a\" + selection shown.",
             "class": "p5",
@@ -19179,7 +19179,7 @@ module.exports={
                 "type": "p5.Element"
             },
             "example": [
-                "\n<div><code>\nvar sel;\n\nfunction setup() {\n  textAlign(CENTER);\n  background(200);\n  sel = createSelect();\n  sel.position(10, 10);\n  sel.option('pear');\n  sel.option('kiwi');\n  sel.option('grape');\n  sel.changed(mySelectEvent);\n}\n\nfunction mySelectEvent() {\n  var item = sel.value();\n  background(200);\n  text('It is a ' + item + '!', 50, 50);\n}\n</code></div>"
+                "\n<div><code>\nvar sel;\n\nfunction setup() {\n  textAlign(CENTER);\n  background(200);\n  sel = createSelect();\n  sel.position(10, 10);\n  sel.optionsPage('pear');\n  sel.optionsPage('kiwi');\n  sel.optionsPage('grape');\n  sel.changed(mySelectEvent);\n}\n\nfunction mySelectEvent() {\n  var item = sel.value();\n  background(200);\n  text('It is a ' + item + '!', 50, 50);\n}\n</code></div>"
             ],
             "class": "p5",
             "module": "p5.dom",
@@ -19219,7 +19219,7 @@ module.exports={
         {
             "file": "lib/addons/p5.dom.js",
             "line": 755,
-            "description": "<p>Creates a radio button &lt;input&gt;&lt;/input&gt; element in the DOM.\nThe .option() method can be used to set options for the radio after it is\ncreated. The .value() method will return the currently selected option.</p>\n",
+            "description": "<p>Creates a radio button &lt;input&gt;&lt;/input&gt; element in the DOM.\nThe .optionsPage() method can be used to set options for the radio after it is\ncreated. The .value() method will return the currently selected optionsPage.</p>\n",
             "itemtype": "method",
             "name": "createRadio",
             "params": [
@@ -19235,7 +19235,7 @@ module.exports={
                 "type": "p5.Element"
             },
             "example": [
-                "\n<div><code>\nvar radio;\n\nfunction setup() {\n  radio = createRadio();\n  radio.option('black');\n  radio.option('white');\n  radio.option('gray');\n  radio.style('width', '60px');\n  textAlign(CENTER);\n  fill(255, 0, 0);\n}\n\nfunction draw() {\n  var val = radio.value();\n  background(val);\n  text(val, width / 2, height / 2);\n}\n</code></div>\n<div><code>\nvar radio;\n\nfunction setup() {\n  radio = createRadio();\n  radio.option('apple', 1);\n  radio.option('bread', 2);\n  radio.option('juice', 3);\n  radio.style('width', '60px');\n  textAlign(CENTER);\n}\n\nfunction draw() {\n  background(200);\n  var val = radio.value();\n  if (val) {\n    text('item cost is $' + val, width / 2, height / 2);\n  }\n}\n</code></div>"
+                "\n<div><code>\nvar radio;\n\nfunction setup() {\n  radio = createRadio();\n  radio.optionsPage('black');\n  radio.optionsPage('white');\n  radio.optionsPage('gray');\n  radio.style('width', '60px');\n  textAlign(CENTER);\n  fill(255, 0, 0);\n}\n\nfunction draw() {\n  var val = radio.value();\n  background(val);\n  text(val, width / 2, height / 2);\n}\n</code></div>\n<div><code>\nvar radio;\n\nfunction setup() {\n  radio = createRadio();\n  radio.optionsPage('apple', 1);\n  radio.optionsPage('bread', 2);\n  radio.optionsPage('juice', 3);\n  radio.style('width', '60px');\n  textAlign(CENTER);\n}\n\nfunction draw() {\n  background(200);\n  var val = radio.value();\n  if (val) {\n    text('item cost is $' + val, width / 2, height / 2);\n  }\n}\n</code></div>"
             ],
             "class": "p5",
             "module": "p5.dom",
@@ -28041,7 +28041,7 @@ Object.defineProperty(Buffer.prototype, 'offset', {
 
 function createBuffer (length) {
   if (length > K_MAX_LENGTH) {
-    throw new RangeError('The value "' + length + '" is invalid for option "size"')
+    throw new RangeError('The value "' + length + '" is invalid for optionsPage "size"')
   }
   // Return an augmented `Uint8Array` instance
   var buf = new Uint8Array(length)
@@ -28154,7 +28154,7 @@ function assertSize (size) {
   if (typeof size !== 'number') {
     throw new TypeError('"size" argument must be of type number')
   } else if (size < 0) {
-    throw new RangeError('The value "' + size + '" is invalid for option "size"')
+    throw new RangeError('The value "' + size + '" is invalid for optionsPage "size"')
   }
 }
 
@@ -42502,7 +42502,7 @@ X.prototype.gluTessProperty=X.prototype.B;X.prototype.gluGetTessProperty=X.proto
 
 	The weight of the movement of the reference point gets bigger
 	the further the other reference point is away, thus the safest
-	option (that is avoiding 0/0 divisions) is to weight the
+	optionsPage (that is avoiding 0/0 divisions) is to weight the
 	original distance of the other point by the sum of both distances.
 
 	If the sum of both distances is 0, then move the point by the
@@ -63085,7 +63085,7 @@ p5.prototype.loadStrings = function() {
  * its values. If a file is specified, it must be located in the sketch's
  * "data" folder. The filename parameter can also be a URL to a file found
  * online. By default, the file is assumed to be comma-separated (in CSV
- * format). Table only looks for a header row if the 'header' option is
+ * format). Table only looks for a header row if the 'header' optionsPage is
  * included.</p>
  *
  * <p>Possible options include:
@@ -71294,7 +71294,7 @@ p5.prototype.loadFont = function(path, onSuccess, onError) {
  * functions.
  * <br><br>
  * The text displays in relation to the <a href="#/p5/textAlign">textAlign()</a> function, which gives the
- * option to draw to the left, right, and center of the coordinates.
+ * optionsPage to draw to the left, right, and center of the coordinates.
  * <br><br>
  * The x2 and y2 parameters define a rectangular area to display within and
  * may only be used with string data. When these parameters are specified,
