@@ -1,5 +1,5 @@
 class Button{
-  constructor(x1,y1,x2,y2,text,action,size){
+  constructor(x1,y1,x2,y2,text,action,size,font){
     this.x1 = x1;
     this.x2 = x2;
     this.y1 = y1;
@@ -7,6 +7,7 @@ class Button{
     this.text = text;
     this.action = action;
     this.size = size;
+    this.font = font;
   }
 
   update(){
@@ -28,6 +29,7 @@ class Button{
       fill(0)
     }
     textSize(this.size*0.8);
+    textFont(this.font);
     text(String(this.text),tp(this.x1), tp(this.y2)-this.size/8);
   }
 
@@ -38,8 +40,8 @@ class Button{
 class Lobby{
   constructor(){
     this.buttons = [
-      new Button(13,6,17,7,"Begin Game",function(){inGame = true},tileSize),
-      new Button(13,7,17,8,"Options",function(){currentUIPage = optionsPage},tileSize)
+      new Button(13,6,17,7,"Begin Game",function(){inGame = true},tileSize,"fantasy"),
+      new Button(13,7,17,8,"Options",function(){currentUIPage = optionsPage},tileSize,"fantasy")
     ];
   }
 
@@ -48,6 +50,11 @@ update(){
     tint(255,20)
   image(imageAssets["background"]["forest"],0,-tp(2),width, width*(1080/1920))
   noTint()
+  textSize(100);
+  textFont("cursive");
+  fill(0);
+  text("Flip Me Off", tp(11),tp(3));
+
   for(var x = 0; x<this.buttons.length;++x) {
       this.buttons[x].update();
   }
