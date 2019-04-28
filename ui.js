@@ -31,8 +31,9 @@ class Button{
     textSize(this.size);
     text(String(this.text),tp(this.x1), tp(this.y2)-this.size/8);
 
-    if(mouseIsPressed && mouseAbove){
+    if(mouseIsPressed && mouseAbove && !hasClicked){
       this.action();
+      hasClicked = true;
     }
 
   }
@@ -45,7 +46,7 @@ class Lobby{
       new Button(15,6,17,7,"New Game",function(){
         inGame = true;
         currentLevelIndex = 1;
-        getLevel(currentLevelIndex)
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["standard"]),
       new Button(15,7,17,8,"Continue Game: Level "+currentLevelIndex,function(){
         inGame = true;
@@ -124,32 +125,56 @@ class LevelSelect{
   constructor(){
     this.buttons = [
       new Button(5,1,6,4,"Level 1",function(){
-          console.log("sdf");
+          inGame = true;
+          currentLevelIndex = 1;
+          currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(15,1,16,4,"Level 2",function(){
-          console.log("sdf");
+          inGame = true;
+          currentLevelIndex = 1;
+          currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(25,1,26,4,"Level 3",function(){
-          console.log("sdf");
+          inGame = true;
+          currentLevelIndex = 1;
+          currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(5,5,6,8,"Level 4",function(){
-          console.log("sdf");
+        inGame = true;
+        currentLevelIndex = 1;
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(15,5,16,8,"Level 5",function(){
-          console.log("sdf");
+        inGame = true;
+        currentLevelIndex = 1;
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(25,5,26,8,"Level 6",function(){
-          console.log("sdf");
+        inGame = true;
+        currentLevelIndex = 1;
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(5,9,6,12,"Level 7",function(){
-          console.log("sdf");
+        inGame = true;
+        currentLevelIndex = 1;
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(15,9,16,12,"Level 8",function(){
-          console.log("sdf");
+        inGame = true;
+        currentLevelIndex = 1;
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(25,9,26,12,"Level 9",function(){
-          console.log("sdf");
-      },tileSize*2, assets["font"]["title"])
+        inGame = true;
+        currentLevelIndex = 1;
+        currentLevel = getLevel(currentLevelIndex)
+      },tileSize*2, assets["font"]["title"]),
+      new Button(15,14,15,15,"Return",function(){
+        let a = currentUIPage;
+        currentUIPage = previousUIPage;
+        previousUIPage = a;
+        background(0);
+      },tileSize*2, assets["font"]["standard"])
       ];
     fill(20,30);
     rect(tp(0),tp(0),tp(30),tp(12));

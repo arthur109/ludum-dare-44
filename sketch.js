@@ -17,6 +17,8 @@ var assets;
 var hasPaused = false;
 var hasUnPaused = true;
 
+var hasClicked = false;
+
 
 var frameTimer = 0;
 
@@ -91,6 +93,10 @@ function keyPressed(){
   }
 }
 
+function mouseReleased(){
+  hasClicked = false;
+}
+
 // function keyTyped() {
 //   if (keyCode === 27) {
 //     if(hasPaused){
@@ -147,7 +153,7 @@ function getLevel(index){
                 [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                 [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 
-            ], [new Spikes(3, 12), new Bird(3.5, 5.0), new Spring(2, 12, -0.5)], assets["background"]["forest"]
+            ], [addMove(new Spikes(3, 12), 3, 6, 0.01), addMove(new Spring(2, 12, -0.5), 2, 6, 0.02)], assets["background"]["forest"]
         ),
         new Map(
             [

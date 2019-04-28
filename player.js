@@ -73,6 +73,7 @@ class Player extends Colliding {
         switch(collision.type) {
             case "Spikes": {
                 console.log("you are dead");
+                kill();
                 break;
             }
             case "Spring": {
@@ -116,6 +117,12 @@ class Player extends Colliding {
             this.level.currentMap = this.level.otherMap;
         } else {
             this.level.currentMap = this.level.defaultMap;
+        }
+
+        if (keyIsDown(76)) {
+            this.level.peeking = true;
+        } else {
+            this.level.peeking = false;
         }
     }
     _jump(){
