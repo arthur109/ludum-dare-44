@@ -125,31 +125,49 @@ class LevelSelect{
   constructor(){
     this.buttons = [
       new Button(5,1,6,4,"Level 1",function(){
-          console.log("sdf");
+          inGame = true;
+          currentLevelIndex = 1;
+          currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(15,1,16,4,"Level 2",function(){
-          console.log("sdf");
+          inGame = true;
+          currentLevelIndex = 1;
+          currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(25,1,26,4,"Level 3",function(){
-          console.log("sdf");
+          inGame = true;
+          currentLevelIndex = 1;
+          currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(5,5,6,8,"Level 4",function(){
-          console.log("sdf");
+        inGame = true;
+        currentLevelIndex = 1;
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(15,5,16,8,"Level 5",function(){
-          console.log("sdf");
+        inGame = true;
+        currentLevelIndex = 1;
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(25,5,26,8,"Level 6",function(){
-          console.log("sdf");
+        inGame = true;
+        currentLevelIndex = 1;
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(5,9,6,12,"Level 7",function(){
-          console.log("sdf");
+        inGame = true;
+        currentLevelIndex = 1;
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(15,9,16,12,"Level 8",function(){
-          console.log("sdf");
+        inGame = true;
+        currentLevelIndex = 1;
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(25,9,26,12,"Level 9",function(){
-          console.log("sdf");
+        inGame = true;
+        currentLevelIndex = 1;
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(15,14,15,15,"Return",function(){
         let a = currentUIPage;
