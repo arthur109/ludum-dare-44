@@ -70,8 +70,15 @@ class Player extends Colliding {
     onCollide(collision) {
         super.onCollide(collision);
 
-        if (collision.type == "Spikes") {
-            console.log("you are dead");
+        switch(collision.type) {
+            case "Spikes": {
+                console.log("you are dead");
+                break;
+            }
+            case "Spring": {
+                this.velY = collision.force;
+                break;
+            }
         }
 
     }

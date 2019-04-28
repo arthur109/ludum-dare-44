@@ -31,6 +31,13 @@ class Map{
                     if (isColliding(x, y, 1.0, 1.0, level.player.x, level.player.y, level.player.width, level.player.height)) {
                         level.player.onCollide({x: x, y: y, w: 1.0, h: 1.0, isBlocking: true});
                     }
+
+                    this.nonStatic.forEach((e) => {
+                        if (isColliding(x, y, 1.0, 1.0, e.x, e.y, e.width, e.height)) {
+                            e.onCollide({x: x, y: y, w: 1.0, h: 1.0, isBlocking: true});
+                        }
+                    });
+                    
                 }
             }
         }
