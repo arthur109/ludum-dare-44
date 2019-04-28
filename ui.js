@@ -46,7 +46,7 @@ class Lobby{
       new Button(15,6,17,7,"New Game",function(){
         inGame = true;
         currentLevelIndex = 1;
-        getLevel(currentLevelIndex)
+        currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["standard"]),
       new Button(15,7,17,8,"Continue Game: Level "+currentLevelIndex,function(){
         inGame = true;
