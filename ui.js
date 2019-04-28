@@ -55,7 +55,7 @@ class Lobby{
 
 update(){
   imageMode(CORNER);
-  tint(255,20)
+  tint(255,50)
   image(assets["background"]["forest"],0,-tp(2),width, width*(1080/1920))
   noTint()
   textSize(128);
