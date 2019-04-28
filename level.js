@@ -18,7 +18,7 @@ class Level{
         this.globalMap.update(this);
         this.currentMap.update(this);
 
-        this.player.postUpdate();
+        this.player.postUpdate(this);
     }
 
 

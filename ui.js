@@ -15,9 +15,6 @@ class Button{
     if((int(pt(mouseX)) >= this.x1-3) && (int(pt(mouseY)) >= this.y1) && (int(pt(mouseX)) <= this.x2) && (int(pt(mouseY)) < this.y2)){
       mouseAbove = true;
     }
-    if(mouseIsPressed && mouseAbove){
-      this.action();
-    }
     rectMode(CORNERS);
     noStroke();
     // fill(255);//+100);
@@ -33,14 +30,16 @@ class Button{
 
     textSize(this.size);
     text(String(this.text),tp(this.x1), tp(this.y2)-this.size/8);
+
+    if(mouseIsPressed && mouseAbove){
+      this.action();
+    }
+
   }
-
-
-
 }
 
+
 class Lobby{
-  currentLevelIndex;
   constructor(){
     this.buttons = [
       new Button(15,6,17,7,"New Game",function(){
@@ -53,8 +52,8 @@ class Lobby{
         currentLevel = getLevel(currentLevelIndex);
       },tileSize, assets["font"]["standard"]),
       new Button(15,8,17,9,"Select Level",function(){
-        inGame = true;
-        currentLevel = getLevel(currentLevelIndex);
+        previousUIPage = currentUIPage;
+        currentUIPage = layerPage;
       },tileSize, assets["font"]["standard"]),
       new Button(15,9,17,10,"Options",function(){
         previousUIPage = currentUIPage;
@@ -126,6 +125,86 @@ update(){
 
 }
 
+class LevelSelect{
+  constructor(){
+    this.buttons = [
+      new Button(5,1,6,4,"Level 1",function(){
+          console.log("sdf");
+      },tileSize*2, assets["font"]["title"]),
+      new Button(15,1,16,4,"Level 2",function(){
+          console.log("sdf");
+      },tileSize*2, assets["font"]["title"]),
+      new Button(25,1,26,4,"Level 3",function(){
+          console.log("sdf");
+      },tileSize*2, assets["font"]["title"]),
+      new Button(5,5,6,8,"Level 4",function(){
+          console.log("sdf");
+      },tileSize*2, assets["font"]["title"]),
+      new Button(15,5,16,8,"Level 5",function(){
+          console.log("sdf");
+      },tileSize*2, assets["font"]["title"]),
+      new Button(25,5,26,8,"Level 6",function(){
+          console.log("sdf");
+      },tileSize*2, assets["font"]["title"]),
+      new Button(5,9,6,12,"Level 7",function(){
+          console.log("sdf");
+      },tileSize*2, assets["font"]["title"]),
+      new Button(15,9,16,12,"Level 8",function(){
+          console.log("sdf");
+      },tileSize*2, assets["font"]["title"]),
+      new Button(25,9,26,12,"Level 9",function(){
+          console.log("sdf");
+      },tileSize*2, assets["font"]["title"])
+      ];
+    fill(20,30);
+    rect(tp(0),tp(0),tp(30),tp(12));
+  }
+
+
+update(){
+  background(10);
+
+  for(var x = 0; x<this.buttons.length;++x) {
+      this.buttons[x].update();
+  }
+}
+
+}
+
+class Dead{
+  constructor(){
+    this.buttons = [
+      new Button(15,10.75,17,11.75,"Restart",function(){
+        inGame = true;
+        currentLevel = getLevel(currentLevelIndex)
+      },tileSize*2, assets["font"]["standard"]),
+      new Button(2,10,4,11,"Back to Lobby",function(){
+        previousUIPage = currentUIPage;
+        currentUIPage = lobbyPage;
+        inGame = false;
+      },tileSize, assets["font"]["standard"]),
+      new Button(15,0.5,17,2.5,"Congrats! You Died!",function(){
+        console.log("Yay! You found an easter egg!")
+      },tileSize*3, assets["font"]["standard"])
+    ];
+    fill(20,30);
+    rect(tp(0),tp(0),tp(30),tp(12));
+  }
+
+
+  update(){
+    fill(0,20);
+    rect(tp(0),tp(0),tp(30),tp(3));
+    rect(tp(0),tp(10),tp(30),tp(12));
+
+
+    for(var x = 0; x<this.buttons.length;++x) {
+      this.buttons[x].update();
+    }
+  }
+
+}
+
 class Pause{
   constructor(){
     this.buttons = [
@@ -157,42 +236,10 @@ class Pause{
 
 
 update(){
-  fill(255,0,0,20);
-  rect(tp(10),tp(0),tp(20),tp(6));
-  for(var x = 0; x<this.buttons.length;++x) {
-      this.buttons[x].update();
-  }
-}
-
-}
-
-class Dead{
-  constructor(){
-    this.buttons = [
-      new Button(15,10,17,11,"Restart",function(){
-        inGame = true;
-        currentLevel = getLevel(currentLevelIndex)
-      },tileSize, assets["font"]["standard"]),
-      new Button(15,11,17,12,"Back to Lobby",function(){
-        previousUIPage = currentUIPage;
-        currentUIPage = lobbyPage;
-        inGame = false;
-      },tileSize, assets["font"]["standard"]),
-      new Button(15,0,17,1,"Good Job! You Died!",function(){
-        console.log("Yay! You found an easter egg!")
-      },tileSize, assets["font"]["standard"])
-    ];
-    fill(20,30);
-    rect(tp(0),tp(0),tp(12),tp(30));
-  }
-
-
-update(){
-  fill(0,20);
-  rect(tp(0),tp(0),tp(30),tp(2));
-  rect(tp(0),tp(10),tp(30),tp(12));
-
-
+  fill(136,86,148,20);
+  rect(tp(10.5),tp(0.5),tp(19.5),tp(6.5));
+  fill(10);
+  rect(tp(11),tp(1),tp(19),tp(6));
   for(var x = 0; x<this.buttons.length;++x) {
       this.buttons[x].update();
   }

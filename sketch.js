@@ -10,6 +10,7 @@ var windowRatio = mapWidth / mapHeight;
 var lobbyPage;
 var optionsPage;
 var pausePage;
+var layerPage;
 var deathPage;
 var assets;
 
@@ -35,6 +36,7 @@ function setup(){
   currentLevelIndex = 1;
   currentLevel = getLevel(currentLevelIndex);
   lobbyPage = new Lobby;
+  layerPage = new LevelSelect;
   optionsPage = new Options;
   pausePage = new Pause;
   deathPage = new Dead;
@@ -80,9 +82,13 @@ function pt(p) {
   return p  / tileSize;
 }
 
+function restart() {
+      currentLevel = getLevel(currentLevelIndex);
+}
+
 function getLevel(index){
     return new Level(
-        new Player(4.0, 2.0, 100.0),
+        new Player(4.0, 1.0, 100.0),
         new Map(
             [
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
