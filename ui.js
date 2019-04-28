@@ -237,8 +237,10 @@ class Pause{
 
 
 update(){
-  fill(255,0,0,20);
-  rect(tp(10),tp(0),tp(20),tp(6));
+  fill(136,86,148,20);
+  rect(tp(10.5),tp(0.5),tp(19.5),tp(6.5));
+  fill(10);
+  rect(tp(11),tp(1),tp(19),tp(6));
   for(var x = 0; x<this.buttons.length;++x) {
       this.buttons[x].update();
   }
