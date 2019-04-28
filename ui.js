@@ -51,23 +51,23 @@ class Lobby{
         inGame = true;
         currentLevelIndex = 1;
         getLevel(currentLevelIndex)
-      },tileSize, assets["font"]["tester"]),
+      },tileSize, assets["font"]["standard"]),
       new Button(15,7,17,8,"Continue Game: Level "+currentLevelIndex,function(){
         inGame = true;
         currentLevel = getLevel(currentLevelIndex);
-      },tileSize, assets["font"]["tester"]),
+      },tileSize, assets["font"]["standard"]),
       new Button(15,8,17,9,"Select Level",function(){
         inGame = true;
         currentLevel = getLevel(currentLevelIndex);
-      },tileSize, assets["font"]["tester"]),
+      },tileSize, assets["font"]["standard"]),
       new Button(15,9,17,10,"Options",function(){
         previousUIPage = currentUIPage;
         currentUIPage = optionsPage
-      },tileSize, assets["font"]["tester"]),
+      },tileSize, assets["font"]["standard"]),
       new Button(15,10,17,11,"Exit",function(){
         previousUIPage = currentUIPage;
         currentUIPage = optionsPage
-      },tileSize, assets["font"]["tester"])
+      },tileSize, assets["font"]["standard"])
     ];
   }
 
@@ -77,14 +77,14 @@ update(){
   image(assets["background"]["forest"],0,-tp(2),width, width*(1080/1920))
   noTint()
   textSize(128);
-  textFont("cursive");
-  fill(200);
+  textFont( assets["font"]["title"]);
+  fill(255);
   textAlign(CENTER);
-  text("Flip Me Off!", tp(15),tp(3));
+  text("Flip Me Off", tp(15),tp(4));
   textAlign(CENTER);
-  fill(0);
-  textSize(129);
-  text("Flip Me Off!", tp(14.9),tp(2.9));
+  // fill(0);
+  // textSize(129);
+  // text("Flip Me Off", tp(14.9),tp(2.9));
 
 
   for(var x = 0; x<this.buttons.length;++x) {
@@ -101,18 +101,18 @@ class Options{
       new Button(15,5,17,6,"Volume",function(){
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage
-      },tileSize, assets["font"]["tester"]),
+      },tileSize, assets["font"]["standard"]),
       new Button(15,6,17,7,"Controls",function(){
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage
-      },tileSize, assets["font"]["tester"]),
+      },tileSize, assets["font"]["standard"]),
       new Button(15,7,17,8,"Back",function(){
         let a = currentUIPage;
         currentUIPage = previousUIPage;
         previousUIPage = a;
         currentLevel.draw();
         this.IAMVERYMAD = 1;
-      },tileSize,assets["font"]["tester"])
+      },tileSize,assets["font"]["standard"])
     ];
   }
 
@@ -134,27 +134,27 @@ class Pause{
     this.buttons = [
       new Button(15,1,17,2,"Resume",function(){
         inGame = true;
-      },tileSize, assets["font"]["tester"]),
+      },tileSize, assets["font"]["standard"]),
       new Button(15,2,17,3,"Restart",function(){
         currentLevel = getLevel(currentLevelIndex);
         inGame = true;
-      },tileSize, assets["font"]["tester"]),
+      },tileSize, assets["font"]["standard"]),
       new Button(15,3,17,4,"Options",function(){
         previousUIPage = currentUIPage;
         currentUIPage = optionsPage;
         inGame = false;
-      },tileSize,assets["font"]["tester"]),
+      },tileSize,assets["font"]["standard"]),
       new Button(15,4,17,5,"Lobby",function(){
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage;
         inGame = false;
-      },tileSize, assets["font"]["tester"]),
+      },tileSize, assets["font"]["standard"]),
       new Button(15,5,17,6,"Kill Me",function(){
         previousUIPage = currentUIPage;
         currentUIPage = deathPage;
         inGame = false;
         currentLevel.draw();
-      },tileSize, assets["font"]["tester"])
+      },tileSize, assets["font"]["standard"])
     ];
   }
 
@@ -175,15 +175,15 @@ class Dead{
       new Button(15,10,17,11,"Restart",function(){
         inGame = true;
         currentLevel = getLevel(currentLevelIndex)
-      },tileSize, assets["font"]["tester"]),
+      },tileSize, assets["font"]["standard"]),
       new Button(15,11,17,12,"Back to Lobby",function(){
         // previousUIPage = currentUIPage;
         // currentUIPage = lobbyPage;
         // inGame = false;
-      },tileSize, assets["font"]["tester"]),
+      },tileSize, assets["font"]["standard"]),
       new Button(15,0,17,1,"Good Job! You Died!",function(){
         console.log("Yay! You found an easter egg!")
-      },tileSize, assets["font"]["tester"])
+      },tileSize, assets["font"]["standard"])
     ];
     fill(20,30);
     rect(tp(0),tp(0),tp(12),tp(30));

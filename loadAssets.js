@@ -5,13 +5,13 @@ function preload(){
                 "jump":importAllInFolder("assets/playerAnim/jumping/left/",6),
                 "run":importAllInFolder("assets/playerAnim/running/left/",11),
                 "fall":importAllInFolder("assets/playerAnim/falling/left/",4),
-                "idle":importAllInFolder("assets/playerAnim/idle/left/",2),
+                "idle":importAllInFolder("assets/playerAnim/idle/left/",6),
             },
             "right":{
                 "jump":importAllInFolder("assets/playerAnim/jumping/right/",6),
                 "run":importAllInFolder("assets/playerAnim/running/right/",11),
                 "fall":importAllInFolder("assets/playerAnim/falling/right/",4),
-                "idle":importAllInFolder("assets/playerAnim/idle/right/",2),
+                "idle":importAllInFolder("assets/playerAnim/idle/right/",6),
             }
 
         },
@@ -19,9 +19,9 @@ function preload(){
             "forest":importImage("assets/backgrounds/forest.png")
         },
         "font":{
-            //"title":importFont("assets/fonts/title.ttf"),
-            //"standard":importFont("assets/fonts/standard.ttf"),
-            "tester":"fantasy"
+            "title":importFont("assets/fonts/title.ttf"),
+            "standard":importFont("assets/fonts/standard.ttf"),
+            // "tester":"fantasy"
         }
     }
 }
@@ -29,7 +29,8 @@ function preload(){
 function importAllInFolder(path, number){
     var imageArray = [];
     for(var i = 1; i<number; i++){
-        var imageLink = "https://arthur109.github.io/ludum-dare-44/"+path+i.toString()+".png";
+
+        var imageLink = "http://206.189.66.217/"+path+i.toString()+".png";
         console.log(imageLink);
         imageArray.push(loadImage(imageLink));
     }
@@ -38,7 +39,7 @@ function importAllInFolder(path, number){
 
 
 function importImage(path){
-        var imageLink = "https://arthur109.github.io/ludum-dare-44/"+path;
+        var imageLink = "http://206.189.66.217/"+path;
         console.log(imageLink);
         var image = loadImage(imageLink);
     return image;
@@ -46,7 +47,7 @@ function importImage(path){
 
 
 function importFont(path){
-    var imageLink = "https://arthur109.github.io/ludum-dare-44/"+path;
+    var imageLink = "http://206.189.66.217/"+path;
     console.log(imageLink);
     var image = loadFont(imageLink);
     return image;

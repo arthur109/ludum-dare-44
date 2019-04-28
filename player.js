@@ -22,13 +22,15 @@ class Player {
         this.lastJumpKey = false;
         this.doubleJumpAvail = false;
         this.colliding = [];
-        this.rightRunAnimation = new Animator(assets["player"]["right"]["run"], 3);
-        this.leftRunAnimation = new Animator(assets["player"]["left"]["run"], 3);
-        this.leftIdleAnimation  = new Animator(assets["player"]["left"]["idle"], 3);
-        this.rightIdleAnimation  = new Animator(assets["player"]["right"]["idle"], 3);
-        this.rightRisingAnimation  = new Animator(assets["player"]["right"]["jump"], 3);
-        this.leftRisingAnimation  = new Animator(assets["player"]["left"]["jump"], 3);
 
+        this.rightRunAnimation = new Animator(assets["player"]["right"]["run"], 3,0);
+        this.leftRunAnimation = new Animator(assets["player"]["left"]["run"], 3,0);
+        this.leftIdleAnimation  = new Animator(assets["player"]["left"]["idle"], 10,0);
+        this.rightIdleAnimation  = new Animator(assets["player"]["right"]["idle"], 10,0);
+        this.rightRisingAnimation  = new Animator(assets["player"]["right"]["jump"], 6,2);
+        this.leftRisingAnimation  = new Animator(assets["player"]["left"]["jump"], 6,2);
+        this.rightFallingAnimation  = new Animator(assets["player"]["right"]["fall"], 6,0);
+        this.leftFallingAnimation  = new Animator(assets["player"]["left"]["fall"], 6,0);
 
     }
 
@@ -46,24 +48,24 @@ class Player {
             if (!this._isBelow(e) && this._isAbove(e) && !this._isRightOf(e) && !this._isLeftOf(e)) {
                 let offset = this._getCollideOffset(e);
                 this.y += offset.y;
-                this.velY = 0
+                this.velY = 0;
                 this.onGround = true;
                 this.doubleJumpAvail = true;
             }
             else if (this._isBelow(e) && !this._isAbove(e) && !this._isRightOf(e) && !this._isLeftOf(e)) {
                 let offset = this._getCollideOffset(e);
                 this.y += offset.y;
-                this.velY = 0
+                this.velY = 0;
             }
             else if (!this._isBelow(e) && !this._isAbove(e) && this._isRightOf(e) && !this._isLeftOf(e)) {
                 let offset = this._getCollideOffset(e);
                 this.x += offset.x;
-                this.velX = 0
+                this.velX = 0;
             }
             else if (!this._isBelow(e) && !this._isAbove(e) && !this._isRightOf(e) && this._isLeftOf(e)) {
                 let offset = this._getCollideOffset(e);
                 this.x += offset.x;
-                this.velX = 0
+                this.velX = 0;
             }
             else {
                 remaining.push(e);
@@ -115,12 +117,21 @@ class Player {
         fill(0, 0, 255);
         imageMode(CORNER);
         let xOffset = -0.28;
-        let yOffset = -0.02;
+        let yOffset = -0.05;
         // print(this.runAnimation.getFrame());
         if(this.velY < 0.0){
-
-        }
-        if(this.velX == 0.0) {
+            if(this.lastHorizDirection >= 0){
+                image(this.rightRisingAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));
+            }else{
+                image(this.leftRisingAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));
+            }
+        }else if(this.velY < 0.1 && !this.onGround){
+            if(this.lastHorizDirection >= 0){
+                image(this.rightFallingAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));
+            }else{
+                image(this.leftFallingAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));
+            }
+        } else if(this.velX === 0.0) {
             if(this.lastHorizDirection >= 0){
                 image(this.rightIdleAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));
             }else{
@@ -171,6 +182,8 @@ class Player {
         }
     }
     _jump(){
+        this.rightRisingAnimation.reset();
+        this.leftRisingAnimation.reset();
         this.velY = -this.jumpPower;
     }
     _move() {
