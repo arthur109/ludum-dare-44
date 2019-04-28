@@ -1,5 +1,5 @@
 function preload(){
-    imageAssets = {
+    assets = {
         "player":{
             "left":{
                 "jump-launch":importAllInFolder("assets/playerAnim/jumping/launch/left/",2),
@@ -19,6 +19,10 @@ function preload(){
         },
         "background":{
             "forest":importImage("assets/backgrounds/forest.png")
+        },
+        "font":{
+            "title":importFont("assets/fonts/title.ttf"),
+            "standard":importFont("assets/fonts/standard.ttf")
         }
     }
 }
@@ -38,6 +42,14 @@ function importImage(path){
         var imageLink = "https://arthur109.github.io/ludum-dare-44/"+path;
         console.log(imageLink);
         var image = loadImage(imageLink);
+    return image;
+}
+
+
+function importFont(path){
+    var imageLink = "https://arthur109.github.io/ludum-dare-44/"+path;
+    console.log(imageLink);
+    var image = loadFont(imageLink);
     return image;
 }
 

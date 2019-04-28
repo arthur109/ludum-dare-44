@@ -17,10 +17,10 @@ class Player {
         this.height = 0.6;
 
         this.health = health;
-        this.rightRunAnimation = new Animator(imageAssets["player"]["right"]["run"], 3);
-        this.leftRunAnimation = new Animator(imageAssets["player"]["left"]["run"], 3);
-        this.leftIdleAnimation  = new Animator(imageAssets["player"]["left"]["idle"], 3);
-        this.rightIdleAnimation  = new Animator(imageAssets["player"]["right"]["idle"], 3);
+        this.rightRunAnimation = new Animator(assets["player"]["right"]["run"], 3);
+        this.leftRunAnimation = new Animator(assets["player"]["left"]["run"], 3);
+        this.leftIdleAnimation  = new Animator(assets["player"]["left"]["idle"], 3);
+        this.rightIdleAnimation  = new Animator(assets["player"]["right"]["idle"], 3);
 
     }
 

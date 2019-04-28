@@ -5,6 +5,7 @@ var tileSize = 50.0;
 var windowRatio = 12/30;
 var lobbyPage;
 var optionsPage;
+var assets;
 
 
 function setup(){
@@ -57,8 +58,8 @@ function draw(){
     }else{
        currentUIPage.update();
     }
-  // for(var i = 0; i<imageAssets["player"]["run"].length; i++){
-  //     image(imageAssets["player"]["run"][i], i*tileSize,i*tileSize,tileSize,tileSize)
+  // for(var i = 0; i<assets["player"]["run"].length; i++){
+  //     image(assets["player"]["run"][i], i*tileSize,i*tileSize,tileSize,tileSize)
   // }
   // for(var x = 0; x<allButtons.length;++x) {
   //     allButtons[x].display(1);
