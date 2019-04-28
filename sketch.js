@@ -1,17 +1,10 @@
-var currentStatus = "lobby";
+var currentStatus;
 var imageAssets;
 var currentLevel;
 var tileSize = 50.0;
 var windowRatio = 12/30;
-var allButtons = [];
-
-function preload(){
-    imageAssets = {
-        player:{
-            jump:importAllInFolder("assets/jumping/",6)
-        }
-    }
-}
+var lobby;
+var option;
 
 
 function setup(){
@@ -52,7 +45,10 @@ function setup(){
           ], []
       )
   )
-    drawLobby();
+  lobby = new Lobby;
+  option = new Options;
+
+  currentStatus = lobby;
 }
 function draw(){
   currentLevel.update();
@@ -63,6 +59,8 @@ function draw(){
   // for(var x = 0; x<allButtons.length;++x) {
   //     allButtons[x].display(1);
   // }
+
+  currentStatus.updateButtons();
 }
 
 function tp(t) {
@@ -74,15 +72,12 @@ function pt(p) {
 }
 
 function mousePressed(){
-  for(var x = 0; x<allButtons.length;++x){
-    allButtons[x].clicked();
-  }
+  currentStatus.checkForClick()
 }
 
+var continueGame = function() {
+  console.log("Continuing Game!");
+}
 var startGame = function(){
-  console.log("game started");
-}
-
-function drawLobby(){
-  allButtons.push(new Button(13,6,17,7,"Begin Game",startGame));
+  currentStatus = option;
 }
