@@ -16,6 +16,9 @@ function preload(){
                 "idle":importAllInFolder("assets/playerAnim/idle/right/",2),
             }
 
+        },
+        "background":{
+            "forest":importImage("assets/backgrounds/forest.png")
         }
     }
 }
@@ -28,5 +31,13 @@ function importAllInFolder(path, number){
         imageArray.push(loadImage(imageLink));
     }
     return imageArray;
+}
+
+
+function importImage(path){
+        var imageLink = "https://arthur109.github.io/ludum-dare-44/"+path;
+        console.log(imageLink);
+        var image = loadImage(imageLink);
+    return image;
 }
 

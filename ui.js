@@ -44,7 +44,10 @@ class Lobby{
   }
 
 update(){
-  background(255);
+    imageMode(CORNER);
+    tint(255,20)
+  image(imageAssets["background"]["forest"],0,-tp(2),width, width*(1080/1920))
+  noTint()
   for(var x = 0; x<this.buttons.length;++x) {
       this.buttons[x].update();
   }
