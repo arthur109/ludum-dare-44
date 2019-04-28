@@ -21,8 +21,9 @@ function preload(){
             "forest":importImage("assets/backgrounds/forest.png")
         },
         "font":{
-            "title":importFont("assets/fonts/title.ttf"),
-            "standard":importFont("assets/fonts/standard.ttf")
+            //"title":importFont("assets/fonts/title.ttf"),
+            //"standard":importFont("assets/fonts/standard.ttf"),
+            "tester":"fantasy"
         }
     }
 }
@@ -52,4 +53,3 @@ function importFont(path){
     var image = loadFont(imageLink);
     return image;
 }
-

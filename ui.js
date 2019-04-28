@@ -28,7 +28,6 @@ class Button{
     }else{
       fill(0)
     }
-    textFont(this.font);
     textSize(this.size*0.8);
     textFont(this.font);
     text(String(this.text),tp(this.x1), tp(this.y2)-this.size/8);
@@ -41,14 +40,14 @@ class Button{
 class Lobby{
   constructor(){
     this.buttons = [
-      new Button(13,6,17,7,"Play",function(){inGame = true},tileSize, assets["font"]["standard"]),
-      new Button(13,7,17,8,"Options",function(){currentUIPage = optionsPage},tileSize, assets["font"]["standard"])
+      new Button(13,6,17,7,"Play",function(){inGame = true},tileSize, assets["font"]["tester"]),
+      new Button(13,7,17,8,"Options",function(){currentUIPage = optionsPage},tileSize, assets["font"]["tester"])
     ];
   }
 
 update(){
-    imageMode(CORNER);
-    tint(255,20)
+  imageMode(CORNER);
+  tint(255,20)
   image(assets["background"]["forest"],0,-tp(2),width, width*(1080/1920))
   noTint()
   textSize(100);
@@ -66,7 +65,7 @@ update(){
 class Options{
   constructor(){
     this.buttons = [
-      new Button(13,7,17,8,"Back",function(){currentUIPage = lobbyPage},tileSize)
+      new Button(13,8,17,9,"Back",function(){currentUIPage = lobbyPage},tileSize)
     ];
   }
 
