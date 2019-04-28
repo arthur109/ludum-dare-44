@@ -17,7 +17,7 @@ class Player {
         this.height = 0.8;
 
         this.health = health;
-
+        this.lastHorizDirection = 1;
         this.onGround = false;
         this.lastJumpKey = false;
         this.doubleJumpAvail = false;
@@ -109,14 +109,14 @@ class Player {
         fill(0, 0, 255);
         imageMode(CENTER);
         // print(this.runAnimation.getFrame());
-        if(abs(this.velX) <= 0.05){
-            if(abs(this.velX)/this.velX >= 0){
+        if(this.velX == 0.0) {
+            if(this.lastHorizDirection >= 0){
                 image(this.rightIdleAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
             }else{
                 image(this.leftIdleAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
             }
-        }
-        if(abs(this.velX)/this.velX >= 0){
+        }else
+        if(this.velX >= 0){
             image(this.rightRunAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
         }else{
             image(this.leftRunAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
@@ -132,17 +132,20 @@ class Player {
     _updateControls() {
         if (keyIsDown(65) || keyIsDown(37)) { // moving left
             this.velX = -this.moveSpeed;
+            this.lastHorizDirection = this.velX
         }
         if (keyIsDown(68) || keyIsDown(39)) { // moving right
             this.velX = +this.moveSpeed;
+            this.lastHorizDirection = this.velX
+
         }
         
         if (keyIsDown(87) || keyIsDown(38)) { // jumping
             if (this.onGround) {
-                this.velY = -this.jumpPower;
+                this._jump();
             } else {
                 if (this.doubleJumpAvail && this.lastJumpKey == false) {
-                    this.velY = -this.jumpPower;
+                    this._jump();
                     this.doubleJumpAvail = false;
                 }
             }
@@ -157,7 +160,9 @@ class Player {
             this.level.currentMap = this.level.defaultMap;
         }
     }
-
+    _jump(){
+        this.velY = -this.jumpPower;
+    }
     _move() {
         this.velY += this.gravity;
 
