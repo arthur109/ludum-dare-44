@@ -28,7 +28,7 @@ class Button{
     }else{
       fill(0)
     }
-    textFont(font);
+    textFont(this.font);
     textSize(this.size*0.8);
     textFont(this.font);
     text(String(this.text),tp(this.x1), tp(this.y2)-this.size/8);
