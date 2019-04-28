@@ -262,9 +262,9 @@
    *   background(200);
    *   sel = createSelect();
    *   sel.position(10, 10);
-   *   sel.option('pear');
-   *   sel.option('kiwi');
-   *   sel.option('grape');
+   *   sel.optionsPage('pear');
+   *   sel.optionsPage('kiwi');
+   *   sel.optionsPage('grape');
    *   sel.changed(mySelectEvent);
    * }
    *
@@ -663,9 +663,9 @@
    *   background(200);
    *   sel = createSelect();
    *   sel.position(10, 10);
-   *   sel.option('pear');
-   *   sel.option('kiwi');
-   *   sel.option('grape');
+   *   sel.optionsPage('pear');
+   *   sel.optionsPage('kiwi');
+   *   sel.optionsPage('grape');
    *   sel.changed(mySelectEvent);
    * }
    *
@@ -698,16 +698,16 @@
     }
     self.option = function(name, value) {
       var index;
-      //see if there is already an option with this name
+      //see if there is already an optionsPage with this name
       for (var i = 0; i < this.elt.length; i++) {
         if (this.elt[i].innerHTML === name) {
           index = i;
           break;
         }
       }
-      //if there is an option with this name we will modify it
+      //if there is an optionsPage with this name we will modify it
       if (index !== undefined) {
-        //if the user passed in false then delete that option
+        //if the user passed in false then delete that optionsPage
         if (value === false) {
           this.elt.remove(index);
         } else {
@@ -721,7 +721,7 @@
         }
       } else {
         //if it doesn't exist make it
-        var opt = document.createElement('option');
+        var opt = document.createElement('optionsPage');
         opt.innerHTML = name;
         if (arguments.length > 1) opt.value = value;
         else opt.value = name;
@@ -754,8 +754,8 @@
 
   /**
    * Creates a radio button &lt;input&gt;&lt;/input&gt; element in the DOM.
-   * The .option() method can be used to set options for the radio after it is
-   * created. The .value() method will return the currently selected option.
+   * The .optionsPage() method can be used to set options for the radio after it is
+   * created. The .value() method will return the currently selected optionsPage.
    *
    * @method createRadio
    * @param  {String} [divId] the id and name of the created div and input field respectively
@@ -766,9 +766,9 @@
    *
    * function setup() {
    *   radio = createRadio();
-   *   radio.option('black');
-   *   radio.option('white');
-   *   radio.option('gray');
+   *   radio.optionsPage('black');
+   *   radio.optionsPage('white');
+   *   radio.optionsPage('gray');
    *   radio.style('width', '60px');
    *   textAlign(CENTER);
    *   fill(255, 0, 0);
@@ -785,9 +785,9 @@
    *
    * function setup() {
    *   radio = createRadio();
-   *   radio.option('apple', 1);
-   *   radio.option('bread', 2);
-   *   radio.option('juice', 3);
+   *   radio.optionsPage('apple', 1);
+   *   radio.optionsPage('bread', 2);
+   *   radio.optionsPage('juice', 3);
    *   radio.style('width', '60px');
    *   textAlign(CENTER);
    * }

@@ -1,10 +1,10 @@
-var currentStatus;
-var imageAssets;
+var currentUIPage;
 var currentLevel;
+var inGame = false;
 var tileSize = 50.0;
 var windowRatio = 12/30;
-var lobby;
-var option;
+var lobbyPage;
+var optionsPage;
 
 
 function setup(){
@@ -45,22 +45,24 @@ function setup(){
           ], []
       )
   )
-  lobby = new Lobby;
-  option = new Options;
+  lobbyPage = new Lobby;
+  optionsPage = new Options;
 
-  currentStatus = lobby;
+  currentUIPage = lobbyPage;
 }
 function draw(){
-  currentLevel.update();
-  currentLevel.draw();
+    if(inGame) {
+        currentLevel.update();
+        currentLevel.draw();
+    }else{
+       currentUIPage.update();
+    }
   // for(var i = 0; i<imageAssets["player"]["run"].length; i++){
   //     image(imageAssets["player"]["run"][i], i*tileSize,i*tileSize,tileSize,tileSize)
   // }
   // for(var x = 0; x<allButtons.length;++x) {
   //     allButtons[x].display(1);
   // }
-
-  currentStatus.updateButtons();
 }
 
 function tp(t) {
@@ -71,13 +73,3 @@ function pt(p) {
   return p  / tileSize;
 }
 
-function mousePressed(){
-  currentStatus.checkForClick()
-}
-
-var continueGame = function() {
-  console.log("Continuing Game!");
-}
-var startGame = function(){
-  currentStatus = option;
-}
