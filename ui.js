@@ -47,9 +47,9 @@ class Button{
 class Lobby{
   constructor(){
     this.buttons = [
-      new Button(15,6,17,7,"Play",function(){inGame = true},tileSize, assets["font"]["tester"]),
-      new Button(15,7,17,8,"Options",function(){currentUIPage = optionsPage},tileSize, assets["font"]["tester"]),
-      new Button(15,8,17,9,"Exit",function(){currentUIPage = optionsPage},tileSize, assets["font"]["tester"])
+      new Button(15,6,17,7,"Play",function(){inGame = true},tileSize, assets["font"]["standard"]),
+      new Button(15,7,17,8,"Options",function(){currentUIPage = optionsPage},tileSize, assets["font"]["standard"]),
+      new Button(15,8,17,9,"Exit",function(){currentUIPage = optionsPage},tileSize, assets["font"]["standard"])
     ];
   }
 
@@ -59,14 +59,14 @@ update(){
   image(assets["background"]["forest"],0,-tp(2),width, width*(1080/1920))
   noTint()
   textSize(128);
-  textFont("cursive");
-  fill(200);
+  textFont( assets["font"]["title"]);
+  fill(255);
   textAlign(CENTER);
-  text("Flip Me Off", tp(15),tp(3));
+  text("Flip Me Off", tp(15),tp(4));
   textAlign(CENTER);
-  fill(0);
-  textSize(129);
-  text("Flip Me Off", tp(14.9),tp(2.9));
+  // fill(0);
+  // textSize(129);
+  // text("Flip Me Off", tp(14.9),tp(2.9));
 
 
   for(var x = 0; x<this.buttons.length;++x) {

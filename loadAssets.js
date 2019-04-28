@@ -19,9 +19,9 @@ function preload(){
             "forest":importImage("assets/backgrounds/forest.png")
         },
         "font":{
-            //"title":importFont("assets/fonts/title.ttf"),
-            //"standard":importFont("assets/fonts/standard.ttf"),
-            "tester":"fantasy"
+            "title":importFont("assets/fonts/title.ttf"),
+            "standard":importFont("assets/fonts/standard.ttf"),
+            // "tester":"fantasy"
         }
     }
 }
