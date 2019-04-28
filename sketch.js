@@ -17,6 +17,8 @@ var assets;
 var hasPaused = false;
 var hasUnPaused = true;
 
+var hasClicked = false;
+
 
 var frameTimer = 0;
 
@@ -89,6 +91,10 @@ function keyPressed(){
       hasUnPaused = false;
     }
   }
+}
+
+function mouseReleased(){
+  hasClicked = false;
 }
 
 // function keyTyped() {

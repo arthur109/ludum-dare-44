@@ -73,6 +73,7 @@ class Player extends Colliding {
         switch(collision.type) {
             case "Spikes": {
                 console.log("you are dead");
+                kill();
                 break;
             }
             case "Spring": {

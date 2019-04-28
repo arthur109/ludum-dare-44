@@ -31,8 +31,9 @@ class Button{
     textSize(this.size);
     text(String(this.text),tp(this.x1), tp(this.y2)-this.size/8);
 
-    if(mouseIsPressed && mouseAbove){
+    if(mouseIsPressed && mouseAbove && !hasClicked){
       this.action();
+      hasClicked = true;
     }
 
   }
@@ -149,7 +150,13 @@ class LevelSelect{
       },tileSize*2, assets["font"]["title"]),
       new Button(25,9,26,12,"Level 9",function(){
           console.log("sdf");
-      },tileSize*2, assets["font"]["title"])
+      },tileSize*2, assets["font"]["title"]),
+      new Button(15,14,15,15,"Return",function(){
+        let a = currentUIPage;
+        currentUIPage = previousUIPage;
+        previousUIPage = a;
+        background(0);
+      },tileSize*2, assets["font"]["standard"])
       ];
     fill(20,30);
     rect(tp(0),tp(0),tp(30),tp(12));
