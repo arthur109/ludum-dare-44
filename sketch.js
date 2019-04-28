@@ -3,10 +3,13 @@ var currentLevel;
 var inGame = false;
 var tileSize = 50.0;
 var windowRatio = 30.0 / 16.0
+var lobbyPage;
+var optionsPage;
+var pausePage;
+var assets;
 
 
 function setup(){
-  tileSize = width/30;
 
     let paddedWidth = windowWidth - 32.0;
     let paddedHeight = windowHeight - 32.0;
@@ -17,6 +20,8 @@ function setup(){
     } else {
       createCanvas(paddedHeight * windowRatio,paddedHeight);
     }
+
+  tileSize = width/30;
 
   noSmooth();
   currentLevel = new Level(
@@ -54,6 +59,7 @@ function setup(){
   )
   lobbyPage = new Lobby;
   optionsPage = new Options;
+  pausePage = new Pause;
 
   currentUIPage = lobbyPage;
 }
@@ -62,6 +68,11 @@ function draw(){
     if(inGame) {
         currentLevel.update();
         currentLevel.draw();
+
+        if(keyIsDown(27)){
+          inGame = false;
+          currentUIPage = pausePage;
+        }
     }else{
        currentUIPage.update();
     }

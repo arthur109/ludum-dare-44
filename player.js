@@ -13,8 +13,8 @@ class Player {
         this.gravity = 0.03;
         this.drag = 0.85;
 
-        this.width = 0.992;
-        this.height = 0.992;
+        this.width = 0.5;
+        this.height = 0.8;
 
         this.health = health;
 
