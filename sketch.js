@@ -14,6 +14,9 @@ var layerPage;
 var deathPage;
 var assets;
 
+var hasClicked = false;
+var hasPaused = false;
+
 
 var frameTimer = 0;
 
@@ -59,12 +62,22 @@ function draw(){
         currentLevel.update();
         currentLevel.draw();
 
-        if(keyIsDown(27)){
+        if((keyIsDown(27) || keyIsDown(80)) && (hasPaused === false)){
           inGame = false;
           currentUIPage = pausePage;
+          hasPaused = true;
         }
     }else{
-       currentUIPage.update();
+      if((keyIsDown(27) || keyIsDown(80)) && (hasPaused === false)){
+        if(currentUIPage === pausePage){
+          inGame = true;
+          previousUIPage = pausePage;
+        }
+      }
+     currentUIPage.update();
+    }
+    if((keyIsDown(27)===false)&&(keyIsDown(80) === false) && hasPaused === true){
+      hasPaused = false;
     }
   // for(var i = 0; i<assets["player"]["run"].length; i++){
   //     image(assets["player"]["run"][i], i*tileSize,i*tileSize,tileSize,tileSize)
@@ -138,4 +151,11 @@ function getLevel(index){
             ], []
         )
     )
+}
+
+
+function kill(){
+  inGame = false;
+  previousUIPage=currentUIPage;
+  currentUIPage = deathPage;
 }

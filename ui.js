@@ -40,7 +40,6 @@ class Button{
 
 
 class Lobby{
-  currentLevelIndex;
   constructor(){
     this.buttons = [
       new Button(15,6,17,7,"New Game",function(){
@@ -73,7 +72,7 @@ update(){
   var backImage = assets["background"]["forest"];
   image(assets["background"]["forest"],0,0,width, width*(backImage.height/backImage.width));
   noTint()
-  textSize(128);
+  textSize(tileSize*2.5);
   textFont( assets["font"]["title"]);
   fill(255);
   textAlign(CENTER);
@@ -93,7 +92,6 @@ update(){
 
 class Options{
   constructor(){
-    this.IAMVERYMAD = 0;
     this.buttons = [
       new Button(15,5,17,6,"Volume",function(){
         previousUIPage = currentUIPage;
@@ -108,7 +106,6 @@ class Options{
         currentUIPage = previousUIPage;
         previousUIPage = a;
         currentLevel.draw();
-        this.IAMVERYMAD = 1;
       },tileSize,assets["font"]["standard"])
     ];
   }
@@ -118,9 +115,6 @@ update(){
   background(0,0,255,20);
   for(var x = 0; x<this.buttons.length;++x) {
       this.buttons[x].update();
-  }
-  if(this.IAMVERYMAD === 1){
-    currentLevel.draw();
   }
 }
 
@@ -175,11 +169,11 @@ update(){
 class Dead{
   constructor(){
     this.buttons = [
-      new Button(15,10.75,17,11.75,"Restart",function(){
+      new Button(15,14.75,17,15.75,"Restart",function(){
         inGame = true;
         currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["standard"]),
-      new Button(2,10,4,11,"Back to Lobby",function(){
+      new Button(2,14,4,15,"Back to Lobby",function(){
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage;
         inGame = false;
@@ -195,8 +189,8 @@ class Dead{
 
   update(){
     fill(0,20);
-    rect(tp(0),tp(0),tp(30),tp(3));
-    rect(tp(0),tp(10),tp(30),tp(12));
+    rect(tp(0),tp(0),tp(mapWidth),tp(3));
+    rect(tp(0),tp(mapHeight-2),tp(mapWidth),tp(mapHeight));
 
 
     for(var x = 0; x<this.buttons.length;++x) {
@@ -237,10 +231,11 @@ class Pause{
 
 
 update(){
-  fill(136,86,148,20);
-  rect(tp(10.5),tp(0.5),tp(19.5),tp(6.5));
+  fill(255,20)
+
+  rect(tp(10.95),tp(0.95),tp(19.05),tp(6.3),31);
   fill(10);
-  rect(tp(11),tp(1),tp(19),tp(6));
+  rect(tp(11),tp(1),tp(19),tp(6.25),30);
   for(var x = 0; x<this.buttons.length;++x) {
       this.buttons[x].update();
   }
