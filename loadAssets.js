@@ -23,6 +23,11 @@ function preload(){
             "title":importFont("assets/fonts/title.ttf"),
             "standard":importFont("assets/fonts/standard.ttf"),
             // "tester":"fantasy"
+        },
+        "tiles":{
+            "inner":importAllInFolder("assets/tiles/inner/",10),
+            "exterior":importAllInFolder("assets/tiles/exterior/",5),
+            "block":importAllInFolder("assets/tiles/blocks/",4),
         }
     }
 }
