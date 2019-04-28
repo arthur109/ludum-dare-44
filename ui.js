@@ -25,18 +25,13 @@ class Button{
 
     textFont(this.font);
     textAlign(CENTER);
-
-    textSize(this.size*0.8 + 2);
-    fill(200);
-    text(String(this.text),tp(this.x1),tp(this.y2)-this.size/8)
     if(mouseAbove){
-      fill(0,255,0,100);
+      fill(136,86,148);
     }else{
-      fill(0)
+      fill(255)
     }
 
-
-    textSize(this.size*0.8);
+    textSize(this.size);
     text(String(this.text),tp(this.x1), tp(this.y2)-this.size/8);
   }
 
@@ -51,7 +46,7 @@ class Lobby{
         inGame = true;
         currentLevelIndex = 1;
         getLevel(currentLevelIndex)
-      },tileSize, assets["font"]["standard"]),
+      },tileSize*2, assets["font"]["standard"]),
       new Button(15,7,17,8,"Continue Game: Level "+currentLevelIndex,function(){
         inGame = true;
         currentLevel = getLevel(currentLevelIndex);
@@ -177,9 +172,9 @@ class Dead{
         currentLevel = getLevel(currentLevelIndex)
       },tileSize, assets["font"]["standard"]),
       new Button(15,11,17,12,"Back to Lobby",function(){
-        // previousUIPage = currentUIPage;
-        // currentUIPage = lobbyPage;
-        // inGame = false;
+        previousUIPage = currentUIPage;
+        currentUIPage = lobbyPage;
+        inGame = false;
       },tileSize, assets["font"]["standard"]),
       new Button(15,0,17,1,"Good Job! You Died!",function(){
         console.log("Yay! You found an easter egg!")
