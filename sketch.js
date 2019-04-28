@@ -1,5 +1,6 @@
 var currentUIPage;
 var previousUIPage;
+var currentLevelIndex
 var currentLevel;
 var inGame = false;
 var tileSize = 50.0;
@@ -7,6 +8,7 @@ var windowRatio = 30.0 / 16.0
 var lobbyPage;
 var optionsPage;
 var pausePage;
+var layerPage;
 var deathPage;
 var assets;
 
@@ -31,6 +33,7 @@ function setup(){
   currentLevelIndex = 1;
   currentLevel = getLevel(currentLevelIndex);
   lobbyPage = new Lobby;
+  layerPage = new LevelSelect;
   optionsPage = new Options;
   pausePage = new Pause;
   deathPage = new Dead;
