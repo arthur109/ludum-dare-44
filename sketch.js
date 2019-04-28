@@ -72,6 +72,10 @@ function pt(p) {
   return p  / tileSize;
 }
 
+function restart() {
+      currentLevel = getLevel(currentLevelIndex);
+}
+
 function getLevel(index){
     return new Level(
         new Player(4.0, 2.0, 100.0),

@@ -36,7 +36,7 @@ class Player {
         this.onGround = false;
     }
 
-    postUpdate() {
+    postUpdate(level) {
         let remaining = []
 
         this.colliding.forEach((e) => {
@@ -78,6 +78,10 @@ class Player {
                 offsetY = 0;
             } else {
                 offsetX = 0;
+            }
+
+            if (Math.abs(offsetX) > 0.1 || Math.abs(offsetY) > 0.1) {
+                restart();
             }
 
             this.x += offsetX;
