@@ -28,6 +28,8 @@ function preload(){
             "inner":importAllInFolder("assets/tiles/inner/",10),
             "exterior":importAllInFolder("assets/tiles/exterior/",5),
             "block":importAllInFolder("assets/tiles/blocks/",4),
+            "spike":importImageOrientations("assets/tiles/spring/"),
+            "spring":importImageOrientations("assets/tiles/spike/")
         }
     }
 }
@@ -57,4 +59,13 @@ function importFont(path){
     console.log(imageLink);
     var image = loadFont(imageLink);
     return image;
+}
+
+function importImageOrientations(path){
+    return {
+        "bot":importImage(path+"bot.png"),
+        "top":importImage(path+"top.png"),
+        "left":importImage(path+"left.png"),
+        "right":importImage(path+"right.png"),
+    }
 }
