@@ -14,8 +14,8 @@ var layerPage;
 var deathPage;
 var assets;
 
-var hasClicked = false;
 var hasPaused = false;
+var hasUnPaused = true;
 
 
 var frameTimer = 0;
@@ -62,13 +62,13 @@ function draw(){
         currentLevel.update();
         currentLevel.draw();
 
-        if((keyIsDown(27) || keyIsDown(80)) && (hasPaused === false)){
+        if(hasPaused){
           inGame = false;
           currentUIPage = pausePage;
           hasPaused = true;
         }
     }else{
-      if((keyIsDown(27) || keyIsDown(80)) && (hasPaused === false)){
+      if(hasUnPaused){
         if(currentUIPage === pausePage){
           inGame = true;
           previousUIPage = pausePage;
@@ -76,16 +76,42 @@ function draw(){
       }
      currentUIPage.update();
     }
-    if((keyIsDown(27)===false)&&(keyIsDown(80) === false) && hasPaused === true){
-      hasPaused = false;
-    }
-  // for(var i = 0; i<assets["player"]["run"].length; i++){
-  //     image(assets["player"]["run"][i], i*tileSize,i*tileSize,tileSize,tileSize)
-  // }
-  // for(var x = 0; x<allButtons.length;++x) {
-  //     allButtons[x].display(1);
-  // }
 }
+
+function keyPressed(){
+  if(keyCode === 27 || keyCode === 80 ){
+    if(hasPaused){
+      hasPaused = false;
+      hasUnPaused = true;
+    }
+    else{
+      hasPaused = true;
+      hasUnPaused = false;
+    }
+  }
+}
+
+// function keyTyped() {
+//   if (keyCode === 27) {
+//     if(hasPaused){
+//       hasPaused
+//     }
+//   }
+// }
+
+// function keyReleased(){
+//   if(keycode === 27){
+//     if(hasPaused){
+//       hasPaused = false;
+//       hasUnPaused = true;
+//     }else{
+//       hasPaused = true;
+//       hasUnPaused = false;
+//     }
+//   }
+// }
+
+
 
 function tp(t) {
   return t * tileSize;
