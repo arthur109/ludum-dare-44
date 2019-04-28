@@ -1,15 +1,23 @@
 
 var currentLevel;
 var tileSize = 50.0;
-var windowRatio = 12/30;
+var windowRatio = 30.0 / 16.0
 
 
 function setup(){
-  createCanvas(windowWidth,windowWidth*windowRatio);
-  tileSize = width/30;
-  fullscreen();
+    let paddedWidth = windowWidth - 32.0;
+    let paddedHeight = windowHeight - 32.0;
+
+    let paddedRatio = paddedWidth * 1.0 / paddedHeight;
+    if (paddedRatio < windowRatio) {
+        createCanvas(paddedWidth, paddedWidth / windowRatio);
+    } else {
+      createCanvas(paddedHeight * windowRatio,paddedHeight);
+    }
+
+  tileSize = width / 30.0;
   currentLevel = new Level(
-      new Player(5.0, 5.0, 100.0),
+      new Player(4.0, 2.0, 100.0),
       new Map(
           [
               [0, 0, 0, 0, 0, 0],
