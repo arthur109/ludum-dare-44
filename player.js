@@ -74,8 +74,11 @@ class Player {
             let offsetX = offset.x;
             let offsetY = offset.y;
 
-            offsetX = clampMag(offsetX, Math.abs(offsetY));
-            offsetY = clampMag(offsetY, Math.abs(offsetX));
+            if (Math.abs(offsetX) < Math.abs(offsetY)) {
+                offsetY = 0;
+            } else {
+                offsetX = 0;
+            }
 
             this.x += offsetX;
             this.y += offsetY;
