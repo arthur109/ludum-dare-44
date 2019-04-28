@@ -26,6 +26,9 @@ class Player {
         this.leftRunAnimation = new Animator(assets["player"]["left"]["run"], 3);
         this.leftIdleAnimation  = new Animator(assets["player"]["left"]["idle"], 3);
         this.rightIdleAnimation  = new Animator(assets["player"]["right"]["idle"], 3);
+        this.rightRisingAnimation  = new Animator(assets["player"]["right"]["jump"], 3);
+        this.leftRisingAnimation  = new Animator(assets["player"]["left"]["jump"], 3);
+
 
     }
 
@@ -114,6 +117,9 @@ class Player {
         let xOffset = -0.28;
         let yOffset = -0.02;
         // print(this.runAnimation.getFrame());
+        if(this.velY < 0.0){
+
+        }
         if(this.velX == 0.0) {
             if(this.lastHorizDirection >= 0){
                 image(this.rightIdleAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));

@@ -2,15 +2,13 @@ function preload(){
     assets = {
         "player":{
             "left":{
-                "jump-launch":importAllInFolder("assets/playerAnim/jumping/launch/left/",2),
-                "jump-inair":importAllInFolder("assets/playerAnim/jumping/inAir/left/",4),
+                "jump":importAllInFolder("assets/playerAnim/jumping/left/",6),
                 "run":importAllInFolder("assets/playerAnim/running/left/",11),
                 "fall":importAllInFolder("assets/playerAnim/falling/left/",4),
                 "idle":importAllInFolder("assets/playerAnim/idle/left/",2),
             },
             "right":{
-                "jump-launch":importAllInFolder("assets/playerAnim/jumping/launch/right/",2),
-                "jump-inair":importAllInFolder("assets/playerAnim/jumping/inAir/right/",4),
+                "jump":importAllInFolder("assets/playerAnim/jumping/right/",6),
                 "run":importAllInFolder("assets/playerAnim/running/right/",11),
                 "fall":importAllInFolder("assets/playerAnim/falling/right/",4),
                 "idle":importAllInFolder("assets/playerAnim/idle/right/",2),
