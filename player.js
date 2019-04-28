@@ -17,12 +17,12 @@ class Player extends Colliding {
 
         this.rightRunAnimation = new Animator(assets["player"]["right"]["run"], 3,0);
         this.leftRunAnimation = new Animator(assets["player"]["left"]["run"], 3,0);
-        this.leftIdleAnimation  = new Animator(assets["player"]["left"]["idle"], 3,0);
-        this.rightIdleAnimation  = new Animator(assets["player"]["right"]["idle"], 3,0);
-        this.rightRisingAnimation  = new Animator(assets["player"]["right"]["jump"], 4,2);
-        this.leftRisingAnimation  = new Animator(assets["player"]["left"]["jump"], 4,2);
-        this.rightFallingAnimation  = new Animator(assets["player"]["right"]["fall"], 4,0);
-        this.leftFallingAnimation  = new Animator(assets["player"]["left"]["fall"], 4,0);
+        this.leftIdleAnimation  = new Animator(assets["player"]["left"]["idle"], 10,0);
+        this.rightIdleAnimation  = new Animator(assets["player"]["right"]["idle"], 10,0);
+        this.rightRisingAnimation  = new Animator(assets["player"]["right"]["jump"], 6,2);
+        this.leftRisingAnimation  = new Animator(assets["player"]["left"]["jump"], 6,2);
+        this.rightFallingAnimation  = new Animator(assets["player"]["right"]["fall"], 6,0);
+        this.leftFallingAnimation  = new Animator(assets["player"]["left"]["fall"], 6,0);
 
     }
 
@@ -38,8 +38,8 @@ class Player extends Colliding {
         fill(0, 0, 255);
         imageMode(CORNER);
         let xOffset = -0.28;
-        let yOffset = -0.02;
-
+        let yOffset = -0.05;
+        // print(this.runAnimation.getFrame());
         if(this.velY < 0.0){
             if(this.lastHorizDirection >= 0){
                 image(this.rightRisingAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));

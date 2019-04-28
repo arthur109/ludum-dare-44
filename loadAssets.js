@@ -16,12 +16,13 @@ function preload(){
 
         },
         "background":{
-            "forest":importImage("assets/backgrounds/forest.png")
+            "forest":importImage("assets/backgrounds/forest.png"),
+            "darkforest":importImage("assets/backgrounds/darkforest.png")
         },
         "font":{
-            //"title":importFont("assets/fonts/title.ttf"),
-            //"standard":importFont("assets/fonts/standard.ttf"),
-            "tester":"fantasy"
+            "title":importFont("assets/fonts/title.ttf"),
+            "standard":importFont("assets/fonts/standard.ttf"),
+            // "tester":"fantasy"
         }
     }
 }
