@@ -74,13 +74,16 @@ class Player {
             let offsetX = offset.x;
             let offsetY = offset.y;
 
-            offsetX = clampMag(offsetX, Math.abs(offsetY));
-            offsetY = clampMag(offsetY, Math.abs(offsetX));
+            if (Math.abs(offsetX) < Math.abs(offsetY)) {
+                offsetY = 0;
+            } else {
+                offsetX = 0;
+            }
 
             this.x += offsetX;
             this.y += offsetY;
         });
-        
+
         this.colliding.length = 0;
     }
 
@@ -107,19 +110,20 @@ class Player {
     draw() {
         noStroke();
         fill(0, 0, 255);
-        imageMode(CENTER);
+        imageMode(CORNER);
+        let xOffset = -0.28;
         // print(this.runAnimation.getFrame());
         if(this.velX == 0.0) {
             if(this.lastHorizDirection >= 0){
                 image(this.rightIdleAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
             }else{
-                image(this.leftIdleAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+                image(this.leftIdleAnimation.getFrame(), tp(this.x + xOffset), tp(this.y), tp(1.0), tp(1.0));
             }
-        }else
+        }
         if(this.velX >= 0){
-            image(this.rightRunAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+            image(this.rightRunAnimation.getFrame(), tp(this.x + xOffset), tp(this.y), tp(1.0), tp(1.0));
         }else{
-            image(this.leftRunAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+            image(this.leftRunAnimation.getFrame(), tp(this.x + xOffset), tp(this.y), tp(1.0), tp(1.0));
         }
 
         // rect( tp(this.x), tp(this.y), tp(1.0), tp(1.0));
@@ -139,7 +143,7 @@ class Player {
             this.lastHorizDirection = this.velX
 
         }
-        
+
         if (keyIsDown(87) || keyIsDown(38)) { // jumping
             if (this.onGround) {
                 this._jump();
