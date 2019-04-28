@@ -8,9 +8,9 @@ class Player {
         this.velX = 0.0;
         this.velY = 0.0;
 
-        this.jumpPower = 0.36;
-        this.moveSpeed = 0.2;
-        this.gravity = 0.03;
+        this.jumpPower = 0.25;
+        this.moveSpeed = 0.1;
+        this.gravity = 0.02;
         this.drag = 0.85;
 
         this.width = 0.5;
@@ -112,18 +112,18 @@ class Player {
         fill(0, 0, 255);
         imageMode(CORNER);
         let xOffset = -0.28;
+        let yOffset = -0.02;
         // print(this.runAnimation.getFrame());
         if(this.velX == 0.0) {
             if(this.lastHorizDirection >= 0){
-                image(this.rightIdleAnimation.getFrame(), tp(this.x), tp(this.y), tp(1.0), tp(1.0));
+                image(this.rightIdleAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));
             }else{
-                image(this.leftIdleAnimation.getFrame(), tp(this.x + xOffset), tp(this.y), tp(1.0), tp(1.0));
+                image(this.leftIdleAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));
             }
-        }
-        if(this.velX >= 0){
-            image(this.rightRunAnimation.getFrame(), tp(this.x + xOffset), tp(this.y), tp(1.0), tp(1.0));
+        }else if(this.velX >= 0){
+            image(this.rightRunAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));
         }else{
-            image(this.leftRunAnimation.getFrame(), tp(this.x + xOffset), tp(this.y), tp(1.0), tp(1.0));
+            image(this.leftRunAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));
         }
 
         // rect( tp(this.x), tp(this.y), tp(1.0), tp(1.0));
