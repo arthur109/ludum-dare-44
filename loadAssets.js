@@ -17,7 +17,8 @@ function preload(){
         },
         "background":{
             "forest":importImage("assets/backgrounds/forest.png"),
-            "darkforest":importImage("assets/backgrounds/darkforest.png")
+            "darkforest":importImage("assets/backgrounds/darkforest.png"),
+            "hybrid-head":importImage("assets/backgrounds/hybrid-head\".png")
         },
         "font":{
             "title":importFont("assets/fonts/title.ttf"),
@@ -28,8 +29,8 @@ function preload(){
             "inner":importAllInFolder("assets/tiles/inner/",10),
             "exterior":importAllInFolder("assets/tiles/exterior/",5),
             "block":importAllInFolder("assets/tiles/blocks/",4),
-            "spike":importImageOrientations("assets/tiles/spring/"),
-            "spring":importImageOrientations("assets/tiles/spike/")
+            "spike":importImageOrientations("assets/tiles/spike/"),
+            "spring":importImageOrientations("assets/tiles/spring/")
         }
     }
 }

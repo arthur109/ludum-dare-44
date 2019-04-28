@@ -68,7 +68,7 @@ class Spring extends Colliding {
 
     draw(g) {
         g.fill(0, 255, 0);
-        g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+        g.image(assets["tiles"]["spring"]["bot"], tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
 }
 
