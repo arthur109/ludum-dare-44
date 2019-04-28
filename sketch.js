@@ -9,6 +9,8 @@ var pausePage;
 var assets;
 
 
+var frameTimer = 0;
+
 function setup(){
 
     let paddedWidth = windowWidth - 32.0;
@@ -31,10 +33,19 @@ function setup(){
   pausePage = new Pause;
 
   currentUIPage = lobbyPage;
+
+    frameTimer = performance.now();
 }
 
 function draw(){
     if(inGame) {
+        let frameTime = (1.0 / 60.0) * 1000.0;
+
+        while(frameTimer > frameTime) {
+            currentLevel.update();
+            frameTimer -= frameTime;
+        }
+
         currentLevel.update();
         currentLevel.draw();
 
