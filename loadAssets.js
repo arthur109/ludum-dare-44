@@ -32,7 +32,8 @@ function preload(){
             "gem":importAllInFolder("assets/tiles/gem/",7),
             "spike":importImageOrientations("assets/tiles/spike/"),
             "spring":importImageOrientations("assets/tiles/spring/")
-
+        },
+        "audio": {
         }
     }
 }

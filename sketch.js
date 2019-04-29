@@ -67,10 +67,12 @@ function draw() {
 
       if (frameTimer > 100.0) frameTimer = 20.0;
 
-    while (frameTimer > frameTime) {
-      currentLevel.update();
-      frameTimer -= frameTime;
-    }
+    ///while (frameTimer > frameTime) {
+    ///  currentLevel.update();
+    ///  frameTimer -= frameTime;
+    ///}
+      
+    currentLevel.update();
 
     currentLevel.draw();
 
