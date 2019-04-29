@@ -8,10 +8,11 @@ var mapWidth = 30;
 var mapHeight = 16;
 var windowRatio = mapWidth / mapHeight;
 var lobbyPage;
-var optionsPage;
+var tutorialPage;
 var pausePage;
 var layerPage;
 var deathPage;
+var winPage;
 var assets;
 
 var hasPaused = false;
@@ -42,9 +43,10 @@ function setup(){
   currentLevel = getLevel(currentLevelIndex);
   lobbyPage = new Lobby;
   layerPage = new LevelSelect;
-  optionsPage = new Options;
+  optionsPage = new Tutorial;
   pausePage = new Pause;
   deathPage = new Dead;
+  winPage = new Win;
 
   previousUIPage = lobbyPage;
   currentUIPage = lobbyPage;
@@ -153,7 +155,7 @@ function getLevel(index){
                 [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                 [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 
-            ], [addMove(new Spikes(3, 12), 3, 6, 0.01), addMove(new Spring(2, 12, -0.5), 2, 6, 0.02)], assets["background"]["forest"]
+            ], [new Spikes(3, 12), new Bird(3.5, 5.0), new Spring(2, 12, -0.5)], assets["background"]["forest"]
         ),
         new Map(
             [
@@ -195,4 +197,10 @@ function kill(){
   inGame = false;
   previousUIPage=currentUIPage;
   currentUIPage = deathPage;
+}
+
+function win(){
+  inGame = false;
+  previousUIPage=currentUIPage;
+  currentUIPage = winPage;
 }
