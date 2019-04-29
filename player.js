@@ -1,5 +1,5 @@
 class Player extends Colliding {
-    constructor(x, y, health) {
+    constructor(x, y) {
         super(x, y, 0.5, 0.8);
 
         this.velX = 0.0;
@@ -10,7 +10,7 @@ class Player extends Colliding {
         this.gravity = 0.02;
         this.drag = 0.85;
 
-        this.health = health;
+        this.health = 1;
         this.lastHorizDirection = 1;
         this.lastJumpKey = false;
         this.doubleJumpAvail = false;
