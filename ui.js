@@ -146,7 +146,7 @@ class LevelSelect {
       }, tileSize * 2, assets["font"]["title"]),
       new Button(5, 5, 6, 8, "Level 4", function() {
         inGame = true;
-        currentLevelIndex = 1;
+        currentLevelIndex = 4;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
       new Button(15, 5, 16, 8, "Level 5", function() {
