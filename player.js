@@ -104,8 +104,8 @@ class Player extends Colliding {
                 this.TextPadInfo = {
                   "isOnTextPad" : true,
                   "textPadText" : collision.text.toString(),
-                  "xPos" : collision.x,
-                  "yPos" : collision.y
+                  "xPos" : 2,
+                  "yPos" : 2
                 }
                 print(collision.x)
                 break;

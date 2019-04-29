@@ -25,6 +25,10 @@ var winPage;
 var assets;
 var thisMapOrTheOther = 1;
 
+var musicPlaying = false;
+var slider;
+var music;
+
 var deathCounter = 0;
 
 var hasPaused = false;
@@ -48,6 +52,10 @@ function setup() {
     } else {
         createCanvas(paddedHeight * windowRatio, paddedHeight);
     }
+
+    slider = createSlider(0,0.5,1,0.1);
+
+    music = assets["audio"]["lobby"];
 
 
     tileSize = width / mapWidth;
@@ -89,6 +97,21 @@ function draw() {
         }
         currentUIPage.update();
     }
+
+    if(!musicPlaying){
+      if(!inGame && currentUIPage === lobbyPage){
+        music.stop();
+        music = assets["audio"]["lobby"]
+        music.play()
+        musicPlaying = true;
+      }else{
+        music.stop();
+        music = assets["audio"]["lobby"]
+        music.play()
+        musicPlaying = true;
+      }
+    }
+    music.setVolume(slider.value());
 }
 
 function keyPressed() {
