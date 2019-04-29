@@ -246,7 +246,6 @@ class Win{
         new Button(27,14,29,15,"Retry Level",function(){
           currentLevel = getLevel(currentLevelIndex)
           inGame = true;
-
         },tileSize, assets["font"]["standard"],color(0)),
         new Button(15,0.5,17,2.5,"Congrats! You Won!",function(){
           console.log("Yay! You found another easter egg!")
