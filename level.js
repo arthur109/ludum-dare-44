@@ -45,7 +45,7 @@ class Level{
 
     drawHealthBar(health){
         noStroke();
-      rectMode(CENTER);
+      rectMode(CORNERS);
       fill(0);
       rect(tp(9.8),tp(0.8),tp(20.2),tp(2.2));
       fill(255,0,0);

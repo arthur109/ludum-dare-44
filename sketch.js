@@ -188,7 +188,7 @@ function getLevel(index) {
           [0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0]
-        ], [new Gem(20.0, 5.0), ], undefined, 0
+        ], [new Gem(29.0, 5.0), ], undefined, 0
       )
     )
   } else if (index === 2) {
