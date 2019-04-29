@@ -131,7 +131,7 @@ class LevelSelect{
       },tileSize*2, assets["font"]["title"]),
       new Button(15,1,16,4,"Level 2",function(){
           inGame = true;
-          currentLevelIndex = 1;
+          currentLevelIndex = 2;
           currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["title"]),
       new Button(25,1,26,4,"Level 3",function(){
