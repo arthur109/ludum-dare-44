@@ -70,8 +70,8 @@ class Lobby{
 update(){
   imageMode(CORNER);
   tint(255,50);
-  var backImage = assets["background"]["forest"];
-  image(assets["background"]["forest"],0,0,width, width*(backImage.height/backImage.width));
+  var backImage = assets["background"]["hybrid-head"];
+  image(backImage,0,0,width, width*(backImage.height/backImage.width));
   noTint()
   textSize(tileSize*2.5);
   textFont( assets["font"]["title"]);
