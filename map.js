@@ -68,7 +68,7 @@ class Map{
         });
     }
     chooseRandomTile(type){
-        var tileList = assets["tiles"];
+        var tileList = assets["tiles"]["standard"];
         return tileList[int(random(0, tileList.length))]
     }
 }
