@@ -31,7 +31,7 @@ function preload(){
             "block":importAllInFolder("assets/tiles/blocks/",4),
             "spike":importImageOrientations("assets/tiles/spike/"),
             "spring":importImageOrientations("assets/tiles/spring/")
-        }
+        },
         "audio": {
         }
     }
