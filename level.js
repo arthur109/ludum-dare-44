@@ -43,7 +43,10 @@ class Level {
     this.drawHealthBar(this.player.health);
   }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c9175b2981ddf145bc5bad3bce0916899962bd13
   drawHealthBar(health) {
     noStroke();
     rectMode(CORNERS);
@@ -53,7 +56,10 @@ class Level {
     rect(tp(15 - (5 * health)), tp(1), tp(15), tp(2));
     rect(tp(15), tp(1), tp(15 + (5 * health)), tp(2));
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c9175b2981ddf145bc5bad3bce0916899962bd13
 
 
 }

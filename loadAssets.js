@@ -29,8 +29,14 @@ function preload(){
             "inner":importAllInFolder("assets/tiles/inner/",10),
             "exterior":importAllInFolder("assets/tiles/exterior/",5),
             "block":importAllInFolder("assets/tiles/blocks/",4),
+            "gem":importAllInFolder("assets/tiles/gem/",7),
             "spike":importImageOrientations("assets/tiles/spike/"),
             "spring":importImageOrientations("assets/tiles/spring/")
+        },
+        "audio": {
+            "normal":importSound("assets/music/normal.mp3"),
+            "hell":importSound("assets/music/hell.mp3"),
+            "lobby":importSound("assets/music/lobby.mp3"),
         }
     }
 }
@@ -54,6 +60,12 @@ function importImage(path){
     return image;
 }
 
+function importSound(path){
+    var imageLink = "http://206.189.66.217/"+path;
+    console.log(imageLink);
+    var image = loadSound(imageLink);
+    return image;
+}
 
 function importFont(path){
     var imageLink = "http://206.189.66.217/"+path;
