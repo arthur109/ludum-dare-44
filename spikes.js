@@ -66,7 +66,7 @@ class Door extends Colliding {
 
     update(level) {
         if (!this.opened)
-            if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) 
+            if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height}))
                 level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, isBlocking: true});
     }
 
@@ -291,6 +291,26 @@ class Spring extends Colliding {
 
         if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
             level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Spring", isBlocking: true, force: this.force});
+        }
+    }
+
+    draw(g) {
+        g.fill(0, 255, 0);
+        g.image(assets["tiles"]["spring"]["bot"], tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+    }
+}
+
+class TextPad extends Colliding {
+    constructor(x, y, text) {
+        super(x, y + 0.5, 1.0, 0.5);
+        this.text = text.toString();
+    }
+
+    update(level) {
+        super.update(level);
+
+        if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
+            level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "TextPad", isBlocking: false, text: this.text});
         }
     }
 

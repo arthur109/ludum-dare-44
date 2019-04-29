@@ -74,7 +74,7 @@ class Lobby {
 
   update() {
     imageMode(CORNER);
-    tint(255, 50);
+    // tint(255, 200);
     var backImage = assets["background"]["hybrid-head"];
     image(backImage, 0, 0, width, width * (backImage.height / backImage.width));
     noTint()
@@ -179,6 +179,12 @@ class LevelSelect {
         currentUIPage = previousUIPage;
         previousUIPage = a;
         background(0);
+      }, tileSize * 2, assets["font"]["standard"]),
+      new Button(5, 14, 5, 15, "Level Creator", function() {
+        let a = currentUIPage;
+        currentUIPage = previousUIPage;
+        previousUIPage = a;
+        background(0);
       }, tileSize * 2, assets["font"]["standard"])
     ];
     fill(20, 30);
@@ -202,11 +208,13 @@ class Dead {
       new Button(15, 14.75, 17, 15.75, "Restart", function() {
         inGame = true;
         currentLevel = getLevel(currentLevelIndex)
+        thisMapOrTheOther = 1;
       }, tileSize * 2, assets["font"]["standard"]),
       new Button(2, 14, 4, 15, "Back to Lobby", function() {
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage;
         inGame = false;
+        thisMapOrTheOther = 1;
       }, tileSize, assets["font"]["standard"]),
       new Button(15, 0.5, 17, 2.5, "Congrats! You Died!", function() {
         console.log("Yay! You found an easter egg!")
@@ -237,6 +245,7 @@ class Win {
         currentLevelIndex += 1;
         currentLevel = getLevel(currentLevelIndex);
         inGame = true;
+        thisMapOrTheOther = 1;
       }, tileSize * 2, assets["font"]["standard"], color(0)),
       new Button(2, 14, 4, 15, "Back to Lobby", function() {
         previousUIPage = currentUIPage;
@@ -246,6 +255,7 @@ class Win {
       new Button(27, 14, 29, 15, "Retry Level", function() {
         currentLevel = getLevel(currentLevelIndex)
         inGame = true;
+        thisMapOrTheOther = 1;
       }, tileSize, assets["font"]["standard"], color(0)),
       new Button(15, 0.5, 17, 2.5, "Congrats! You Won!", function() {
         console.log("Yay! You found another easter egg!")
@@ -282,8 +292,9 @@ class Pause {
         inGame = true;
         hasPaused = false;
         hasUnPaused = true;
+        thisMapOrTheOther = 1;
       }, tileSize, assets["font"]["standard"]),
-      new Button(15, 3, 17, 4, "Options", function() {
+      new Button(15, 3, 17, 4, "How To Play", function() {
         previousUIPage = currentUIPage;
         currentUIPage = optionsPage;
         inGame = false;
@@ -292,6 +303,7 @@ class Pause {
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage;
         inGame = false;
+        thisMapOrTheOther = 1;
       }, tileSize, assets["font"]["standard"]),
       new Button(15, 5, 17, 6, "Kill Me", function() {
         previousUIPage = currentUIPage;
