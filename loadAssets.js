@@ -18,7 +18,7 @@ function preload(){
         "background":{
             "forest":importImage("assets/backgrounds/forest.png"),
             "darkforest":importImage("assets/backgrounds/darkforest.png"),
-            "hybrid-head":importImage("assets/backgrounds/hybrid-head\".png")
+            "hybrid-head":importImage("assets/backgrounds/hybrid-head.png")
         },
         "font":{
             "title":importFont("assets/fonts/title.ttf"),
