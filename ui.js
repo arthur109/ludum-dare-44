@@ -235,7 +235,8 @@ class Win{
       this.buttons = [
         new Button(15,14.75,17,15.75,"Next Level",function(){
           currentLevelIndex += 1;
-          currentLevel = getLevel(currentLevelIndex)
+          currentLevel = getLevel(currentLevelIndex);
+          inGame = true;
         },tileSize*2, assets["font"]["standard"],color(0)),
         new Button(2,14,4,15,"Back to Lobby",function(){
           previousUIPage = currentUIPage;
@@ -244,6 +245,8 @@ class Win{
         },tileSize, assets["font"]["standard"],color(0)),
         new Button(27,14,29,15,"Retry Level",function(){
           currentLevel = getLevel(currentLevelIndex)
+          inGame = true;
+
         },tileSize, assets["font"]["standard"],color(0)),
         new Button(15,0.5,17,2.5,"Congrats! You Won!",function(){
           console.log("Yay! You found another easter egg!")

@@ -81,6 +81,7 @@ class Player extends Colliding {
                 break;
             }
             case "Gem": {
+                win();
                 console.log("you win");
             }
         }
