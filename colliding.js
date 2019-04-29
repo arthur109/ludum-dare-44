@@ -1,5 +1,5 @@
 class Colliding {
-    constructor(x, y, width, height) {
+    constructor(x, y, width, height, type, blocking) {
         this.x = x;
         this.lastX = x;
         this.y = y;
@@ -8,20 +8,97 @@ class Colliding {
         this.width = width;
         this.height = height;
 
+        this.w = width;
+        this.h = height;
+
         this.onGround = false;
         this.onCeil = false;
         this.onLeft = false;
         this.onRight = false;
 
-        this.blockers = [];
+        this.type = type;
+
+        this.blocking = false;
+        
+        if (blocking === true) {
+            this.blocking = true;
+        }
     }
 
-    update(level) {
-        this.lastX = this.x;
-        this.lastY = this.y;
+    checkCollisions(level) {
+        level.globalMap.nonStatic.forEach((e) => {
+            if (e !== this) {
+                let rect = {x: e.x, y: e.y, w: e.width, h: e.height};
+
+                if (this._isColliding(rect)) {
+                    this.onCollide(e, level);
+                }
+            }
+        })
+        level.currentMap.nonStatic.forEach((e) => {
+            if (e !== this) {
+                let rect = {x: e.x, y: e.y, w: e.width, h: e.height};
+
+                if (this._isColliding(rect)) {
+                    this.onCollide(e, level);
+                }
+            }
+        })
+
+        if (this !== level.player && this._isColliding(level.player)) {
+            this.onCollide(level.player, level);
+        }
     }
 
-    postUpdate(level) {
+    checkBlockers(level) {
+        let blockers = [];
+
+        for (let y = 0; y < level.currentMap.tileMap.length; ++y) {
+            for (let x = 0; x < level.currentMap.tileMap[y].length; ++x) {
+                if (level.currentMap.tileMap[y][x]) {
+                    let rect = {x: x, y: y, w: 1.0, h: 1.0};
+                    if (this._isColliding(rect)) {
+                        blockers.push(rect);
+                    }
+                }
+            }
+        }
+
+
+        level.currentMap.nonStatic.forEach((e) => {
+            if (e !== this) {
+                let rect = {x: e.x, y: e.y, w: e.width, h: e.height};
+
+                if (this._isColliding(rect)) {
+                    if (e.blocking)
+                        blockers.push(rect);
+                }
+            }
+        })
+
+        for (let y = 0; y < level.globalMap.tileMap.length; ++y) {
+            for (let x = 0; x < level.globalMap.tileMap[y].length; ++x) {
+                if (level.globalMap.tileMap[y][x]) {
+                    let rect = {x: x, y: y, w: 1.0, h: 1.0};
+                    if (this._isColliding(rect)) {
+                        blockers.push(rect);
+                    }
+                }
+            }
+        }
+
+
+        level.globalMap.nonStatic.forEach((e) => {
+            if (e !== this) {
+                let rect = {x: e.x, y: e.y, w: e.width, h: e.height};
+
+                if (this._isColliding(rect)) {
+                    if (e.blocking)
+                        blockers.push(rect);
+                }
+            }
+        })
+
         let remaining = []
 
         this.onGround = false;
@@ -29,7 +106,7 @@ class Colliding {
         this.onLeft = false;
         this.onRight = false;
 
-        this.blockers.forEach((e) => {
+        blockers.forEach((e) => {
             if (!this._isBelow(e) && this._isAbove(e) && !this._isRightOf(e) && !this._isLeftOf(e)) {
                 let offset = this._getCollideOffset(e);
                 this.y += offset.y;
@@ -70,7 +147,7 @@ class Colliding {
 
             let handled;
 
-            if (Math.abs(offsetX) > 0.5 || Math.abs(offsetY) > 0.5) {
+            if (Math.abs(offsetX) > 0.4 || Math.abs(offsetY) > 0.4) {
                 handled = this.onCollideOver();
             }
 
@@ -80,13 +157,14 @@ class Colliding {
             }
         });
 
-        this.blockers.length = 0;
+        this.lastX = this.x;
+        this.lastY = this.y;
     }
 
-    onCollide(collision) {
-        if (collision.isBlocking === true) {
-            this.blockers.push(collision);
-        }
+    update(level) {
+    }
+
+    onCollide(collision, level) {
     }
 
     onCollideOver() {

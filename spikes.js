@@ -1,115 +1,107 @@
 class Crate extends Colliding {
     constructor(x, y) {
-        super(x + 0.1, y + 0.1, 0.8, 0.8);
+        super(x + 0.05, y, 0.9, 0.99999, "Crate", true);
+        this.desiredMoveX = 0.0;
     }
 
     update(level) {
-        super.update(level);
-
-        if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height}))
-            level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Crate", isBlocking: true, crate: this});
-
-        level.currentMap.nonStatic.forEach((e) => {
-            if (this._isColliding({x: e.x, y: e.y, w: e.width, h: e.height})) {
-                e.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Crate", isBlocking: true, crate: this});
-            }
-        })
-
         if (!this.onGround)
             this.y += 0.2;
+
+        this.x += this.desiredMoveX;
+        this.desiredMoveX = 0;
+
+        checkBlockers(level);
+    }
+
+    onCollideOver() {
+        this.blocking = false;
     }
 
     draw(g) {
-        g.fill(255, 0, 0);
-        g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+        if (this.blocking) {
+            g.fill(255, 0, 0);
+            g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+        }
     }
 
     move(x) {
-        this.x += x;
+        this.desiredMoveX += x;
     }
 }
 
 class Key extends Colliding {
-    constructor(x, y, doors) {
-        super(x + 0.25, y + 0.25, 0.5, 0.5);
-        this.doors = doors;
+    constructor(x, y, id) {
+        super(x + 0.25, y + 0.25, 0.5, 0.5, "Key");
+
+        this.id = id;
+
+        this.enabled = true;
     }
 
-    postUpdate(level) {
+    onCollide(collision, level) {
+        if (this.enabled) {
+            super.onCollide(collision);
+
+            switch(collision.type) {
+                case "Player": {
+                    this.enabled = false;
+                    
+                    level.defaultMap.nonStatic.forEach((e) => {if (e.type === "Door" && e.id === this.id) e.open()});
+                    level.otherMap.nonStatic.forEach((e) => {if (e.type === "Door" && e.id === this.id) e.open()});
+                    level.globalMap.nonStatic.forEach((e) => {if (e.type === "Door" && e.id === this.id) e.open()});
+
+                    break;
+                }
+            }
+        }
     }
 
     update(level) {
-        super.update(level);
-
-        if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
-            this.doors.forEach((e) => {e.open()});
-        }
-
-        this.doors.forEach((e) => {e.update(level)});
+        checkCollisions(level);
     }
 
     draw(g) {
-        this.doors.forEach((e) => {e.draw(g)});
-        g.fill(0, 255, 0);
-        g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+        if (this.enabled) {
+            g.fill(0, 255, 0);
+            g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+        }
     }
 }
 
 class Door extends Colliding {
-    constructor(x, y) {
-        super(x, y, 1.0, 1.0);
-        this.opened = false;
-    }
+    constructor(x, y, id) {
+        super(x, y, 1.0, 1.0, "Door", true);
 
-    postUpdate(level) {
+        this.id = id;
     }
 
     update(level) {
-        if (!this.opened)
-            if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) 
-                level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, isBlocking: true});
     }
 
     draw(g) {
-        if (!this.opened) {
+        if (this.blocking) {
             g.fill(100);
             g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
         }
     }
 
     open() {
-        this.opened = true;
+        this.blocking = false;
     }
 }
 
-class BotSpike extends Colliding {
-    constructor(x, y, damage) {
-        super(x, y + 0.5, 1.0, 0.5);
-
-        this.lastCollide = false;
+class Spike extends Colliding {
+    constructor(x, y, w, h) {
+        super(x, y, w, h, "Spike", false);
 
         this.damage = 0.25;
 
-        if (damage !== undefined) {
-            this.damage = damage;
-        }
+        this.spikeCollideCounter = 0;
     }
 
-    postUpdate(level) {
-        // don't delete this function
-    }
-
-    update(level) {
-        super.update(level);
-
-        if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
-            if (!this.lastCollide) {
-                level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Damage", damage: 0.25});
-            }
-            this.lastCollide = true;
-        } else {
-            this.lastCollide = false;
-        }
+    update() {
+        ++this.spikeCollideCounter;
     }
 
     draw(g) {
@@ -118,130 +110,38 @@ class BotSpike extends Colliding {
     }
 }
 
+class BotSpike extends Spike {
+    constructor(x, y) {
+        super(x, y + 0.5, 1.0, 0.5);
+    }
+}
+
 class RightSpike extends Colliding {
     constructor(x, y, damage) {
         super(x+ 0.5, y , 0.5, 1);
-
-        this.lastCollide = false;
-
-        this.damage = 0.25;
-
-        if (damage !== undefined) {
-            this.damage = damage;
-        }
-    }
-
-    postUpdate(level) {
-        // don't delete this function
-    }
-
-    update(level) {
-        super.update(level);
-
-        if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
-            if (!this.lastCollide) {
-                level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Damage", damage: 0.25});
-            }
-            this.lastCollide = true;
-        } else {
-            this.lastCollide = false;
-        }
-    }
-
-    draw(g) {
-        g.fill(255, 0, 0);
-        g.image(assets["tiles"]["spike"]["right"],tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
 }
 
 class LeftSpike extends Colliding {
     constructor(x, y, damage) {
         super(x, y , 0.5, 1);
-
-        this.lastCollide = false;
-
-        this.damage = 0.25;
-
-        if (damage !== undefined) {
-            this.damage = damage;
-        }
-    }
-
-    postUpdate(level) {
-        // don't delete this function
-    }
-
-    update(level) {
-        super.update(level);
-
-        if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
-            if (!this.lastCollide) {
-                level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Damage", damage: 0.25});
-            }
-            this.lastCollide = true;
-        } else {
-            this.lastCollide = false;
-        }
-    }
-
-    draw(g) {
-        g.fill(255, 0, 0);
-        g.image(assets["tiles"]["spike"]["left"],tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
 }
 
 class TopSpike extends Colliding {
     constructor(x, y, damage) {
         super(x, y , 1, 0.5);
-
-        this.lastCollide = false;
-
-        this.damage = 0.25;
-
-        if (damage !== undefined) {
-            this.damage = damage;
-        }
-    }
-
-    postUpdate(level) {
-        // don't delete this function
-    }
-
-    update(level) {
-        super.update(level);
-
-        if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
-            if (!this.lastCollide) {
-                level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Damage", damage: 0.25});
-            }
-            this.lastCollide = true;
-        } else {
-            this.lastCollide = false;
-        }
-    }
-
-    draw(g) {
-        g.fill(255, 0, 0);
-        g.image(assets["tiles"]["spike"]["top"],tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
 }
 
 class Gem extends Colliding {
     constructor(x, y) {
-        super(x, y,1.5,1.5);
+        super(x, y,1.5,1.5, "Gem");
         this.animator = new Animator(assets["tiles"]["gem"],4,0);
     }
 
-    postUpdate(level) {
-        // don't delete this function
-    }
 
     update(level) {
-        super.update(level);
-
-        if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
-            level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Gem"});
-        }
     }
 
     draw(g) {
@@ -282,16 +182,11 @@ function addMove(obj, x2, y2, speed) {
 
 class Spring extends Colliding {
     constructor(x, y, force) {
-        super(x, y + 0.5, 1.0, 0.5);
+        super(x, y + 0.5, 1.0, 0.5, "Spring");
         this.force = force;
     }
 
     update(level) {
-        super.update(level);
-
-        if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
-            level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Spring", isBlocking: true, force: this.force});
-        }
     }
 
     draw(g) {
@@ -302,16 +197,10 @@ class Spring extends Colliding {
 
 class Bird extends Colliding {
     constructor(x, y) {
-        super(x - 0.5, y - 0.5, 0.5, 0.5);
+        super(x - 0.5, y - 0.5, 0.5, 0.5, "Bird");
     }
 
     update(level) {
-        super.update(level);
-
-        if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
-            level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "BotSpike"});
-        }
-
         let xDiff = level.player.x - this.x;
         let yDiff = level.player.y - this.y;
 
@@ -320,6 +209,8 @@ class Bird extends Colliding {
 
         this.x += xDiff;
         this.y += yDiff;
+
+        checkBlockers(level);
     }
 
     draw(g) {
