@@ -155,7 +155,7 @@ function getLevel(index){
                 [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                 [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 
-            ], [new Spikes(3, 12), new Bird(3.5, 5.0), new Spring(2, 12, -0.5)], assets["background"]["forest"]
+            ], [new Gem(20.0, 5.0), addMove(new Spikes(3, 12), 3, 6, 0.01), addMove(new Spring(2, 12, -0.5), 2, 6, 0.02)], assets["background"]["forest"]
         ),
         new Map(
             [
@@ -194,6 +194,8 @@ function getLevel(index){
 
 
 function kill(){
+    currentLevel.draw();
+    currentLevel.draw();
   inGame = false;
   previousUIPage=currentUIPage;
   currentUIPage = deathPage;

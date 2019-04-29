@@ -80,8 +80,16 @@ class Player extends Colliding {
                 this.velY = collision.force;
                 break;
             }
+            case "Gem": {
+                console.log("you win");
+            }
         }
 
+    }
+
+    onCollideOver() {
+        kill();
+        return true;
     }
 
     _updateControls() {
