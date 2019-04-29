@@ -41,7 +41,7 @@ class Map{
                 }
             }
         }
-        this.level.player.health -= this.damage;
+        level.player.health -= this.damage;
         this.nonStatic.forEach((e) => {
             e.update(level);
         });
