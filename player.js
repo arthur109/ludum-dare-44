@@ -85,6 +85,11 @@ class Player extends Colliding {
             case "Gem": {
                 win();
                 console.log("you win");
+                break;
+            }
+            case "Crate": {
+                if (this._isLeftOf(collision)) collision.crate.move(0.05);
+                else if (this._isRightOf(collision)) collision.crate.move(-0.05);
             }
         }
 

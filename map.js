@@ -25,6 +25,9 @@ class Map{
     }
 
     update(level) {
+        this.nonStatic.forEach((e) => {
+            e.update(level);
+        });
         for (let y = 0; y < this.tileMap.length; ++y) {
             for (let x = 0; x < this.tileMap[y].length; ++x) {
                 if (this.tileMap[y][x]) {
@@ -42,9 +45,6 @@ class Map{
             }
         }
         level.player.health -= this.damage;
-        this.nonStatic.forEach((e) => {
-            e.update(level);
-        });
     }
 
     postUpdate(level) {

@@ -53,5 +53,4 @@ class Level {
     rect(tp(15), tp(1), tp(15 + (5 * health)), tp(2));
   }
 
-
 }

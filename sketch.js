@@ -32,6 +32,8 @@ var hasClicked = false;
 
 var frameTimer = 0;
 
+var currentMusic = null;
+
 function setup() {
 
     let paddedWidth = windowWidth - 32.0;
@@ -67,20 +69,6 @@ var lastTime = 0;
 function draw() {
   print(mouseX,mouseY);
     if (inGame) {
-        let currTime = performance.now();
-        frameTimer += performance.now() - lastTime;
-
-        lastTime = currTime;
-
-        let frameTime = (1.0 / 60.0) * 1000.0;
-
-        if (frameTimer > 100.0) frameTimer = 20.0;
-
-    while (frameTimer > frameTime) {
-      currentLevel.update();
-      frameTimer -= frameTime;
-    }
-
         currentLevel.update();
 
         currentLevel.draw();
@@ -195,7 +183,7 @@ function getLevel(index) {
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 
-                ], [new Spikes(17, 12),new Spikes(18, 12)], assets["background"]["darkforest"],
+                ], [new BotSpike(17, 11),new BotSpike(18, 12)], assets["background"]["darkforest"],
                 0.0
             ),
             new Map(
@@ -232,7 +220,7 @@ function getLevel(index) {
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 
-                ], [new Spikes(11, 12), new Spikes(12, 12), new Spikes(13, 12), new Spikes(14, 12), new Spikes(15, 12), new Spikes(16, 12), new Spikes(17, 12), new Spikes(18, 12), new Spikes(19, 12), new Spikes(20, 12)], assets["background"]["forest"], 0
+                ], [new BotSpike(11, 12), new BotSpike(12, 12), new BotSpike(13, 12), new BotSpike(14, 12), new BotSpike(15, 12), new BotSpike(16, 12), new BotSpike(17, 12), new BotSpike(18, 12), new BotSpike(19, 12), new BotSpike(20, 12)], assets["background"]["forest"], 0
             ),
             new Map(
                 [
@@ -288,7 +276,7 @@ function getLevel(index) {
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 
-                ], [new Spikes(13, 13)], assets["background"]["forest"], 0
+                ], [new BotSpike(13, 13)], assets["background"]["forest"], 0
             ),
             new Map(
                 [
