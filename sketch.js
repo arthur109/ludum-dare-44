@@ -1,3 +1,12 @@
+// function setup(){
+//   createCanvas(600,600);
+// }
+//
+// function draw(){
+//   background(255,0,0)
+//   ellipse(100,100,300,300)
+// }
+
 var currentUIPage;
 var previousUIPage;
 var currentLevelIndex = 1;
@@ -55,8 +64,8 @@ function setup() {
 }
 
 var lastTime = 0;
-
 function draw() {
+  print(mouseX,mouseY);
     if (inGame) {
         let currTime = performance.now();
         frameTimer += performance.now() - lastTime;
