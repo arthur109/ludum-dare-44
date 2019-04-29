@@ -9,7 +9,7 @@ class Map{
         for (let y = 0; y < this.tileMap.length; ++y) {
             for (let x = 0; x < this.tileMap[y].length; ++x) {
                 if (this.tileMap[y][x] && this.tileMap[y][x]!== 0) {
-                    this.tileMap[y][x] = this.chooseRandomTile(this.tileMap[y][x]);
+                    this.tileMap[y][x] = assets["tiles"]["standard"][(this.tileMap[y][x])];
                 }
             }
         }
@@ -43,9 +43,5 @@ class Map{
         this.nonStatic.forEach((e) => {
             e.draw(this.g);
         });
-    }
-    chooseRandomTile(type){
-        var tileList = assets["tiles"]["standard"];
-        return tileList[int(random(0, tileList.length))]
     }
 }
