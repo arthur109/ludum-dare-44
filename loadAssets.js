@@ -25,14 +25,15 @@ function preload(){
             "standard":importFont("assets/fonts/standard.ttf"),
             // "tester":"fantasy"
         },
-        "tiles":{
-            "inner":importAllInFolder("assets/tiles/inner/",10),
-            "exterior":importAllInFolder("assets/tiles/exterior/",5),
-            "block":importAllInFolder("assets/tiles/blocks/",4),
+        "tiles": {
+            "standard" : importAllInFolder("assets/tiles/exportedTiles/",44),
+            // "inner":importAllInFolder("assets/tiles/inner/",10),
+            // "exterior":importAllInFolder("assets/tiles/exterior/",5),
+            // "block":importAllInFolder("assets/tiles/blocks/",4),
             "gem":importAllInFolder("assets/tiles/gem/",7),
             "spike":importImageOrientations("assets/tiles/spike/"),
             "spring":importImageOrientations("assets/tiles/spring/")
-        },
+            },
         "audio": {
             "normal":importSound("assets/music/normal.mp3"),
             "hell":importSound("assets/music/hell.mp3"),

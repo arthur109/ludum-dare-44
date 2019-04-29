@@ -1,18 +1,9 @@
-
-
-
 class Map{
-    constructor(tileMap, nonStatic, background, damage){
-        this.mapCode = {
-            1: assets["tiles"]["inner"],
-            2: assets["tiles"]["exterior"],
-            3: assets["tiles"]["block"]
-        };
+    constructor(tileMap, nonStatic, background){
 
         this.tileMap = tileMap;
         this.nonStatic = nonStatic;
         this.background = background;
-        this.damage = damage
         this.g = createGraphics(width, height);
 
         for (let y = 0; y < this.tileMap.length; ++y) {
@@ -28,8 +19,6 @@ class Map{
         this.nonStatic.forEach((e) => {
             e.update(level);
         });
-
-        level.player.health -= this.damage;
     }
 
     render() {
@@ -56,9 +45,7 @@ class Map{
         });
     }
     chooseRandomTile(type){
-        var tileList = this.mapCode[type];
+        var tileList = assets["tiles"]["standard"];
         return tileList[int(random(0, tileList.length))]
     }
 }
-
-

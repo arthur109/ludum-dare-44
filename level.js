@@ -1,7 +1,7 @@
 class Level {
-  constructor(player, defaultMap, otherMap, globalMap) {
+  constructor(player, defaultMap, otherMap, globalMap, damage) {
     this.player = player;
-
+    this.damage = 1/damage;
     this.defaultMap = defaultMap;
     this.otherMap = otherMap;
     this.globalMap = globalMap;
@@ -17,6 +17,9 @@ class Level {
 
     this.globalMap.update(this);
     this.currentMap.update(this);
+    if(this.player.y > tp(mapHeight)){
+      kill();
+    }
   }
 
 

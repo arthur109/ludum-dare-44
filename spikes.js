@@ -11,7 +11,7 @@ class Crate extends Colliding {
         this.x += this.desiredMoveX;
         this.desiredMoveX = 0;
 
-        checkBlockers(level);
+        this.checkBlockers(level);
     }
 
     onCollideOver() {
@@ -58,7 +58,7 @@ class Key extends Colliding {
     }
 
     update(level) {
-        checkCollisions(level);
+        this.checkCollisions(level);
     }
 
     draw(g) {
@@ -195,6 +195,21 @@ class Spring extends Colliding {
     }
 }
 
+class TextPad extends Colliding {
+    constructor(x, y, text) {
+        super(x, y + 0.5, 1.0, 0.5, "TextPad", false);
+        this.text = text.toString();
+    }
+
+    update(level) {
+    }
+
+    draw(g) {
+        g.fill(0, 255, 0);
+        g.image(assets["tiles"]["spring"]["bot"], tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+    }
+}
+
 class Bird extends Colliding {
     constructor(x, y) {
         super(x - 0.5, y - 0.5, 0.5, 0.5, "Bird");
@@ -210,7 +225,7 @@ class Bird extends Colliding {
         this.x += xDiff;
         this.y += yDiff;
 
-        checkBlockers(level);
+        this.checkBlockers(level);
     }
 
     draw(g) {
