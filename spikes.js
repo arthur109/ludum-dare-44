@@ -1,5 +1,5 @@
 
-class Spikes extends Colliding {
+class BotSpike extends Colliding {
     constructor(x, y, damage) {
         super(x, y + 0.5, 1.0, 0.5);
 
@@ -32,6 +32,42 @@ class Spikes extends Colliding {
     draw(g) {
         g.fill(255, 0, 0);
         g.image(assets["tiles"]["spike"]["bot"],tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+    }
+}
+
+class RightSpike extends Colliding {
+    constructor(x, y, damage) {
+        super(x+ 0.5, y , 0.5, 1);
+
+        this.lastCollide = false;
+
+        this.damage = 0.25;
+
+        if (damage !== undefined) {
+            this.damage = damage;
+        }
+    }
+
+    postUpdate(level) {
+        // don't delete this function
+    }
+
+    update(level) {
+        super.update(level);
+
+        if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
+            if (!this.lastCollide) {
+                level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Damage", damage: 0.25});
+            }
+            this.lastCollide = true;
+        } else {
+            this.lastCollide = false;
+        }
+    }
+
+    draw(g) {
+        g.fill(255, 0, 0);
+        g.image(assets["tiles"]["spike"]["right"],tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
 }
 
@@ -118,7 +154,7 @@ class Bird extends Colliding {
         super.update(level);
 
         if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
-            level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Spikes"});
+            level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "BotSpike"});
         }
 
         let xDiff = level.player.x - this.x;

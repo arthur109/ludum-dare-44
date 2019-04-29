@@ -186,7 +186,7 @@ function getLevel(index) {
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 
-                ], [new Spikes(17, 12),new Spikes(18, 12)], assets["background"]["darkforest"],
+                ], [new RightSpike(17, 12),new BotSpike(18, 12)], assets["background"]["darkforest"],
                 0.0
             ),
             new Map(
@@ -223,7 +223,7 @@ function getLevel(index) {
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 
-                ], [new Spikes(11, 12), new Spikes(12, 12), new Spikes(13, 12), new Spikes(14, 12), new Spikes(15, 12), new Spikes(16, 12), new Spikes(17, 12), new Spikes(18, 12), new Spikes(19, 12), new Spikes(20, 12)], assets["background"]["forest"], 0
+                ], [new BotSpike(11, 12), new BotSpike(12, 12), new BotSpike(13, 12), new BotSpike(14, 12), new BotSpike(15, 12), new BotSpike(16, 12), new BotSpike(17, 12), new BotSpike(18, 12), new BotSpike(19, 12), new BotSpike(20, 12)], assets["background"]["forest"], 0
             ),
             new Map(
                 [
@@ -279,7 +279,7 @@ function getLevel(index) {
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 
-                ], [new Spikes(13, 13)], assets["background"]["forest"], 0
+                ], [new BotSpike(13, 13)], assets["background"]["forest"], 0
             ),
             new Map(
                 [
