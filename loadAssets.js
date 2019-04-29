@@ -32,6 +32,8 @@ function preload(){
             "spike":importImageOrientations("assets/tiles/spike/"),
             "spring":importImageOrientations("assets/tiles/spring/")
         }
+        "audio": {
+        }
     }
 }
 
