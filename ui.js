@@ -51,11 +51,14 @@ class Lobby {
       new Button(15, 6, 17, 7, "New Game", function() {
         inGame = true;
         currentLevelIndex = 1;
-        currentLevel = getLevel(currentLevelIndex)
+        currentLevel = getLevel(currentLevelIndex),
+        thisMapOrTheOther = 1;
+        musicPlaying = false;
       }, tileSize * 2, assets["font"]["standard"]),
       new Button(15, 7, 17, 8, "Continue Game: Level " + currentLevelIndex, function() {
         currentLevel = getLevel(currentLevelIndex);
         inGame = true;
+        musicPlaying = false;
       }, tileSize, assets["font"]["standard"]),
       new Button(15, 8, 17, 9, "Select Level", function() {
         previousUIPage = currentUIPage;
@@ -63,7 +66,7 @@ class Lobby {
       }, tileSize, assets["font"]["standard"]),
       new Button(15, 9, 17, 10, "How To Play", function() {
         previousUIPage = currentUIPage;
-        currentUIPage = tutorialPage
+        currentUIPage = optionsPage;
       }, tileSize, assets["font"]["standard"]),
       new Button(15, 10, 17, 11, "Exit", function() {
         previousUIPage = currentUIPage;
@@ -133,44 +136,53 @@ class LevelSelect {
         inGame = true;
         currentLevelIndex = 1;
         currentLevel = getLevel(currentLevelIndex)
+        musicPlaying = false;
       }, tileSize * 2, assets["font"]["title"]),
       new Button(15, 1, 16, 4, "Level 2", function() {
         inGame = true;
+        musicPlaying = false;
         currentLevelIndex = 2;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
       new Button(25, 1, 26, 4, "Level 3", function() {
         inGame = true;
+        musicPlaying = false;
         currentLevelIndex = 3;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
       new Button(5, 5, 6, 8, "Level 4", function() {
         inGame = true;
+        musicPlaying = false;
         currentLevelIndex = 4;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
       new Button(15, 5, 16, 8, "Level 5", function() {
         inGame = true;
+        musicPlaying = false;
         currentLevelIndex = 1;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
       new Button(25, 5, 26, 8, "Level 6", function() {
         inGame = true;
+        musicPlaying = false;
         currentLevelIndex = 1;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
       new Button(5, 9, 6, 12, "Level 7", function() {
         inGame = true;
+        musicPlaying = false;
         currentLevelIndex = 1;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
       new Button(15, 9, 16, 12, "Level 8", function() {
         inGame = true;
+        musicPlaying = false;
         currentLevelIndex = 1;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
       new Button(25, 9, 26, 12, "Level 9", function() {
         inGame = true;
+        musicPlaying = false;
         currentLevelIndex = 1;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
@@ -214,6 +226,7 @@ class Dead {
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage;
         inGame = false;
+        musicPlaying = false;
         thisMapOrTheOther = 1;
       }, tileSize, assets["font"]["standard"]),
       new Button(15, 0.5, 17, 2.5, "Congrats! You Died!", function() {
@@ -251,6 +264,7 @@ class Win {
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage;
         inGame = false;
+        musicPlaying = false;
       }, tileSize, assets["font"]["standard"], color(0)),
       new Button(27, 14, 29, 15, "Retry Level", function() {
         currentLevel = getLevel(currentLevelIndex)
@@ -303,6 +317,7 @@ class Pause {
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage;
         inGame = false;
+        musicPlaying = false;
         thisMapOrTheOther = 1;
       }, tileSize, assets["font"]["standard"]),
       new Button(15, 5, 17, 6, "Kill Me", function() {
@@ -310,13 +325,13 @@ class Pause {
         currentUIPage = deathPage;
         inGame = false;
         currentLevel.draw();
-      }, tileSize, assets["font"]["standard"]),
-      new Button(15, 6, 17, 7, "Win Me", function() {
-        previousUIPage = currentUIPage;
-        currentUIPage = winPage;
-        inGame = false;
-        currentLevel.draw();
-      }, tileSize, assets["font"]["standard"])
+      }, tileSize, assets["font"]["standard"])//,
+      // new Button(15, 6, 17, 7, "Win Me", function() {
+      //   previousUIPage = currentUIPage;
+      //   currentUIPage = winPage;
+      //   inGame = false;
+      //   currentLevel.draw();
+      // }, tileSize, assets["font"]["standard"])
     ];
   }
 
