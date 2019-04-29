@@ -54,16 +54,24 @@ function setup() {
   frameTimer = performance.now();
 }
 
+var lastTime = 0;
+
 function draw() {
   if (inGame) {
+      let currTime = performance.now();
+   frameTimer += performance.now() - lastTime;
+
+    lastTime = currTime;
+
     let frameTime = (1.0 / 60.0) * 1000.0;
+
+      if (frameTimer > 100.0) frameTimer = 20.0;
 
     while (frameTimer > frameTime) {
       currentLevel.update();
       frameTimer -= frameTime;
     }
 
-    currentLevel.update();
     currentLevel.draw();
 
     if (hasPaused) {
