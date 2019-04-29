@@ -29,8 +29,10 @@ function preload(){
             "inner":importAllInFolder("assets/tiles/inner/",10),
             "exterior":importAllInFolder("assets/tiles/exterior/",5),
             "block":importAllInFolder("assets/tiles/blocks/",4),
+            "gem":importAllInFolder("assets/tiles/gem/",7),
             "spike":importImageOrientations("assets/tiles/spike/"),
             "spring":importImageOrientations("assets/tiles/spring/")
+
         }
     }
 }
