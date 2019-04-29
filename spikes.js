@@ -22,6 +22,29 @@ class Spikes extends Colliding {
     }
 }
 
+class Gem extends Colliding {
+    constructor(x, y) {
+        super(x + 0.25, y + 0.25, 0.5, 0.5);
+    }
+
+    postUpdate(level) {
+        // don't delete this function
+    }
+
+    update(level) {
+        super.update(level);
+
+        if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
+            level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Gem"});
+        }
+    }
+
+    draw(g) {
+        g.fill(255, 255, 0);
+        g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+    }
+}
+
 function addMove(obj, x2, y2, speed) {
     obj.init = createVector(obj.x, obj.y);
     obj.end = createVector(x2, y2);

@@ -1,5 +1,5 @@
 class Button{
-  constructor(x1,y1,x2,y2,text,action,size,font){
+  constructor(x1,y1,x2,y2,text,action,size,font,collor){
     this.x1 = x1;
     this.x2 = x2;
     this.y1 = y1;
@@ -8,6 +8,11 @@ class Button{
     this.action = action;
     this.size = size;
     this.font = font;
+    if(collor != undefined){
+      this.color = collor
+    }else{
+      this.color = color(255,255,255);
+    }
   }
 
   update(){
@@ -25,7 +30,7 @@ class Button{
     if(mouseAbove){
       fill(136,86,148);
     }else{
-      fill(255)
+      fill(this.color)
     }
 
     textSize(this.size);
@@ -56,9 +61,9 @@ class Lobby{
         previousUIPage = currentUIPage;
         currentUIPage = layerPage;
       },tileSize, assets["font"]["standard"]),
-      new Button(15,9,17,10,"Options",function(){
+      new Button(15,9,17,10,"How To Play",function(){
         previousUIPage = currentUIPage;
-        currentUIPage = optionsPage
+        currentUIPage = tutorialPage
       },tileSize, assets["font"]["standard"]),
       new Button(15,10,17,11,"Exit",function(){
         previousUIPage = currentUIPage;
@@ -70,14 +75,14 @@ class Lobby{
 update(){
   imageMode(CORNER);
   tint(255,50);
-  var backImage = assets["background"]["hybrid-head"];
-  image(backImage,0,0,width, width*(backImage.height/backImage.width));
+  var backImage = assets["background"]["forest"];
+  image(assets["background"]["forest"],0,0,width, width*(backImage.height/backImage.width));
   noTint()
   textSize(tileSize*2.5);
   textFont( assets["font"]["title"]);
   fill(255);
   textAlign(CENTER);
-  text("Flip Me Off", tp(15),tp(4));
+  text("Flip Me Off!", tp(15),tp(4));
   textAlign(CENTER);
   // fill(0);
   // textSize(129);
@@ -91,7 +96,7 @@ update(){
 
 }
 
-class Options{
+class Tutorial{
   constructor(){
     this.buttons = [
       new Button(15,5,17,6,"Volume",function(){
@@ -225,6 +230,43 @@ class Dead{
 
 }
 
+class Win{
+    constructor(){
+      this.buttons = [
+        new Button(15,14.75,17,15.75,"Next Level",function(){
+          currentLevelIndex += 1;
+          currentLevel = getLevel(currentLevelIndex)
+        },tileSize*2, assets["font"]["standard"],color(0)),
+        new Button(2,14,4,15,"Back to Lobby",function(){
+          previousUIPage = currentUIPage;
+          currentUIPage = lobbyPage;
+          inGame = false;
+        },tileSize, assets["font"]["standard"],color(0)),
+        new Button(27,14,29,15,"Retry Level",function(){
+          currentLevel = getLevel(currentLevelIndex)
+        },tileSize, assets["font"]["standard"],color(0)),
+        new Button(15,0.5,17,2.5,"Congrats! You Won!",function(){
+          console.log("Yay! You found another easter egg!")
+        },tileSize*3, assets["font"]["standard"],color(0))
+      ];
+      fill(255,30);
+      rect(tp(0),tp(0),tp(30),tp(12));
+    }
+
+
+  update(){
+    fill(255);
+    rect(tp(0),tp(0),tp(mapWidth),tp(3));
+    rect(tp(0),tp(mapHeight-2),tp(mapWidth),tp(mapHeight));
+
+
+    for(var x = 0; x<this.buttons.length;++x) {
+      this.buttons[x].update();
+    }
+  }
+
+}
+
 class Pause{
   constructor(){
     this.buttons = [
@@ -252,6 +294,12 @@ class Pause{
       new Button(15,5,17,6,"Kill Me",function(){
         previousUIPage = currentUIPage;
         currentUIPage = deathPage;
+        inGame = false;
+        currentLevel.draw();
+      },tileSize, assets["font"]["standard"]),
+      new Button(15,6,17,7,"Win Me",function(){
+        previousUIPage = currentUIPage;
+        currentUIPage = winPage;
         inGame = false;
         currentLevel.draw();
       },tileSize, assets["font"]["standard"])

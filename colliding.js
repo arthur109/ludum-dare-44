@@ -68,12 +68,16 @@ class Colliding {
                 offsetX = 0;
             }
 
-            if (Math.abs(offsetX) > 0.1 || Math.abs(offsetY) > 0.1) {
-                this.onCollideOver();
+            let handled;
+
+            if (Math.abs(offsetX) > 0.5 || Math.abs(offsetY) > 0.5) {
+                handled = this.onCollideOver();
             }
 
-            this.x += offsetX;
-            this.y += offsetY;
+            if (handled !== true) {
+                this.x += offsetX;
+                this.y += offsetY;
+            }
         });
 
         this.blockers.length = 0;
