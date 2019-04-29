@@ -186,7 +186,7 @@ function getLevel(index) {
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 
-                ], [new RightSpike(17, 12),new BotSpike(18, 12)], assets["background"]["darkforest"],
+                ], [new BotSpike(17, 11),new BotSpike(18, 12)], assets["background"]["darkforest"],
                 0.0
             ),
             new Map(
