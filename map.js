@@ -3,11 +3,6 @@
 
 class Map{
     constructor(tileMap, nonStatic, background, damage){
-        this.mapCode = {
-            1: assets["tiles"]["inner"],
-            2: assets["tiles"]["exterior"],
-            3: assets["tiles"]["block"]
-        };
 
         this.tileMap = tileMap;
         this.nonStatic = nonStatic;
@@ -77,7 +72,7 @@ class Map{
         });
     }
     chooseRandomTile(type){
-        var tileList = this.mapCode[type];
+        var tileList = assets["tiles"];
         return tileList[int(random(0, tileList.length))]
     }
 }
