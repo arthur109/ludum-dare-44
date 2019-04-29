@@ -183,7 +183,7 @@ class LevelSelect {
       new Button(25, 9, 26, 12, "Level 9", function() {
         inGame = true;
         musicPlaying = false;
-        currentLevelIndex = 1;
+        currentLevelIndex = 9;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
       new Button(15, 14, 15, 15, "Return", function() {
