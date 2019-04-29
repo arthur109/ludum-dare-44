@@ -23,6 +23,8 @@ var hasClicked = false;
 
 var frameTimer = 0;
 
+var currentMusic = null;
+
 function setup() {
 
   let paddedWidth = windowWidth - 32.0;
@@ -162,7 +164,7 @@ function getLevel(index) {
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
           [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 
-        ], [addMove(new Spikes(3, 12), 3, 6, 0.01), addMove(new Spring(2, 12, -0.5), 2, 6, 0.02)], assets["background"]["forest"],
+        ], [addMove(new Spikes(3, 12), 3, 6, 0.01), addMove(new Spring(2, 12, -0.5), 2, 6, 0.02), new Key(5, 8, [new Door(7, 8)]), new Crate(10, 2), new Crate(10, 0)], assets["background"]["forest"],
         0
       ),
       new Map(
