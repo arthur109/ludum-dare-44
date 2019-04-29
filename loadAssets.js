@@ -34,6 +34,9 @@ function preload(){
             "spring":importImageOrientations("assets/tiles/spring/")
         },
         "audio": {
+            "normal":loadSound("assets/music/normal.mp3"),
+            "hell":loadSound("assets/music/hell.mp3"),
+            "lobby":loadSound("assets/music/lobby.mp3"),
         }
     }
 }
@@ -57,6 +60,12 @@ function importImage(path){
     return image;
 }
 
+function importImage(path){
+    var imageLink = "http://206.189.66.217/"+path;
+    console.log(imageLink);
+    var image = loadSound(imageLink);
+    return image;
+}
 
 function importFont(path){
     var imageLink = "http://206.189.66.217/"+path;
