@@ -15,6 +15,14 @@ class Player extends Colliding {
         this.lastJumpKey = false;
         this.doubleJumpAvail = false;
 
+        this.TextPadInfo = {
+            "isOnTextPad" : false,
+            "textPadText" : "",
+            "xPos" : 0,
+            "yPos" : 0
+
+        }
+
         this.rightRunAnimation = new Animator(assets["player"]["right"]["run"], 3,0);
         this.leftRunAnimation = new Animator(assets["player"]["left"]["run"], 3,0);
         this.leftIdleAnimation  = new Animator(assets["player"]["left"]["idle"], 10,0);
@@ -27,14 +35,16 @@ class Player extends Colliding {
     }
 
     update(level) {
-        if (this.health <= 0) kill();
+        if (this.health <= 0.0001) kill();
 
         this.level = level;
         super.update(level);
         this._updateControls();
         this._move();
     }
+    drawtext(){
 
+    }
     draw() {
         noStroke();
         fill(0, 0, 255);
@@ -65,6 +75,14 @@ class Player extends Colliding {
         }else{
             image(this.leftRunAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));
         }
+        if(this.TextPadInfo["isOnTextPad"] === true){
+              textSize(tileSize);
+              fill(255);
+              // rect(200,200,400,400)
+              text(this.TextPadInfo["textPadText"],tp(this.TextPadInfo["xPos"]),tp(this.TextPadInfo["xPos"]));
+              print('asdffasdf')
+        }
+        this.TextPadInfo["isOnTextPad"] = false;
 
         // rect( tp(this.x), tp(this.y), tp(1.0), tp(1.0));
     }
@@ -80,6 +98,16 @@ class Player extends Colliding {
             }
             case "Spring": {
                 this.velY = collision.force;
+                break;
+            }
+            case "TextPad": {
+                this.TextPadInfo = {
+                  "isOnTextPad" : true,
+                  "textPadText" : collision.text.toString(),
+                  "xPos" : collision.x,
+                  "yPos" : collision.y
+                }
+                print(collision.x)
                 break;
             }
             case "Gem": {
@@ -129,18 +157,13 @@ class Player extends Colliding {
             this.lastJumpKey = false;
         }
 
-        if (keyIsDown(75) || keyIsDown(88)) {
-            this.level.currentMap = this.level.otherMap;
-        } else {
-            this.level.currentMap = this.level.defaultMap;
-        }
-
         if (keyIsDown(76)) {
             this.level.peeking = true;
         } else {
             this.level.peeking = false;
         }
     }
+
     _jump(){
         this.rightRisingAnimation.reset();
         this.leftRisingAnimation.reset();

@@ -1,8 +1,5 @@
-
-
-
 class Map{
-    constructor(tileMap, nonStatic, background, damage){
+    constructor(tileMap, nonStatic, background){
         this.mapCode = {
             1: assets["tiles"]["inner"],
             2: assets["tiles"]["exterior"],
@@ -12,7 +9,6 @@ class Map{
         this.tileMap = tileMap;
         this.nonStatic = nonStatic;
         this.background = background;
-        this.damage = damage
         this.g = createGraphics(width, height);
 
         for (let y = 0; y < this.tileMap.length; ++y) {
@@ -40,11 +36,11 @@ class Map{
                             e.onCollide({x: x, y: y, w: 1.0, h: 1.0, isBlocking: true});
                         }
                     });
-                    
+
                 }
             }
         }
-        level.player.health -= this.damage;
+        // level.player.health -= this.damage;//only for hold-to-flip
     }
 
     postUpdate(level) {
@@ -81,5 +77,3 @@ class Map{
         return tileList[int(random(0, tileList.length))]
     }
 }
-
-
