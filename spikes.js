@@ -1,7 +1,15 @@
 
 class Spikes extends Colliding {
-    constructor(x, y) {
+    constructor(x, y, damage) {
         super(x, y + 0.5, 1.0, 0.5);
+
+        this.lastCollide = false;
+
+        this.damage = 0.25;
+
+        if (damage !== undefined) {
+            this.damage = damage;
+        }
     }
 
     postUpdate(level) {
@@ -12,7 +20,12 @@ class Spikes extends Colliding {
         super.update(level);
 
         if (this._isColliding({x: level.player.x, y: level.player.y, w: level.player.width, h: level.player.height})) {
-            level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Spikes", isBlocking: true});
+            if (!this.lastCollide) {
+                level.player.onCollide({x: this.x, y: this.y, w: this.width, h: this.height, type: "Damage", damage: 0.25});
+            }
+            this.lastCollide = true;
+        } else {
+            this.lastCollide = false;
         }
     }
 

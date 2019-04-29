@@ -27,6 +27,8 @@ class Player extends Colliding {
     }
 
     update(level) {
+        if (this.health <= 0) kill();
+
         this.level = level;
         super.update(level);
         this._updateControls();
@@ -71,9 +73,9 @@ class Player extends Colliding {
         super.onCollide(collision);
 
         switch(collision.type) {
-            case "Spikes": {
-                console.log("you are dead");
-                kill();
+            case "Damage": {
+                this.health -= collision.damage;
+                console.log(this.health);
                 break;
             }
             case "Spring": {
