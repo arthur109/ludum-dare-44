@@ -2,7 +2,7 @@
 
 
 class Map{
-    constructor(tileMap, nonStatic, background){
+    constructor(tileMap, nonStatic, background, damage){
         this.mapCode = {
             1: assets["tiles"]["inner"],
             2: assets["tiles"]["exterior"],
@@ -12,7 +12,7 @@ class Map{
         this.tileMap = tileMap;
         this.nonStatic = nonStatic;
         this.background = background;
-
+        this.damage = damage
         this.g = createGraphics(width, height);
 
         for (let y = 0; y < this.tileMap.length; ++y) {
@@ -41,7 +41,7 @@ class Map{
                 }
             }
         }
-
+        this.level.player.health -= this.damage;
         this.nonStatic.forEach((e) => {
             e.update(level);
         });
