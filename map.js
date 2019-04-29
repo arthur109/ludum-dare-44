@@ -19,29 +19,6 @@ class Map{
         this.nonStatic.forEach((e) => {
             e.update(level);
         });
-        for (let y = 0; y < this.tileMap.length; ++y) {
-            for (let x = 0; x < this.tileMap[y].length; ++x) {
-                if (this.tileMap[y][x]) {
-                    if (isColliding(x, y, 1.0, 1.0, level.player.x, level.player.y, level.player.width, level.player.height)) {
-                        level.player.onCollide({x: x, y: y, w: 1.0, h: 1.0, isBlocking: true});
-                    }
-
-                    this.nonStatic.forEach((e) => {
-                        if (isColliding(x, y, 1.0, 1.0, e.x, e.y, e.width, e.height)) {
-                            e.onCollide({x: x, y: y, w: 1.0, h: 1.0, isBlocking: true});
-                        }
-                    });
-
-                }
-            }
-        }
-        // level.player.health -= this.damage;//only for hold-to-flip
-    }
-
-    postUpdate(level) {
-        this.nonStatic.forEach((e) => {
-            e.postUpdate(level);
-        });
     }
 
     render() {

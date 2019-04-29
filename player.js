@@ -1,6 +1,6 @@
 class Player extends Colliding {
     constructor(x, y) {
-        super(x, y, 0.5, 0.8);
+        super(x, y, 0.5, 0.8, "Player");
 
         this.velX = 0.0;
         this.velY = 0.0;
@@ -38,9 +38,13 @@ class Player extends Colliding {
         if (this.health <= 0.0001) kill();
 
         this.level = level;
-        super.update(level);
         this._updateControls();
         this._move();
+
+        ++this.spikeCollideCounter;
+
+        this.checkCollisions(level);
+        this.checkBlockers(level);
     }
     drawtext(){
 
@@ -91,9 +95,11 @@ class Player extends Colliding {
         super.onCollide(collision);
 
         switch(collision.type) {
-            case "Damage": {
-                this.health -= collision.damage;
-                console.log(this.health);
+            case "Spike": {
+                if (collision.spikeCollideCounter > 3) {
+                    this.health -= 0.25;
+                }
+                collision.spikeCollideCounter = 0;
                 break;
             }
             case "Spring": {
@@ -116,8 +122,8 @@ class Player extends Colliding {
                 break;
             }
             case "Crate": {
-                if (this._isLeftOf(collision)) collision.crate.move(0.05);
-                else if (this._isRightOf(collision)) collision.crate.move(-0.05);
+                if (this._isLeftOf(collision)) collision.move(0.15);
+                else if (this._isRightOf(collision)) collision.move(-0.15);
             }
         }
 
@@ -180,8 +186,6 @@ class Player extends Colliding {
 
         this.velX = clampMag(this.velX, Math.abs(this.velX) - (this.onGround ? 0.03 : 0.015));
 
-        this.lastX = this.x;
-        this.lastY = this.y;
 
         this.x += this.velX;
         this.y += this.velY;

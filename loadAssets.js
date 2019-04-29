@@ -26,7 +26,7 @@ function preload(){
             // "tester":"fantasy"
         },
         "tiles": {
-            "standard" : importAllInFolder("assets/tiles/exportedTiles/",38),
+            "standard" : importAllInFolder("assets/tiles/exportedTiles/",44),
             // "inner":importAllInFolder("assets/tiles/inner/",10),
             // "exterior":importAllInFolder("assets/tiles/exterior/",5),
             // "block":importAllInFolder("assets/tiles/blocks/",4),
