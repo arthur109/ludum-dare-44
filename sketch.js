@@ -71,8 +71,6 @@ function draw() {
       currentLevel.update();
       frameTimer -= frameTime;
     }
-      
-    currentLevel.update();
 
     currentLevel.draw();
 
