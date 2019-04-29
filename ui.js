@@ -49,8 +49,8 @@ class Lobby{
         currentLevel = getLevel(currentLevelIndex)
       },tileSize*2, assets["font"]["standard"]),
       new Button(15,7,17,8,"Continue Game: Level "+currentLevelIndex,function(){
-        inGame = true;
         currentLevel = getLevel(currentLevelIndex);
+        inGame = true;
       },tileSize, assets["font"]["standard"]),
       new Button(15,8,17,9,"Select Level",function(){
         previousUIPage = currentUIPage;
@@ -230,10 +230,14 @@ class Pause{
     this.buttons = [
       new Button(15,1,17,2,"Resume",function(){
         inGame = true;
+        hasUnPaused = true;
+        hasPaused = false;
       },tileSize, assets["font"]["standard"]),
       new Button(15,2,17,3,"Restart",function(){
         currentLevel = getLevel(currentLevelIndex);
         inGame = true;
+        hasPaused = false;
+        hasUnPaused = true;
       },tileSize, assets["font"]["standard"]),
       new Button(15,3,17,4,"Options",function(){
         previousUIPage = currentUIPage;
