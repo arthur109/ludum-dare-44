@@ -83,8 +83,7 @@ class Player extends Colliding {
               textSize(tileSize);
               fill(255);
               // rect(200,200,400,400)
-              text(this.TextPadInfo["textPadText"],tp(this.TextPadInfo["xPos"]),tp(this.TextPadInfo["xPos"]));
-              print('asdffasdf')
+              text(this.TextPadInfo["textPadText"],tp(this.TextPadInfo["xPos"]),tp(this.TextPadInfo["yPos"]));
         }
         this.TextPadInfo["isOnTextPad"] = false;
 
@@ -111,7 +110,7 @@ class Player extends Colliding {
                   "isOnTextPad" : true,
                   "textPadText" : collision.text.toString(),
                   "xPos" : collision.x,
-                  "yPos" : collision.y
+                  "yPos" : collision.y-2
                 }
                 print(collision.x)
                 break;

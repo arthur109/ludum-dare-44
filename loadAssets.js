@@ -2,16 +2,16 @@ function preload(){
     assets = {
         "player":{
             "left":{
-                "jump":importAllInFolder("assets/playerAnim/jumping/left/",6),
-                "run":importAllInFolder("assets/playerAnim/running/left/",11),
-                "fall":importAllInFolder("assets/playerAnim/falling/left/",4),
-                "idle":importAllInFolder("assets/playerAnim/idle/left/",6),
+                "jump":importAllInFolder("assets/playerAnim/jumping/left/",7),
+                "run":importAllInFolder("assets/playerAnim/running/left/",12),
+                "fall":importAllInFolder("assets/playerAnim/falling/left/",5),
+                "idle":importAllInFolder("assets/playerAnim/idle/left/",7),
             },
             "right":{
-                "jump":importAllInFolder("assets/playerAnim/jumping/right/",6),
-                "run":importAllInFolder("assets/playerAnim/running/right/",11),
-                "fall":importAllInFolder("assets/playerAnim/falling/right/",4),
-                "idle":importAllInFolder("assets/playerAnim/idle/right/",6),
+                "jump":importAllInFolder("assets/playerAnim/jumping/right/",7),
+                "run":importAllInFolder("assets/playerAnim/running/right/",12),
+                "fall":importAllInFolder("assets/playerAnim/falling/right/",5),
+                "idle":importAllInFolder("assets/playerAnim/idle/right/",7),
             }
 
         },
@@ -26,11 +26,11 @@ function preload(){
             // "tester":"fantasy"
         },
         "tiles": {
-            "standard" : importAllInFolder("assets/tiles/exportedTiles/",44),
+            "standard" : importAllInFolder("assets/tiles/exportedTiles/",45),
             // "inner":importAllInFolder("assets/tiles/inner/",10),
             // "exterior":importAllInFolder("assets/tiles/exterior/",5),
             // "block":importAllInFolder("assets/tiles/blocks/",4),
-            "gem":importAllInFolder("assets/tiles/gem/",7),
+            "gem":importAllInFolder("assets/tiles/gem/",8),
             "spike":importImageOrientations("assets/tiles/spike/"),
             "spring":importImageOrientations("assets/tiles/spring/")
             },
