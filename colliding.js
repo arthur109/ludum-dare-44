@@ -55,7 +55,7 @@ class Colliding {
 
         for (let y = 0; y < level.currentMap.tileMap.length; ++y) {
             for (let x = 0; x < level.currentMap.tileMap[y].length; ++x) {
-                if (level.currentMap.tileMap[y][x]) {
+                if (level.currentMap.tileMap[y][x] !== -1) {
                     let rect = {x: x, y: y, w: 1.0, h: 1.0};
                     if (this._isColliding(rect)) {
                         blockers.push(rect);
@@ -78,7 +78,7 @@ class Colliding {
 
         for (let y = 0; y < level.globalMap.tileMap.length; ++y) {
             for (let x = 0; x < level.globalMap.tileMap[y].length; ++x) {
-                if (level.globalMap.tileMap[y][x]) {
+                if (level.globalMap.tileMap[y][x] !== -1) {
                     let rect = {x: x, y: y, w: 1.0, h: 1.0};
                     if (this._isColliding(rect)) {
                         blockers.push(rect);
