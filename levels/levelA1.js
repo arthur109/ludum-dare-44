@@ -44,14 +44,8 @@ return new Level(
                 ], [new BotSpike(19, 10),new BotSpike(20, 10)], assets["background"]["darkforest"]
             ),
             new Map(
-                [
-                    [0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0]
-                ], [new TextPad(4,10,"use WASD to move."), new TextPad(8,10,"get the gem to win."), new TextPad(11,10,"you can double jump."), new TextPad(18,10,"press k to switch dimensions."), new Gem(22.0, 9.0)], undefined, 0
-            )
+                [], [new TextPad(4,10,"use WASD to move."), new TextPad(8,10,"get the gem to win."), new TextPad(11,10,"you can double jump."), new TextPad(18,10,"press k to switch dimensions."), new Gem(22.0, 9.0)], undefined, 0
+            ),
+    30
         )
 }

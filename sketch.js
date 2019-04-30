@@ -141,6 +141,7 @@ function flip(){
     thisMapOrTheOther = 1;
     currentLevel.player.health -= currentLevel.damage;
   }
+  print("Health");
   print(currentLevel.player.health)
 }
 
