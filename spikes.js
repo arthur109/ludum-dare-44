@@ -96,7 +96,7 @@ class Spike extends Colliding {
         super(x, y, w, h, "Spike", false);
 
         this.damage = 0.25;
-        this.texture = texture
+        this.texture = texture;
         this.spikeCollideCounter = 0;
     }
 
