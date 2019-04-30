@@ -81,7 +81,7 @@ function keyPressed() {
             for (let x = 0; x < mapWidth; ++x) {
                 temp+=(world[y][x].toString()+",");
             }
-            temp+="],\n";
+            temp+="], //"+y.toString()+"\n";
         }
         temp+="]";
         print(temp);
