@@ -48,7 +48,7 @@ class Level {
     fill(0);
     rect(tp(15),tp(1),tp(8.2),tp(0.7),45);
     fill(255, 0, 0);
-    rect(tp(15),tp(1),tp(8*health),tp(0.5),45)
+    rect(tp(15),tp(1),tp(max(0, 8*health)),tp(0.5),45)
     rectMode(CORNERS);
     // rect(tp(15 - (5 * health)), tp(1), tp(15), tp(2));
     // rect(tp(15), tp(1), tp(15 + (5 * health)), tp(2));

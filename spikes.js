@@ -46,7 +46,7 @@ class Key extends Colliding {
             switch(collision.type) {
                 case "Player": {
                     this.enabled = false;
-                    
+
                     level.defaultMap.nonStatic.forEach((e) => {if (e.type === "Door" && e.id === this.id) e.open()});
                     level.otherMap.nonStatic.forEach((e) => {if (e.type === "Door" && e.id === this.id) e.open()});
                     level.globalMap.nonStatic.forEach((e) => {if (e.type === "Door" && e.id === this.id) e.open()});
@@ -116,19 +116,19 @@ class BotSpike extends Spike {
     }
 }
 
-class RightSpike extends Colliding {
+class RightSpike extends Spike {
     constructor(x, y, damage) {
         super(x+ 0.5, y , 0.5, 1, assets["tiles"]["spike"]["right"]);
     }
 }
 
-class LeftSpike extends Colliding {
+class LeftSpike extends Spike {
     constructor(x, y, damage) {
         super(x, y , 0.5, 1, assets["tiles"]["spike"]["left"]);
     }
 }
 
-class TopSpike extends Colliding {
+class TopSpike extends Spike {
     constructor(x, y, damage) {
         super(x, y , 1, 0.5, assets["tiles"]["spike"]["top"]);
     }
