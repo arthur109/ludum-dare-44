@@ -21,7 +21,7 @@ class Crate extends Colliding {
     draw(g) {
         if (this.blocking) {
             g.fill(255, 0, 0);
-            g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+            g.image(assets["key"]["crate"],tp(this.x), tp(this.y), tp(this.width), tp(this.height));
         }
     }
 
@@ -64,7 +64,7 @@ class Key extends Colliding {
     draw(g) {
         if (this.enabled) {
             g.fill(0, 255, 0);
-            g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+            g.image(assets["tiles"]["key"], tp(this.x), tp(this.y), tp(this.width), tp(this.height));
         }
     }
 }
@@ -82,7 +82,7 @@ class Door extends Colliding {
     draw(g) {
         if (this.blocking) {
             g.fill(100);
-            g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+            g.image(assets["tiles"]["lock"], tp(this.x), tp(this.y), tp(this.width), tp(this.height));
         }
     }
 
@@ -92,11 +92,11 @@ class Door extends Colliding {
 }
 
 class Spike extends Colliding {
-    constructor(x, y, w, h) {
+    constructor(x, y, w, h, texture) {
         super(x, y, w, h, "Spike", false);
 
         this.damage = 0.25;
-
+        this.texture = texture
         this.spikeCollideCounter = 0;
     }
 
@@ -106,31 +106,31 @@ class Spike extends Colliding {
 
     draw(g) {
         g.fill(255, 0, 0);
-        g.image(assets["tiles"]["spike"]["bot"],tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+        g.image(texture,tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
 }
 
 class BotSpike extends Spike {
     constructor(x, y) {
-        super(x, y + 0.5, 1.0, 0.5);
+        super(x, y + 0.5, 1.0, 0.5, assets["tiles"]["spike"]["bot"]);
     }
 }
 
 class RightSpike extends Colliding {
     constructor(x, y, damage) {
-        super(x+ 0.5, y , 0.5, 1);
+        super(x+ 0.5, y , 0.5, 1, assets["tiles"]["spike"]["right"]);
     }
 }
 
 class LeftSpike extends Colliding {
     constructor(x, y, damage) {
-        super(x, y , 0.5, 1);
+        super(x, y , 0.5, 1, assets["tiles"]["spike"]["left"]);
     }
 }
 
 class TopSpike extends Colliding {
     constructor(x, y, damage) {
-        super(x, y , 1, 0.5);
+        super(x, y , 1, 0.5, assets["tiles"]["spike"]["top"]);
     }
 }
 

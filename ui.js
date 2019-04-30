@@ -192,12 +192,6 @@ class LevelSelect {
         previousUIPage = a;
         background(0);
       }, tileSize * 2, assets["font"]["standard"]),
-      new Button(5, 14, 5, 15, "Level Creator", function() {
-        let a = currentUIPage;
-        currentUIPage = previousUIPage;
-        previousUIPage = a;
-        background(0);
-      }, tileSize * 2, assets["font"]["standard"])
     ];
     fill(20, 30);
     rect(tp(0), tp(0), tp(30), tp(12));
@@ -308,19 +302,14 @@ class Pause {
         hasUnPaused = true;
         thisMapOrTheOther = 1;
       }, tileSize, assets["font"]["standard"]),
-      new Button(15, 3, 17, 4, "How To Play", function() {
-        previousUIPage = currentUIPage;
-        currentUIPage = optionsPage;
-        inGame = false;
-      }, tileSize, assets["font"]["standard"]),
-      new Button(15, 4, 17, 5, "Lobby", function() {
+      new Button(15, 3, 17, 5, "Lobby", function() {
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage;
         inGame = false;
         musicPlaying = false;
         thisMapOrTheOther = 1;
       }, tileSize, assets["font"]["standard"]),
-      new Button(15, 5, 17, 6, "Kill Me", function() {
+      new Button(15, 4, 17, 6, "Kill Me", function() {
         previousUIPage = currentUIPage;
         currentUIPage = deathPage;
         inGame = false;

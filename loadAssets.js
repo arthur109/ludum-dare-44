@@ -33,7 +33,10 @@ function preload(){
             "gem":importAllInFolder("assets/tiles/gem/",8),
             "spike":importImageOrientations("assets/tiles/spike/"),
             "spring":importImageOrientations("assets/tiles/spring/"),
-            "textpad": importImage("assets/tiles/TextPad.png")
+            "textpad": importImage("assets/tiles/TextPad.png"),
+            "crate" : importImage("assets/tiles/crate.png"),
+            "key" : importImage("assets/tiles/key.png"),
+            "lock" : importImage("assets/tiles/lock.png")
             },
         "audio": {
             "normal":importSound("assets/music/normal.mp3"),
