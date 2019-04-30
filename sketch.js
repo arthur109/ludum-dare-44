@@ -358,7 +358,7 @@ function getLevel(index) {
                 [
                   [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,],
                   [-1,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,-1,-1,-1,],
-                  [-1,6,-1,-1,-1,8,8,8,8,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,6,-1,-1,-1,],
+                  [-1,6,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,6,-1,-1,-1,],
                   [-1,6,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,6,-1,-1,-1,],
                   [-1,6,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,6,-1,-1,-1,],
                   [-1,6,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,6,-1,-1,-1,],
@@ -373,7 +373,7 @@ function getLevel(index) {
                   [14,18,26,3,26,20,26,19,14,17,26,17,26,20,3,26,23,26,24,26,19,19,3,23,25,19,22,21,26,3,],
                   [26,14,15,26,26,13,20,21,3,20,14,18,21,23,26,3,26,19,26,3,22,20,22,24,19,23,3,20,16,21,]
 
-                ], [new Spring(3, 12,-1), new TopSpike(5,3), new TopSpike(6,3),new Spring(6, 5,-0.3), new TopSpike(7,3), new TopSpike(8,3),new Spring(8, 5,-0.3),new BotSpike(4,12),new BotSpike(7,12),new BotSpike(8,12),new BotSpike(9,12),new BotSpike(10,12),new BotSpike(13,12),new BotSpike(14,12),new BotSpike(18,12),new BotSpike(19,12),new BotSpike(20,12),new BotSpike(22,12)], assets["background"]["forest"]
+                ], [new Spring(3, 12,-1), new TopSpike(5,2), new TopSpike(6,2),new Spring(6, 5,-0.5), new TopSpike(7,2), new TopSpike(8,2),new Spring(8, 5,-0.5), TopSpike(9,2), new TopSpike(10,2),new Spring(10, 5,-0.5), new TopSpike(11,2), new TopSpike(12,2),new Spring(12, 5,-0.5), TopSpike(13,2), new TopSpike(14,2),new Spring(14, 5,-0.5), new TopSpike(15,2), new TopSpike(16,2),new Spring(17, 5,-0.5), TopSpike(18,2), new TopSpike(19,2),new Spring(19, 5,-0.5), new TopSpike(20,2), new TopSpike(21,2),new Spring(21, 5,-0.5), TopSpike(22,2), new TopSpike(23,2),new Spring(23, 5,-0.5), new TopSpike(24,2), new TopSpike(25,2),new Spring(25, 5,-0.5), BotSpike(4,12),new BotSpike(7,12),new BotSpike(8,12),new BotSpike(9,12),new BotSpike(10,12),new BotSpike(13,12),new BotSpike(14,12),new BotSpike(18,12),new BotSpike(19,12),new BotSpike(20,12),new BotSpike(22,12)], assets["background"]["forest"]
             ),
             new Map(
                 [
