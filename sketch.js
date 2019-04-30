@@ -189,7 +189,7 @@ function getLevel(index) {
     } else if (index === 3) {
       return getLevelJ1();
     }else if (index === 9) {
-      return levelR1();
+      return getLevelR1();
         // return new Level(
         //     new Player(2.0, 12.0, 100.0),
         //     new Map(
