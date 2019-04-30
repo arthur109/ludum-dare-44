@@ -108,8 +108,6 @@ function draw() {
         music.play()
         musicPlaying = true;
       }
-    }else{
-      music.stop()
     }
     music.setVolume(slider.value());
 }
