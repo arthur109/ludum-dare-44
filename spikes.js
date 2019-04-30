@@ -136,7 +136,7 @@ class TopSpike extends Colliding {
 
 class Gem extends Colliding {
     constructor(x, y) {
-        super(x, y,1.5,1.5, "Gem");
+        super(x+0.25, y+0.25,0.5,0.5, "Gem");
         this.animator = new Animator(assets["tiles"]["gem"],4,0);
     }
 
@@ -146,7 +146,7 @@ class Gem extends Colliding {
 
     draw(g) {
         g.fill(255, 255, 0);
-        g.image(this.animator.getFrame(), tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+        g.image(this.animator.getFrame(), tp(this.x - 0.25), tp(this.y - 0.25), tp(1.0), tp(1.0));
     }
 }
 
