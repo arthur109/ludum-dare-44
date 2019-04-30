@@ -32,7 +32,8 @@ function preload(){
             // "block":importAllInFolder("assets/tiles/blocks/",4),
             "gem":importAllInFolder("assets/tiles/gem/",8),
             "spike":importImageOrientations("assets/tiles/spike/"),
-            "spring":importImageOrientations("assets/tiles/spring/")
+            "spring":importImageOrientations("assets/tiles/spring/"),
+            "textpad": importImage("assets/tiles/TextPad.png")
             },
         "audio": {
             "normal":importSound("assets/music/normal.mp3"),

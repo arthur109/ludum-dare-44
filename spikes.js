@@ -197,7 +197,7 @@ class Spring extends Colliding {
 
 class TextPad extends Colliding {
     constructor(x, y, text) {
-        super(x, y + 0.5, 1.0, 0.5, "TextPad", false);
+        super(x, y, 1.0, 1, "TextPad", false);
         this.text = text.toString();
     }
 
@@ -206,7 +206,7 @@ class TextPad extends Colliding {
 
     draw(g) {
         g.fill(0, 255, 0);
-        g.image(assets["tiles"]["spring"]["bot"], tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+        g.image(assets["tiles"]["textpad"], tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
 }
 
