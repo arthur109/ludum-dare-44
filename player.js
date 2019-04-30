@@ -185,6 +185,7 @@ class Player extends Colliding {
 
         this.velX = clampMag(this.velX, Math.abs(this.velX) - (this.onGround ? 0.03 : 0.015));
 
+        this.velY = clampMag(this.velY, 0.35);
 
         this.x += this.velX;
         this.y += this.velY;
