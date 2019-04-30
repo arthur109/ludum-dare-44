@@ -106,10 +106,12 @@ function draw() {
         musicPlaying = true;
       }else{
         music.stop();
-        music = assets["audio"]["lobby"]
+        music = assets["audio"]["normal"]
         music.play()
         musicPlaying = true;
       }
+    }else{
+      music.stop()
     }
     music.setVolume(slider.value());
 }

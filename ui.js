@@ -99,36 +99,6 @@ class Lobby {
 
 }
 
-class Tutorial {
-  constructor() {
-    this.buttons = [
-      new Button(15, 5, 17, 6, "Volume", function() {
-        previousUIPage = currentUIPage;
-        currentUIPage = lobbyPage
-      }, tileSize, assets["font"]["standard"]),
-      new Button(15, 6, 17, 7, "Controls", function() {
-        previousUIPage = currentUIPage;
-        currentUIPage = lobbyPage
-      }, tileSize, assets["font"]["standard"]),
-      new Button(15, 7, 17, 8, "Back", function() {
-        let a = currentUIPage;
-        currentUIPage = previousUIPage;
-        previousUIPage = a;
-        currentLevel.draw();
-      }, tileSize, assets["font"]["standard"])
-    ];
-  }
-
-
-  update() {
-    background(0, 0, 255, 20);
-    for (var x = 0; x < this.buttons.length; ++x) {
-      this.buttons[x].update();
-    }
-  }
-
-}
-
 class LevelSelect {
   constructor() {
     this.buttons = [
