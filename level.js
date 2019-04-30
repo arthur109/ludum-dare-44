@@ -17,7 +17,7 @@ class Level {
 
     this.globalMap.update(this);
     this.currentMap.update(this);
-    if(this.player.y > tp(mapHeight)){
+    if(this.player.y > mapHeight + 5){
       kill();
     }
   }
