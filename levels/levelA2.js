@@ -46,6 +46,6 @@ return new Level(
             new Map(
                 [
                 ], [new Gem(23.0, 10.0),], undefined
-            ),4
+            ),6
         )
 }

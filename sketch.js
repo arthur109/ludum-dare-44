@@ -17,7 +17,6 @@ var mapWidth = 30;
 var mapHeight = 16;
 var windowRatio = mapWidth / mapHeight;
 var lobbyPage;
-var tutorialPage;
 var pausePage;
 var layerPage;
 var deathPage;
@@ -65,7 +64,6 @@ function setup() {
     currentLevel = getLevel(currentLevelIndex);
     lobbyPage = new Lobby;
     layerPage = new LevelSelect;
-    optionsPage = new Tutorial;
     pausePage = new Pause;
     deathPage = new Dead;
     winPage = new Win;
@@ -190,9 +188,10 @@ function getLevel(index) {
     } else if (index === 2) {
         return getLevelA2();
     } else if (index === 3) {
-      return getLevelJ1();
-    }else if (index === 9) {
-      return getLevelR1();
+        return getLevelR1();
+    }else if (index === 4) {
+        return getLevelJ1();
+
         // return new Level(
         //     new Player(2.0, 12.0, 100.0),
         //     new Map(
@@ -232,6 +231,8 @@ function getLevel(index) {
         //     ),10
         // )
     }
+
+    return getLevelR1();
 }
 
 

@@ -63,14 +63,6 @@ class Lobby {
       new Button(15, 8, 17, 9, "Select Level", function() {
         previousUIPage = currentUIPage;
         currentUIPage = layerPage;
-      }, tileSize, assets["font"]["standard"]),
-      new Button(15, 9, 17, 10, "How To Play", function() {
-        previousUIPage = currentUIPage;
-        currentUIPage = optionsPage;
-      }, tileSize, assets["font"]["standard"]),
-      new Button(15, 10, 17, 11, "Exit", function() {
-        previousUIPage = currentUIPage;
-        currentUIPage = optionsPage
       }, tileSize, assets["font"]["standard"])
     ];
   }
@@ -120,42 +112,42 @@ class LevelSelect {
         currentLevelIndex = 3;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
-      new Button(5, 5, 6, 8, "Level 4", function() {
+      new Button(15, 5, 16, 8, "Level 4", function() {
         inGame = true;
         musicPlaying = false;
         currentLevelIndex = 4;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
-      new Button(15, 5, 16, 8, "Level 5", function() {
-        inGame = true;
-        musicPlaying = false;
-        currentLevelIndex = 1;
-        currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(25, 5, 26, 8, "Level 6", function() {
-        inGame = true;
-        musicPlaying = false;
-        currentLevelIndex = 1;
-        currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(5, 9, 6, 12, "Level 7", function() {
-        inGame = true;
-        musicPlaying = false;
-        currentLevelIndex = 1;
-        currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(15, 9, 16, 12, "Level 8", function() {
-        inGame = true;
-        musicPlaying = false;
-        currentLevelIndex = 1;
-        currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(25, 9, 26, 12, "Level 9", function() {
-        inGame = true;
-        musicPlaying = false;
-        currentLevelIndex = 9;
-        currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
+      // new Button(15, 5, 16, 8, "Level 5", function() {
+      //   inGame = true;
+      //   musicPlaying = false;
+      //   currentLevelIndex = 1;
+      //   currentLevel = getLevel(currentLevelIndex)
+      // }, tileSize * 2, assets["font"]["title"]),
+      // new Button(25, 5, 26, 8, "Level 6", function() {
+      //   inGame = true;
+      //   musicPlaying = false;
+      //   currentLevelIndex = 1;
+      //   currentLevel = getLevel(currentLevelIndex)
+      // }, tileSize * 2, assets["font"]["title"]),
+      // new Button(5, 9, 6, 12, "Level 7", function() {
+      //   inGame = true;
+      //   musicPlaying = false;
+      //   currentLevelIndex = 1;
+      //   currentLevel = getLevel(currentLevelIndex)
+      // }, tileSize * 2, assets["font"]["title"]),
+      // new Button(15, 9, 16, 12, "Level 8", function() {
+      //   inGame = true;
+      //   musicPlaying = false;
+      //   currentLevelIndex = 1;
+      //   currentLevel = getLevel(currentLevelIndex)
+      // }, tileSize * 2, assets["font"]["title"]),
+      // new Button(25, 9, 26, 12, "Level 9", function() {
+      //   inGame = true;
+      //   musicPlaying = false;
+      //   currentLevelIndex = 9;
+      //   currentLevel = getLevel(currentLevelIndex)
+      // }, tileSize * 2, assets["font"]["title"]),
       new Button(15, 14, 15, 15, "Return", function() {
         let a = currentUIPage;
         currentUIPage = previousUIPage;
