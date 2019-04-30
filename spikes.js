@@ -21,7 +21,7 @@ class Crate extends Colliding {
     draw(g) {
         if (this.blocking) {
             g.fill(255, 0, 0);
-            g.image(assets["key"]["crate"],tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+            g.image(assets["tiles"]["crate"],tp(this.x), tp(this.y), tp(this.width), tp(this.height));
         }
     }
 
