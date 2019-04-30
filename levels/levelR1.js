@@ -40,7 +40,7 @@ function getLevelR1() {
           ], [], assets["background"]["darkforest"]
       ),
       new Map(
-          [], [], undefined
+          [], []
       ),10
   )
 
