@@ -8,7 +8,7 @@ class Map{
 
         for (let y = 0; y < this.tileMap.length; ++y) {
             for (let x = 0; x < this.tileMap[y].length; ++x) {
-                if (this.tileMap[y][x] && this.tileMap[y][x]!== 0) {
+                if (this.tileMap[y][x] && this.tileMap[y][x]!= -1) {
                     this.tileMap[y][x] = assets["tiles"]["standard"][(this.tileMap[y][x])];
                 }
             }
@@ -34,7 +34,7 @@ class Map{
 
         for (let y = 0; y < this.tileMap.length; ++y) {
             for (let x = 0; x < this.tileMap[y].length; ++x) {
-                if (this.tileMap[y][x] && this.tileMap[y][x]!== 0) {
+                if (this.tileMap[y][x] && this.tileMap[y][x]!= -1) {
                     this.g.image(this.tileMap[y][x], tp(x), tp(y), tp(1.0), tp(1.0));
                 }
             }
