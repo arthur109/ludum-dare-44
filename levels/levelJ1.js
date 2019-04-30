@@ -63,6 +63,7 @@ function getLevelJ1() {
                     new Crate(20, 14),
 
                     new Gem(28, 14),
+                    new TextPad(6,14,"to destroy a crate, make it spawn in a wall.")
                 ]
             ),6
         )
