@@ -96,7 +96,7 @@ class Spike extends Colliding {
         super(x, y, w, h, "Spike", false);
 
         this.damage = 0.25;
-        this.texture = texture
+        this.texture = texture;
         this.spikeCollideCounter = 0;
     }
 
@@ -106,7 +106,7 @@ class Spike extends Colliding {
 
     draw(g) {
         g.fill(255, 0, 0);
-        g.image(texture,tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+        g.image(this.texture,tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
 }
 
