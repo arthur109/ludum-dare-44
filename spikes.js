@@ -21,7 +21,7 @@ class Crate extends Colliding {
     draw(g) {
         if (this.blocking) {
             g.fill(255, 0, 0);
-            g.image(assets["key"]["crate"],tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+            g.image(assets["tiles"]["crate"],tp(this.x), tp(this.y), tp(this.width), tp(this.height));
         }
     }
 
@@ -106,6 +106,10 @@ class Spike extends Colliding {
 
     draw(g) {
         g.fill(255, 0, 0);
+        // print("canvas")
+        // print(g)
+        // print("image")
+        // print(this.texture)
         g.image(this.texture,tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
 }
