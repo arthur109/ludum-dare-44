@@ -302,14 +302,14 @@ class Pause {
         hasUnPaused = true;
         thisMapOrTheOther = 1;
       }, tileSize, assets["font"]["standard"]),
-      new Button(15, 3, 17, 5, "Lobby", function() {
+      new Button(15, 3, 17, 4, "Lobby", function() {
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage;
         inGame = false;
         musicPlaying = false;
         thisMapOrTheOther = 1;
       }, tileSize, assets["font"]["standard"]),
-      new Button(15, 4, 17, 6, "Kill Me", function() {
+      new Button(15, 4, 17, 5, "I Quit!", function() {
         previousUIPage = currentUIPage;
         currentUIPage = deathPage;
         inGame = false;
@@ -328,9 +328,9 @@ class Pause {
   update() {
     fill(255, 10)
 
-    rect(tp(10.95), tp(0.95), tp(19.05), tp(6.3), 31);
+    rect(tp(10.95), tp(0.95), tp(19.05), tp(5.3), 31);
     fill(10);
-    rect(tp(11), tp(1), tp(19), tp(6.25), 30);
+    rect(tp(11), tp(1), tp(19), tp(5.25), 30);
     for (var x = 0; x < this.buttons.length; ++x) {
       this.buttons[x].update();
     }
