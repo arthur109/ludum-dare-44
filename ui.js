@@ -55,7 +55,7 @@ class Lobby {
         thisMapOrTheOther = 1;
         musicPlaying = false;
       }, tileSize * 2, assets["font"]["standard"]),
-      new Button(15, 7, 17, 8, "Continue Game: Level " + currentLevelIndex, function() {
+      new Button(15, 7, 17, 8, "Continue Game", function() {
         currentLevel = getLevel(currentLevelIndex);
         inGame = true;
         musicPlaying = false;
@@ -124,22 +124,22 @@ class LevelSelect {
         currentLevelIndex = 5;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
-      // new Button(25, 5, 26, 8, "Level 6", function() {
-      //   inGame = true;
-      //   musicPlaying = false;
-      //   currentLevelIndex = 1;
-      //   currentLevel = getLevel(currentLevelIndex)
-      // }, tileSize * 2, assets["font"]["title"]),
-      // new Button(5, 9, 6, 12, "Level 7", function() {
-      //   inGame = true;
-      //   musicPlaying = false;
-      //   currentLevelIndex = 1;
-      //   currentLevel = getLevel(currentLevelIndex)
-      // }, tileSize * 2, assets["font"]["title"]),
+      new Button(25, 5, 26, 8, "Level 6", function() {
+        inGame = true;
+        musicPlaying = false;
+        currentLevelIndex = 6;
+        currentLevel = getLevel(currentLevelIndex)
+      }, tileSize * 2, assets["font"]["title"]),
+      new Button(5, 9, 6, 12, "Level 7", function() {
+        inGame = true;
+        musicPlaying = false;
+        currentLevelIndex = 7;
+        currentLevel = getLevel(currentLevelIndex)
+      }, tileSize * 2, assets["font"]["title"]),
       // new Button(15, 9, 16, 12, "Level 8", function() {
       //   inGame = true;
       //   musicPlaying = false;
-      //   currentLevelIndex = 1;
+      //   currentLevelIndex = 8;
       //   currentLevel = getLevel(currentLevelIndex)
       // }, tileSize * 2, assets["font"]["title"]),
       // new Button(25, 9, 26, 12, "Level 9", function() {

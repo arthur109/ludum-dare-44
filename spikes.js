@@ -106,10 +106,6 @@ class Spike extends Colliding {
 
     draw(g) {
         g.fill(255, 0, 0);
-        // print("canvas")
-        // print(g)
-        // print("image")
-        // print(this.texture)
         g.image(this.texture,tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
 }

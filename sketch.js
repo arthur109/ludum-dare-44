@@ -142,8 +142,6 @@ function flip(){
     thisMapOrTheOther = 1;
     currentLevel.player.health -= currentLevel.damage;
   }
-  print("Health");
-  print(currentLevel.player.health)
 }
 
 function mouseReleased() {
@@ -193,9 +191,9 @@ function getLevel(index) {
         return getLevelA3();
 
     } else if (index === 4) {
-        return getLevelR1();
+        return getLevelR2();
     }else if (index === 5) {
-        return getLevelJ1();
+        return getLevelR1();
 
         // return new Level(
         //     new Player(2.0, 12.0, 100.0),
@@ -235,6 +233,10 @@ function getLevel(index) {
         //         ], [], undefined
         //     ),10
         // )
+    } else if (index === 6) {
+      return getLevelJ1();
+    }else if (index === 7) {
+      return getLevelJ1();
     }
 
     return getLevelR1();
@@ -243,7 +245,6 @@ function getLevel(index) {
 
 function kill() {
   deathCounter+= 1;
-  print(deathCounter);
   currentLevel.draw();
   currentLevel.draw();
   currentLevel.draw();

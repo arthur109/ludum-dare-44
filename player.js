@@ -55,7 +55,6 @@ class Player extends Colliding {
         imageMode(CORNER);
         let xOffset = -0.28;
         let yOffset = -0.05;
-        // print(this.runAnimation.getFrame());
         if(this.velY < 0.0){
             if(this.lastHorizDirection >= 0){
                 image(this.rightRisingAnimation.getFrame(), tp(this.x + xOffset), tp(this.y + yOffset), tp(1.0), tp(1.0));
