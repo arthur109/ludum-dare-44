@@ -101,7 +101,8 @@ class Player extends Colliding {
                 break;
             }
             case "Spring": {
-                this.velY = collision.force;
+                this.velY = collision.forceY;
+                this.velX = collision.forceX;
                 break;
             }
             case "TextPad": {

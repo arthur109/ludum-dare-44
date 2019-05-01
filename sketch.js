@@ -175,7 +175,7 @@ function getLevel(index) {
     }else if (index === 6) {
       return getLevelJ1();
     } else if (index === 7) {
-        return getLevelD5();
+        return getLevelD2();
     }else if (index === 8) {
       return getLevelD1();
     }else if (index === 9) {

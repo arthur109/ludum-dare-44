@@ -91,6 +91,12 @@ class Door extends Colliding {
     }
 }
 
+
+
+
+
+
+
 class Spike extends Colliding {
     constructor(x, y, w, h, texture) {
         super(x, y, w, h, "Spike", false);
@@ -150,40 +156,28 @@ class Gem extends Colliding {
     }
 }
 
-function addMove(obj, x2, y2, speed) {
-    obj.init = createVector(obj.x, obj.y);
-    obj.end = createVector(x2, y2);
-    obj.speed = speed;
 
-    obj.interp = 0.0;
-    obj.__oldUpdate = obj.update;
 
-    obj.update = function (level) {
-        obj.__oldUpdate(level);
 
-        obj.interp += obj.speed;
 
-        if (obj.interp >= 1.0) {
-            obj.interp = 1.0;
-            obj.speed *= -1.0;
-        } else if (obj.interp <= 0.0) {
-            obj.interp = 0.0;
-            obj.speed *= -1.0;
-        }
 
-        let vec = p5.Vector.lerp(obj.init, obj.end, obj.interp);
 
-        obj.x = vec.x;
-        obj.y = vec.y;
-    }
 
-    return obj;
-}
+
+
+
+
+
+
+
+
 
 class Spring extends Colliding {
-    constructor(x, y, force) {
-        super(x, y + 0.5, 1.0, 0.5, "Spring");
-        this.force = force;
+    constructor(x, y, width, height, forceX, forceY, texture) {
+        super(x, y, width, height, "Spring");
+        this.forceX = forceX;
+        this.forceY = forceY;
+        this.texture = texture
     }
 
     update(level) {
@@ -191,9 +185,45 @@ class Spring extends Colliding {
 
     draw(g) {
         g.fill(0, 255, 0);
-        g.image(assets["tiles"]["spring"]["bot"], tp(this.x), tp(this.y), tp(this.width), tp(this.height));
+        g.image(this.texture, tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
 }
+
+class BotSpring extends Spring {
+    constructor(x, y, force) {
+        super(x, y+0.5 , 1, 0.5, 0, force, assets["tiles"]["spring"]["bot"]);
+    }
+}
+
+class RightSpring extends Spring {
+    constructor(x, y, force) {
+        super(x+0.5, y, 0.5, 1, force, 0, assets["tiles"]["spring"]["right"]);
+    }
+}
+
+class LeftSpring extends Spring {
+    constructor(x, y, force) {
+        super(x, y , 0.5, 1, force, 0, assets["tiles"]["spring"]["left"]);
+    }
+}
+
+class TopSpring extends Spring {
+    constructor(x, y, force) {
+        super(x, y, 1, 0.5, 0, force, assets["tiles"]["spring"]["top"]);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 class TextPad extends Colliding {
     constructor(x, y, text) {
@@ -232,4 +262,34 @@ class Bird extends Colliding {
         g.fill(255, 0, 0);
         g.rect(tp(this.x), tp(this.y), tp(this.width), tp(this.height));
     }
+}
+
+function addMove(obj, x2, y2, speed) {
+    obj.init = createVector(obj.x, obj.y);
+    obj.end = createVector(x2, y2);
+    obj.speed = speed;
+
+    obj.interp = 0.0;
+    obj.__oldUpdate = obj.update;
+
+    obj.update = function (level) {
+        obj.__oldUpdate(level);
+
+        obj.interp += obj.speed;
+
+        if (obj.interp >= 1.0) {
+            obj.interp = 1.0;
+            obj.speed *= -1.0;
+        } else if (obj.interp <= 0.0) {
+            obj.interp = 0.0;
+            obj.speed *= -1.0;
+        }
+
+        let vec = p5.Vector.lerp(obj.init, obj.end, obj.interp);
+
+        obj.x = vec.x;
+        obj.y = vec.y;
+    }
+
+    return obj;
 }
