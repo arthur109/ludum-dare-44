@@ -109,10 +109,9 @@ class Player extends Colliding {
                 this.TextPadInfo = {
                   "isOnTextPad" : true,
                   "textPadText" : collision.text.toString(),
-                  "xPos" : collision.x,
-                  "yPos" : collision.y-2
-                }
-                print(collision.x)
+                  "xPos" : collision.x+1,
+                  "yPos" : collision.y-0.5
+                };
                 break;
             }
             case "Gem": {
@@ -162,11 +161,7 @@ class Player extends Colliding {
             this.lastJumpKey = false;
         }
 
-        if (keyIsDown(76)) {
-            this.level.peeking = true;
-        } else {
-            this.level.peeking = false;
-        }
+        this.level.peeking = !!keyIsDown(76);
     }
 
     _jump(){

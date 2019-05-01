@@ -70,11 +70,9 @@ function setup() {
 
     previousUIPage = lobbyPage;
     currentUIPage = lobbyPage;
-
     frameTimer = performance.now();
 }
 
-var lastTime = 0;
 function draw() {
     if (inGame) {
         currentLevel.update();
@@ -99,13 +97,13 @@ function draw() {
     if(!musicPlaying){
       if(!inGame && currentUIPage === lobbyPage){
         music.stop();
-        music = assets["audio"]["lobby"]
-        music.play()
+        music = assets["audio"]["lobby"];
+        music.loop()
         musicPlaying = true;
       }else{
         music.stop();
-        music = assets["audio"]["normal"]
-        music.play()
+        music = assets["audio"]["normal"];
+        music.loop();
         musicPlaying = true;
       }
     }
@@ -185,9 +183,13 @@ function getLevel(index) {
         return getLevelA1();
     } else if (index === 2) {
         return getLevelA2();
+
     } else if (index === 3) {
+        return getLevelA3();
+
+    } else if (index === 4) {
         return getLevelR1();
-    }else if (index === 4) {
+    }else if (index === 5) {
         return getLevelJ1();
 
         // return new Level(

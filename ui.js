@@ -112,18 +112,18 @@ class LevelSelect {
         currentLevelIndex = 3;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
-      new Button(15, 5, 16, 8, "Level 4", function() {
+      new Button(5, 5, 6, 8, "Level 4", function() {
         inGame = true;
         musicPlaying = false;
         currentLevelIndex = 4;
         currentLevel = getLevel(currentLevelIndex)
       }, tileSize * 2, assets["font"]["title"]),
-      // new Button(15, 5, 16, 8, "Level 5", function() {
-      //   inGame = true;
-      //   musicPlaying = false;
-      //   currentLevelIndex = 1;
-      //   currentLevel = getLevel(currentLevelIndex)
-      // }, tileSize * 2, assets["font"]["title"]),
+      new Button(15, 5, 16, 8, "Level 5", function() {
+        inGame = true;
+        musicPlaying = false;
+        currentLevelIndex = 5;
+        currentLevel = getLevel(currentLevelIndex)
+      }, tileSize * 2, assets["font"]["title"]),
       // new Button(25, 5, 26, 8, "Level 6", function() {
       //   inGame = true;
       //   musicPlaying = false;
@@ -227,7 +227,7 @@ class Win {
         inGame = true;
         thisMapOrTheOther = 1;
       }, tileSize, assets["font"]["standard"], color(0)),
-      new Button(15, 0.5, 17, 2.5, "Congrats! You Won!", function() {
+      new Button(15, 0.5, 17, 2.5, "Nice! You Won!", function() {
         console.log("Yay! You found another easter egg!")
       }, tileSize * 3, assets["font"]["standard"], color(0))
     ];
