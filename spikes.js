@@ -1,6 +1,6 @@
 class Crate extends Colliding {
     constructor(x, y) {
-        super(x + 0.05, y, 0.99999, 0.99999, "Crate", true);
+        super(x + 0.05, y, 0.95, 0.99999, "Crate", true);
         this.desiredMoveX = 0.0;
     }
 

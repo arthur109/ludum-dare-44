@@ -1,4 +1,4 @@
-function getLevelD1() {
+function getLevelD2() {
   return new Level(
     new Player(3, 3),
     new Map(
