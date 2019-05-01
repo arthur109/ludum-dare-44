@@ -71,6 +71,7 @@ function setup() {
     previousUIPage = lobbyPage;
     currentUIPage = lobbyPage;
     frameTimer = performance.now();
+    music.setVolume(0.3)
 }
 
 function draw() {
@@ -82,12 +83,16 @@ function draw() {
         if (hasPaused) {
             inGame = false;
             currentUIPage = pausePage;
+            // music.pause()
+            music.setVolume(0.1)
             hasPaused = true;
         }
     } else {
         if (hasUnPaused) {
             if (currentUIPage === pausePage) {
                 inGame = true;
+                // music.play();
+                music.setVolume(0.7);
                 previousUIPage = pausePage;
             }
         }
@@ -107,7 +112,7 @@ function draw() {
         musicPlaying = true;
       }
     }
-    music.setVolume(slider.value());
+    // music.setVolume(slider.value());
 }
 
 function keyPressed() {
