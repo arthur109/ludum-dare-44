@@ -173,13 +173,13 @@ function getLevel(index) {
     } else if (index === 5) {
         return getLevelD4();
     }else if (index === 6) {
-      return getLevelR1();
-    } else if (index === 7) {
-      // return getLevelD2();
       return getLevelJ1();
+    } else if (index === 7) {
+        return getLevelD5();
     }else if (index === 8) {
       return getLevelD1();
-    // }else if (index === 9) {
+    }else if (index === 9) {
+      return getLevelR1();
     }
 
     return getLevelR1();
