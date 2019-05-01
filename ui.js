@@ -173,11 +173,7 @@ class LevelSelect {
 class Dead {
   constructor() {
     this.buttons = [
-      new Button(15, 14.75, 17, 15.75, "Restart", function() {
-        inGame = true;
-        currentLevel = getLevel(currentLevelIndex)
-        thisMapOrTheOther = 1;
-      }, tileSize * 2, assets["font"]["standard"]),
+      new Button(15, 14.75, 17, 15.75, "Restart", this.Restart, tileSize * 2, assets["font"]["standard"]),
       new Button(2, 14, 4, 15, "Back to Lobby", function() {
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage;
@@ -203,19 +199,23 @@ class Dead {
     for (var x = 0; x < this.buttons.length; ++x) {
       this.buttons[x].update();
     }
+    if(keyIsDown(13)){
+      this.Restart();
+    }
   }
-
+  Restart(){
+    inGame = true;
+    currentLevel = getLevel(currentLevelIndex)
+    thisMapOrTheOther = 1;
+  }
 }
 
 class Win {
   constructor() {
     this.buttons = [
-      new Button(15, 14.75, 17, 15.75, "Next Level", function() {
-        currentLevelIndex += 1;
-        currentLevel = getLevel(currentLevelIndex);
-        inGame = true;
-        thisMapOrTheOther = 1;
-      }, tileSize * 2, assets["font"]["standard"], color(0)),
+      new Button(15, 14.75, 17, 15.75, "Next Level",
+        this.nextLevel
+      , tileSize * 2, assets["font"]["standard"], color(0)),
       new Button(2, 14, 4, 15, "Back to Lobby", function() {
         previousUIPage = currentUIPage;
         currentUIPage = lobbyPage;
@@ -245,6 +245,16 @@ class Win {
     for (var x = 0; x < this.buttons.length; ++x) {
       this.buttons[x].update();
     }
+    if(keyIsDown(13)){
+      this.nextLevel();
+    }
+  }
+
+  nextLevel(){
+    currentLevelIndex += 1;
+    currentLevel = getLevel(currentLevelIndex);
+    inGame = true;
+    thisMapOrTheOther = 1;
   }
 
 }
