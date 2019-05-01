@@ -192,8 +192,10 @@ function getLevel(index) {
 
     } else if (index === 4) {
         return getLevelR2();
-    }else if (index === 5) {
+    } else if (index === 5) {
         return getLevelR1();
+    }else if (index === 6) {
+        return getLevelD5();
 
         // return new Level(
         //     new Player(2.0, 12.0, 100.0),
@@ -233,9 +235,9 @@ function getLevel(index) {
         //         ], [], undefined
         //     ),10
         // )
-    } else if (index === 6) {
+    } else if (index === 7) {
       return getLevelJ1();
-    }else if (index === 7) {
+    }else if (index === 8) {
       return getLevelJ1();
     }
 
