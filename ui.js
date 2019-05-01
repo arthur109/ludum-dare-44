@@ -199,13 +199,13 @@ class Dead {
     for (var x = 0; x < this.buttons.length; ++x) {
       this.buttons[x].update();
     }
-    if(keyIsDown(13)){
+    if(keyIsDown(13) || keyIsDown(32)){
       this.Restart();
     }
   }
   Restart(){
     inGame = true;
-    currentLevel = getLevel(currentLevelIndex)
+    currentLevel = getLevel(currentLevelIndex);
     thisMapOrTheOther = 1;
   }
 }
@@ -245,7 +245,7 @@ class Win {
     for (var x = 0; x < this.buttons.length; ++x) {
       this.buttons[x].update();
     }
-    if(keyIsDown(13)){
+    if(keyIsDown(13) || keyIsDown(32)){
       this.nextLevel();
     }
   }
