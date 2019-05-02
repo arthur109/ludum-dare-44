@@ -190,25 +190,25 @@ class Spring extends Colliding {
 }
 
 class BotSpring extends Spring {
-    constructor(x, y, force) {
+    constructor(x, y, force = -0.6) {
         super(x, y+0.5 , 1, 0.5, 0, force, assets["tiles"]["spring"]["bot"]);
     }
 }
 
 class RightSpring extends Spring {
-    constructor(x, y, force) {
+    constructor(x, y, force = -0.6) {
         super(x+0.5, y, 0.5, 1, force, 0, assets["tiles"]["spring"]["right"]);
     }
 }
 
 class LeftSpring extends Spring {
-    constructor(x, y, force) {
+    constructor(x, y, force = 0.6) {
         super(x, y , 0.5, 1, force, 0, assets["tiles"]["spring"]["left"]);
     }
 }
 
 class TopSpring extends Spring {
-    constructor(x, y, force) {
+    constructor(x, y, force = 0.6) {
         super(x, y, 1, 0.5, 0, force, assets["tiles"]["spring"]["top"]);
     }
 }
