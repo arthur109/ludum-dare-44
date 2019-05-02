@@ -7,30 +7,30 @@ function getLevelD2() {
         [-1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, ],
         [-1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, ],
         [-1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, ],
-        [-1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, 4, 4, 4, -1, -1, -1, -1, -1, 4, -1, ],
+        [-1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, 4, 4, 4, -1, -1, -1, -1, -1, -1, -1, ],
         [-1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, ],
         [-1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, 4, 4, 4, -1, -1, -1, -1, -1, -1, -1, ],
         [-1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, ],
         [-1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, ],
         [-1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, -1, 4, -1, -1, -1, -1, -1, ],
-        [-1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, ],
+        [-1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, 4, 4, 4, -1, -1, -1, -1, -1, -1, -1, ],
         [-1, -1, -1, -1, -1, -1, -1, -1, 4, 4, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, ],
         [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 4, -1, -1, -1, -1, -1, -1, -1, ],
         [40, 32, 29, 31, 27, 33, 29, 30, 31, 31, 31, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 31, 33, 29, 27, 31, 36, ],
         [25, 26, 24, 15, 26, 26, 24, 22, 26, 26, 15, 13, 22, 20, 26, 26, 25, 20, 26, 18, 18, 15, 25, 22, 26, 15, 26, 24, 22, 26, ],
         [13, 19, 23, 26, 26, 22, 18, 17, 23, 19, 26, 23, 23, 18, 22, 19, 18, 19, 22, 17, 18, 18, 17, 18, 18, 22, 26, 19, 26, 26, ]
-      ], [new RightSpring(10, 8), new RightSpring(10, 9), new RightSpring(10, 10), new BotSpring(20, 9),
-        new BotSpring(21, 9), new BotSpring(22, 9), new LeftSpike(16, 1), new LeftSpike(16, 2), new LeftSpike(16, 3),
-        new LeftSpring(25, 6), new LeftSpring(27, 2), new RightSpike(12, 1), new RightSpike(12, 2),
-        new RightSpike(12, 3), new LeftSpike(19, 4), new BotSpike(20, 3), new BotSpike(21, 3), new BotSpike(22, 3),
-        new TopSpike(20, 7), new TopSpike(21, 7), new TopSpike(22, 7), new LeftSpike(13, 8), new TopSpike(16, 9),
-        new TopSpike(17, 9), new LeftSpike(19, 10), new BotSpike(13, 13), new BotSpike(14, 13), new BotSpike(15, 13),
-        new BotSpike(16, 13), new BotSpike(17, 13), new BotSpike(18, 13), new BotSpike(19, 13), new BotSpike(18, 13),
-        new BotSpike(18, 13), new BotSpike(18, 13), new RightSpike(24, 0), new RightSpike(24, 1), new RightSpike(24, 2),
-        new RightSpike(24, 3), new RightSpike(24, 4), new RightSpike(24, 5), new RightSpike(24, 6), new RightSpike(24, 7),
-        new RightSpike(24, 8), new RightSpike(24, 9), new Door(12, 14, 1), new Door(13, 14, 1),
-        new Door(14, 14, 1), new Door(15, 14, 1), new Door(16, 14, 1), new Door(17, 14, 1), new Door(18, 14, 1), new Door(19, 14, 1),
-        new Door(20, 14, 1), new Door(21, 14, 1), new Door(22, 14, 1), new Door(23, 14, 1), new Door(24, 14, 1)
+      ], [new BotSpring(19, 9),
+        new BotSpring(20, 9), new BotSpring(21, 9), new LeftSpike(16, 1), new LeftSpike(16, 2), new LeftSpike(16, 3),
+        new RightSpring(24, 6), new RightSpring(27, 2), new RightSpike(12, 1), new RightSpike(12, 2),
+        new RightSpike(12, 3), new RightSpike(18, 4), new BotSpike(19, 3), new BotSpike(20, 3), new BotSpike(21, 3),
+        new TopSpike(19, 7), new TopSpike(20, 7), new TopSpike(21, 7), new LeftSpike(13, 8), new TopSpike(16, 9),
+        new TopSpike(17, 9), new RightSpike(18, 10), new BotSpike(12, 12), new BotSpike(13, 12), new BotSpike(14, 12), new BotSpike(15, 12),
+        new BotSpike(16, 12), new BotSpike(17, 12), new BotSpike(18, 12), new BotSpike(19, 12), new BotSpike(18, 12),
+        new BotSpike(19, 12), new BotSpike(20, 12), new LeftSpike(23, 0), new LeftSpike(23, 1), new LeftSpike(23, 2),
+        new LeftSpike(23, 3), new LeftSpike(23, 4), new LeftSpike(23, 5), new LeftSpike(23, 6), new LeftSpike(23, 7),
+        new LeftSpike(23, 8), new LeftSpike(23, 9), new Door(11, 13, 1), new Door(12, 13, 1),
+        new Door(13, 13, 1), new Door(14, 13, 1), new Door(15, 13, 1), new Door(16, 13, 1), new Door(17, 13, 1), new Door(18, 13, 1),
+        new Door(19, 13, 1), new Door(20, 13, 1), new Door(21, 13, 1), new Door(22, 13, 1), new Door(23, 13, 1)
       ], assets["background"]["forest"]
     ),
     new Map(
@@ -51,21 +51,21 @@ function getLevelD2() {
         [40, 32, 29, 31, 27, 33, 29, 30, 31, 31, 31, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 31, 33, 29, 27, 31, 36, ],
         [25, 26, 24, 15, 26, 26, 24, 22, 26, 26, 15, 13, 22, 20, 26, 26, 25, 20, 26, 18, 18, 15, 25, 22, 26, 15, 26, 24, 22, 26, ],
         [13, 19, 23, 26, 26, 22, 18, 17, 23, 19, 26, 23, 23, 18, 22, 19, 18, 19, 22, 17, 18, 18, 17, 18, 18, 22, 26, 19, 26, 26, ]
-      ], [new RightSpring(10, 8), new RightSpring(10, 9), new RightSpring(10, 10), new BotSpring(20, 9),
-        new BotSpring(21, 9), new BotSpring(22, 9), new LeftSpike(16, 1), new LeftSpike(16, 2), new LeftSpike(16, 3),
-        new LeftSpring(25, 6), new LeftSpring(27, 2), new RightSpike(12, 1), new RightSpike(12, 2),
-        new TopSpike(16, 9), new TopSpike(17, 9), new LeftSpike(19, 10), new BotSpike(13, 13), new BotSpike(14, 13), new BotSpike(15, 13),
-        new BotSpike(16, 13), new BotSpike(17, 13), new BotSpike(18, 13), new RightSpike(24, 0), new RightSpike(24, 1), new RightSpike(24, 2),
-        new RightSpike(24, 3), new RightSpike(24, 4), new RightSpike(24, 5), new RightSpike(24, 6), new RightSpike(24, 7),
-        new RightSpike(24, 8), new Key(12, 4, 1), new Door(12, 14, 1), new Door(13, 14, 1),
-        new Door(14, 14, 1), new Door(15, 14, 1), new Door(16, 14, 1), new Door(17, 14, 1), new Door(18, 14, 1), new Door(19, 14, 1),
-        new Door(20, 14, 1), new Door(21, 14, 1), new Door(22, 14, 1), new Door(23, 14, 1), new Door(24, 14, 1)
+      ], [new LeftSpike(16, 1), new LeftSpike(16, 2), new LeftSpike(16, 3),
+        new RightSpring(24, 6), new RightSpring(27, 2), new LeftSpike(11, 1), new LeftSpike(11, 2),
+        new TopSpike(16, 9), new TopSpike(17, 9), new LeftSpike(19, 10), new BotSpike(13, 12), new BotSpike(14, 12), new BotSpike(15, 12),
+        new BotSpike(16, 12), new BotSpike(17, 12), new BotSpike(18, 12), new LeftSpike(23, 0), new LeftSpike(23, 1), new LeftSpike(23, 2),
+        new LeftSpike(23, 3), new LeftSpike(23, 4), new LeftSpike(23, 5), new LeftSpike(23, 6), new LeftSpike(23, 7),
+        new LeftSpike(23, 8), new Key(11, 4, 1)
       ], assets["background"]["darkforest"]
     ),
 
     new Map(
-        [], [ new Gem(27, 1), new Door(3, 5, 1), new Door(6, 5, 1), new Crate(3, 4), new Crate(3, 3), new Crate(6, 4), new Crate(6, 3)],
-        undefined, 0
+      [], [new Gem(27, 1), new Door(11, 13, 1), new Door(12, 13, 1), new Door(13, 13, 1), new Door(14, 13, 1), new Door(15, 13, 1),
+        new Door(16, 13, 1), new Door(17, 13, 1), new Door(18, 13, 1), new Door(19, 13, 1), new Door(20, 13, 1), new Door(21, 13, 1),
+        new Door(22, 13, 1), new Door(23, 13, 1), new RightSpring(9, 8), new RightSpring(9, 9), new RightSpring(9, 10), new BotSpring(19, 9),
+        new BotSpring(20, 9), new BotSpring(21, 9)
+      ], undefined, 0
     ), 20
   )
 }
