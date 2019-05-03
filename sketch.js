@@ -162,26 +162,33 @@ function restart() {
 }
 
 function getLevel(index) {
-    if (index === 1) {
-        return getLevelA1();
-    } else if (index === 2) {
-        return getLevelA2();
-    } else if (index === 3) {
-        return getLevelA3();
-    } else if (index === 4) {
-        return getLevelR2();
-    } else if (index === 5) {
-        return getLevelD4();
-    }else if (index === 6) {
-        return getLevelR1();
-    } else if (index === 7) {
-        return getLevelD1();
-    }else if (index === 8) {
-        return getLevelJ1();
-    }else if (index === 9) {
-        return getLevelD2();
-    }
+    levelOrder = [
+        function () {
+            return getLevelA1();
+        }, function () {
+            return getLevelA2();
+        }, function () {
+            return getLevelA3();
+        }, function () {
+            return getLevelA4();
+        }, function () {
+            return getLevelR2();
+        }, function () {
+            return getLevelA5();
+        }, function () {
+            return getLevelR1();
+        }, function () {
+            return getLevelD1();
+        }, function () {
+            return getLevelJ1();
+        }, function () {
+            return getLevelD2();
+        },
+    ]
 
+    if(levelOrder[index-1]) {
+        return levelOrder[index - 1]();
+    }
     return getLevelR1();
 }
 

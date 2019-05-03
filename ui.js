@@ -94,66 +94,77 @@ class Lobby {
 class LevelSelect {
   constructor() {
     this.buttons = [
-      new Button(5, 1, 6, 4, "Level 1", function() {
+      new Button(5, 2, 6, 3, "Level 1", function() {
         inGame = true;
         currentLevelIndex = 1;
         currentLevel = getLevel(currentLevelIndex)
         musicPlaying = false;
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(15, 1, 16, 4, "Level 2", function() {
+      }, tileSize * 2, assets["font"]["standard"]),
+
+      new Button(10, 2, 11, 3, "Level 2", function() {
         inGame = true;
-        musicPlaying = false;
         currentLevelIndex = 2;
         currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(25, 1, 26, 4, "Level 3", function() {
-        inGame = true;
         musicPlaying = false;
+      }, tileSize * 2, assets["font"]["standard"]),
+
+      new Button(15, 2, 16, 3, "Level 3", function() {
+        inGame = true;
         currentLevelIndex = 3;
         currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(5, 5, 6, 8, "Level 4", function() {
-        inGame = true;
         musicPlaying = false;
+      }, tileSize * 2, assets["font"]["standard"]),
+
+      new Button(20, 2, 21, 3, "Level 4", function() {
+        inGame = true;
         currentLevelIndex = 4;
         currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(15, 5, 16, 8, "Level 5", function() {
-        inGame = true;
         musicPlaying = false;
+      }, tileSize * 2, assets["font"]["standard"]),
+
+      new Button(25, 2, 26, 3, "Level 5", function() {
+        inGame = true;
         currentLevelIndex = 5;
         currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(25, 5, 26, 8, "Level 6", function() {
-        inGame = true;
         musicPlaying = false;
+      }, tileSize * 2, assets["font"]["standard"]),
+
+
+      new Button(5, 5, 6, 6, "Level 6", function() {
+        inGame = true;
         currentLevelIndex = 6;
         currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(5, 9, 6, 12, "Level 7", function() {
-        inGame = true;
         musicPlaying = false;
+      }, tileSize * 2, assets["font"]["standard"]),
+
+      new Button(10, 5, 11, 6, "Level 7", function() {
+        inGame = true;
         currentLevelIndex = 7;
         currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(15, 9, 16, 12, "Level 8", function() {
-        inGame = true;
         musicPlaying = false;
+      }, tileSize * 2, assets["font"]["standard"]),
+
+      new Button(15, 5, 16, 6, "Level 8", function() {
+        inGame = true;
         currentLevelIndex = 8;
         currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(25, 9, 26, 12, "Level 9", function() {
-        inGame = true;
         musicPlaying = false;
+      }, tileSize * 2, assets["font"]["standard"]),
+
+      new Button(20, 5, 21, 6, "Level 9", function() {
+        inGame = true;
         currentLevelIndex = 9;
         currentLevel = getLevel(currentLevelIndex)
-      }, tileSize * 2, assets["font"]["title"]),
-      new Button(15, 14, 15, 15, "Return", function() {
-        let a = currentUIPage;
-        currentUIPage = previousUIPage;
-        previousUIPage = a;
-        background(0);
+        musicPlaying = false;
       }, tileSize * 2, assets["font"]["standard"]),
+
+      new Button(25, 5, 26, 6, "Level 10", function() {
+        inGame = true;
+        currentLevelIndex = 10;
+        currentLevel = getLevel(currentLevelIndex)
+        musicPlaying = false;
+      }, tileSize * 2, assets["font"]["standard"]),
+
     ];
     fill(20, 30);
     rect(tp(0), tp(0), tp(30), tp(12));
@@ -181,7 +192,7 @@ class Dead {
         musicPlaying = false;
         thisMapOrTheOther = 1;
       }, tileSize, assets["font"]["standard"]),
-      new Button(15, 0.5, 17, 2.5, "Congrats! You Died!", function() {
+      new Button(15, 0.5, 17, 2.5, "Congrats! You're Dead!", function() {
         console.log("Yay! You found an easter egg!")
       }, tileSize * 3, assets["font"]["standard"])
     ];
