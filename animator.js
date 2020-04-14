@@ -1,5 +1,5 @@
 class Animator{
-    constructor(frameList,switchDelay, resetIndex){
+    constructor(frameList, switchDelay, resetIndex){
         this.frames = frameList;
         this.frameIndex = 0;
         this.switchDelay = switchDelay;
