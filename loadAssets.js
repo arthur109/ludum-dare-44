@@ -1,3 +1,4 @@
+var rootUrl = "https://arthur109.github.io/ludum-dare-44/"
 function preload(){
     assets = {
         "player":{
@@ -50,7 +51,7 @@ function importAllInFolder(path, number){
     var imageArray = [];
     for(var i = 1; i<number; i++){
 
-        var imageLink = "http://206.189.66.217/"+path+i.toString()+".png";
+        var imageLink = rootUrl+path+i.toString()+".png";
         console.log(imageLink);
         imageArray.push(loadImage(imageLink));
     }
@@ -59,21 +60,21 @@ function importAllInFolder(path, number){
 
 
 function importImage(path){
-        var imageLink = "http://206.189.66.217/"+path;
+        var imageLink =rootUrl+path;
         console.log(imageLink);
         var image = loadImage(imageLink);
     return image;
 }
 
 function importSound(path){
-    var imageLink = "http://206.189.66.217/"+path;
+    var imageLink = rootUrl+path;
     console.log(imageLink);
     var image = loadSound(imageLink);
     return image;
 }
 
 function importFont(path){
-    var imageLink = "http://206.189.66.217/"+path;
+    var imageLink = rootUrl+path;
     console.log(imageLink);
     var image = loadFont(imageLink);
     return image;
