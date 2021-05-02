@@ -1,6 +1,7 @@
 # Flip Me Off
-The code for out Ludum Dare 44 project.
-By:
+The code for our Ludum Dare 44 project.
+
+_A 2D platformer involving jumping between alternate dimensions._
 1. **Arthur Facredyn** - Development, Level Design, Art
 2. **Radin Ahmadizadeh** - Development, Level Design
 3. **Jack Liu** - Development, Level Design
